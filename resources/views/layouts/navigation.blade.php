@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="block h-9 w-auto text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -16,6 +16,18 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @hasrole('admin')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('schools.index')" :active="request()->routeIs('schools.index')">
+                        {{ __('Schools') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')">
+                        {{ __('Events') }}
+                    </x-nav-link>
+                </div>
+                @endhasrole
             </div>
 
             <!-- Settings Dropdown -->
@@ -71,6 +83,18 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        @hasrole('admin')
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('schools.index')" :active="request()->routeIs('schools.index')">
+                {{ __('Schools') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')">
+                {{ __('Events') }}
+            </x-responsive-nav-link>
+        </div>
+        @endhasrole
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">

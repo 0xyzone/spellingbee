@@ -13,6 +13,8 @@ class Event extends Model
         "name",
         "start_date",
         "end_date",
+        "description",
         "logo",
+        "banner"
     ];
 }

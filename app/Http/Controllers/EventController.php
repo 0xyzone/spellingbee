@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EventsStoreRequest;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\EventsStoreRequest;
 
 class EventController extends Controller
 {
@@ -31,6 +32,12 @@ class EventController extends Controller
     public function store(EventsStoreRequest $request)
     {
         $formFields = $request->validated();
+        if($request->hasFile('logo')){
+            $formFields['logo'] = $request->file('logo')->store('logos','public');
+        };
+        if($request->hasFile('banner')){
+            $formFields['banner'] = $request->file('banner')->store('banners','public');
+        }
 
         Event::create($formFields);
         return redirect()->route("events.index")->with("success","Event created successfully.");
@@ -42,7 +49,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return view("events.show", compact("event"));
     }
 
     /**
@@ -58,9 +65,24 @@ class EventController extends Controller
      */
     public function update(EventsStoreRequest $request, Event $event)
     {
+        // dd($request);
         $formFields = $request->validated();
+        if($request->hasFile('logo')){
+            $path = $request->file('logo')->store('logos','public');
+            if($oldLogo = $event->logo){
+                Storage::disk('public')->delete($oldLogo);
+            };
+            $formFields['logo'] = $path;
+        };
+        if($request->hasFile('banner')){
+            $path2 = $request->file('banner')->store('banners','public');
+            if($oldBanner = $event->banner){
+                Storage::disk('public')->delete($oldBanner);
+            };
+            $formFields['banner'] = $path2;
+        }
         $event->update($formFields);
-        return redirect()->to($request->last_url)->with("success","Event updated successfully.");
+        return back()->with(["status" => "event-updated"]);
 
     }
 

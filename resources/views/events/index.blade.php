@@ -27,26 +27,37 @@
                         <p>No Events recorded!</p>
                     @else
                         <div class="">
-                            <div class="grid grid-cols-2 lg:grid-cols-3 -mx-4 text-gray-900">
+                            <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-4 text-gray-900">
                                 @foreach ($events as $var)
                                     <div class="w-full p-4">
                                         <div
                                             class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                                             <div class="relative pb-48 overflow-hidden">
-                                                <img class="absolute inset-0 h-full w-full object-cover"
-                                                    src="{{ asset('img/home-office.jpg') }}" alt="">
+                                                <img class="absolute inset-0 h-full w-full object-cover z-10"
+                                                    src="{{ $var->banner ? asset('storage/' . $var->banner) : asset('img/home-office.jpg') }}"
+                                                    alt="">
                                             </div>
 
                                             <div class="p-4">
+                                                <div>
+                                                    <img src="{{ $var->logo ? asset('storage/' . $var->logo) : '' }}"
+                                                        alt="logo"
+                                                        class="w-24 aspect-square rounded-full object-cover -mt-[4.5rem] z-20 absolute border-4 bg-white ">
+                                                </div>
 
-                                                <h2 class="mt-2 mb-2  font-bold">{{ $var->name }}</h2>
+                                                <h2 class="mt-8 mb-2  font-bold">{{ $var->name }}</h2>
                                                 <div class="flex flex-col gap-1">
-                                                    <p class="flex items-center text-sm"><i class="fa-sharp fa-solid fa-flag-checkered fa-fw mr-2 text-gray-900"></i>
+                                                    <p class="flex items-center text-sm"><i
+                                                            class="fa-sharp fa-solid fa-flag-checkered fa-fw mr-2 text-gray-900"></i>
                                                         {{ $var->start_date }}
                                                     </p>
                                                     <p class="flex items-center text-sm"><i
                                                             class="fa-regular fa-power-off fa-fw mr-2 text-gray-900"></i>
                                                         {{ $var->end_date }}
+                                                    </p>
+                                                    <p class="flex items-center text-sm"><i
+                                                            class="fa-regular fa-note fa-fw mr-2 text-gray-900"></i>
+                                                        {{ $var->description ?? "No description" }}
                                                     </p>
                                                 </div>
                                             </div>
@@ -57,10 +68,9 @@
                                                 </span>
                                             </div>
                                             <div class="p-4 justify-center flex items-center text-sm text-gray-600">
-                                                <a href="">
+                                                <a href="{{ route('events.show', $var) }}">
                                                     <x-secondary-button class="ml-3">
-                                                        <i
-                                                            class="fa-regular fa-eye fa-fw mr-2"></i>{{ __('View') }}
+                                                        <i class="fa-regular fa-eye fa-fw mr-2"></i>{{ __('View') }}
                                                     </x-secondary-button>
                                                 </a>
 

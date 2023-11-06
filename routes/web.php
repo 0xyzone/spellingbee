@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,7 @@ Route::middleware('auth')->group(function () {
 Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('schools', SchoolController::class);
     Route::resource('events', EventController::class);
+    Route::resource('sponsors', SponsorController::class);
 });
 
 require __DIR__.'/auth.php';

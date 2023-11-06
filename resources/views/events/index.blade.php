@@ -29,21 +29,21 @@
                         <div class="">
                             <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-4 text-gray-900">
                                 @foreach ($events as $var)
-                                    <div class="w-full p-4">
+                                    <div class="w-full p-4 relative">
                                         <div
-                                            class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+                                            class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden h-full">
                                             <div class="relative pb-48 overflow-hidden">
                                                 <img class="absolute inset-0 h-full w-full object-cover z-10"
                                                     src="{{ $var->banner ? asset('storage/' . $var->banner) : asset('img/home-office.jpg') }}"
                                                     alt="">
                                             </div>
+                                            <div>
+                                                <img src="{{ $var->logo ? asset('storage/' . $var->logo) : '' }}"
+                                                    alt="logo"
+                                                    class="w-24 aspect-square rounded-full object-cover -mt-[3rem] z-20 absolute border-4 bg-white left-8">
+                                            </div>
 
                                             <div class="p-4">
-                                                <div>
-                                                    <img src="{{ $var->logo ? asset('storage/' . $var->logo) : '' }}"
-                                                        alt="logo"
-                                                        class="w-24 aspect-square rounded-full object-cover -mt-[4.5rem] z-20 absolute border-4 bg-white ">
-                                                </div>
 
                                                 <h2 class="mt-8 mb-2  font-bold">{{ $var->name }}</h2>
                                                 <div class="flex flex-col gap-1">
@@ -57,7 +57,7 @@
                                                     </p>
                                                     <p class="flex items-center text-sm"><i
                                                             class="fa-regular fa-note fa-fw mr-2 text-gray-900"></i>
-                                                        {{ $var->description ?? "No description" }}
+                                                        {{ $var->description ?? 'No description' }}
                                                     </p>
                                                 </div>
                                             </div>

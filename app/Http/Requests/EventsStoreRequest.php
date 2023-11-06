@@ -30,4 +30,11 @@ class EventsStoreRequest extends FormRequest
             'banner'=> 'required|mimes:jpeg,png,jpg|size:2048|dimensions:ratio=16/9'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'logo.size'=> 'Logo size milena! mila xito!'
+        ];
+    }
 }

@@ -12,7 +12,8 @@ class SponsorController extends Controller
      */
     public function index()
     {
-        //
+        $sponsors = Sponsor::paginate(4);
+        return view("sponsors.index", compact("sponsors"));
     }
 
     /**

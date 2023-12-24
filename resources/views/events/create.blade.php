@@ -11,7 +11,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 font-bold text-2xl">
                     <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
                         @csrf
-
+                        @if ($errors)
+                            {{ $errors }}
+                        @endif
                         <!-- Name -->
                         <div>
                             <x-input-label for="name" :value="__('Event Name')" />
@@ -49,7 +51,8 @@
                             <x-input-label for="logo" :value="__('Logo (should be in 1:1 ratio)')" />
                             <div class="flex gap-4 my-4 mb-8 w-full">
                                 <input type="file" name="logo" id="logo"
-                                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-yellow-500 dark:focus:border-yellow-600 focus:ring-yellow-500 dark:focus:ring-yellow-600 rounded-md shadow-sm text-sm" hidden >
+                                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-yellow-500 dark:focus:border-yellow-600 focus:ring-yellow-500 dark:focus:ring-yellow-600 rounded-md shadow-sm text-sm"
+                                    hidden>
                                 <img id="preview" src="{{ asset('img/upload.png') }}" alt="your image"
                                     class="h-32 aspect-square object-cover rounded-lg"
                                     onclick="$('#logo').trigger('click')" />
@@ -65,6 +68,7 @@
                                         }
                                     </script>
                                 @endpush
+                                <x-input-error :messages="$errors->get('logo')" class="mt-2" />
                             </div>
                         </div>
 
@@ -73,7 +77,8 @@
                             <x-input-label for="banner" :value="__('Banner (should be in 16:9 ratio)')" />
                             <div class="flex gap-4 my-4 mb-8 w-full">
                                 <input type="file" name="banner" id="banner"
-                                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-yellow-500 dark:focus:border-yellow-600 focus:ring-yellow-500 dark:focus:ring-yellow-600 rounded-md shadow-sm text-sm" hidden >
+                                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-yellow-500 dark:focus:border-yellow-600 focus:ring-yellow-500 dark:focus:ring-yellow-600 rounded-md shadow-sm text-sm"
+                                    hidden>
                                 <img id="preview2" src="{{ asset('img/banner.png') }}" alt="your image"
                                     class="h-32 aspect-video object-cover rounded-lg"
                                     onclick="$('#banner').trigger('click')" />
@@ -89,6 +94,7 @@
                                         }
                                     </script>
                                 @endpush
+                                <x-input-error :messages="$errors->get('banner')" class="mt-2" />
                             </div>
                         </div>
 

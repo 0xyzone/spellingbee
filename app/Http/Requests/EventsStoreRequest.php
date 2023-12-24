@@ -26,8 +26,8 @@ class EventsStoreRequest extends FormRequest
             'start_date'=> 'required',
             'end_date'=> '',
             'description'=> '',
-            'logo'=> 'required',
-            'banner'=> 'required'
+            'logo'=> 'image',
+            'banner'=> 'image'
         ];
     }
 

@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex gap-2 items-center">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight flex gap-2 items-end">
             {{ __('Edit Event') }}
             @if (session('status') === 'event-updated')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"

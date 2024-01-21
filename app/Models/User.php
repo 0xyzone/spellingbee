@@ -48,4 +48,24 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getPercentageCompleteAttribute(): float
+    {
+        $attributes = [
+            'name',
+            'email',
+            'password',
+            'dateOfBirth',
+            'contact_number',
+            'address',
+            'school'
+        ];
+
+        $complete = collect($attributes)
+            ->map(fn ($attribute) => $this->getAttribute($attribute))
+            ->filter()
+            ->count();
+
+        return ($complete / count($attributes)) * 100;
+    }
 }

@@ -9,12 +9,16 @@ use App\Http\Requests\EventsStoreRequest;
 
 class EventController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware(['role:admin']);
+    // }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $events = Event::orderBy("created_at","desc")->paginate(6);
+        $events = Event::orderBy("created_at", "desc")->paginate(6);
         return view("events.index", compact("events"));
     }
 
@@ -32,16 +36,15 @@ class EventController extends Controller
     public function store(EventsStoreRequest $request)
     {
         $formFields = $request->validated();
-        if($request->hasFile('logo')){
-            $formFields['logo'] = $request->file('logo')->store('logos','public');
+        if ($request->hasFile('logo')) {
+            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
         };
-        if($request->hasFile('banner')){
-            $formFields['banner'] = $request->file('banner')->store('banners','public');
+        if ($request->hasFile('banner')) {
+            $formFields['banner'] = $request->file('banner')->store('banners', 'public');
         }
 
         Event::create($formFields);
-        return redirect()->route("events.index")->with("success","Event created successfully.");
-
+        return redirect()->route("events.index")->with("success", "Event created successfully.");
     }
 
     /**
@@ -67,23 +70,22 @@ class EventController extends Controller
     {
         // dd($request);
         $formFields = $request->validated();
-        if($request->hasFile('logo')){
-            $path = $request->file('logo')->store('logos','public');
-            if($oldLogo = $event->logo){
+        if ($request->hasFile('logo')) {
+            $path = $request->file('logo')->store('logos', 'public');
+            if ($oldLogo = $event->logo) {
                 Storage::disk('public')->delete($oldLogo);
             };
             $formFields['logo'] = $path;
         };
-        if($request->hasFile('banner')){
-            $path2 = $request->file('banner')->store('banners','public');
-            if($oldBanner = $event->banner){
+        if ($request->hasFile('banner')) {
+            $path2 = $request->file('banner')->store('banners', 'public');
+            if ($oldBanner = $event->banner) {
                 Storage::disk('public')->delete($oldBanner);
             };
             $formFields['banner'] = $path2;
         }
         $event->update($formFields);
         return back()->with(["status" => "event-updated"]);
-
     }
 
     /**

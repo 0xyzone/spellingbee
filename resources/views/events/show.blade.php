@@ -46,6 +46,11 @@
                         <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
                             Register
                         </button>
+                        @else
+                        <p class="pb-4">Login to your account to register!</p>
+                        <a href="{{ route('login') }}" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+                            Login
+                        </a>
                     @endauth
                 </div>
 

@@ -1,5 +1,12 @@
 <section>
     <header>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+        </style>
+        <div class="range my-6 before:rounded-lg relative bg-gray-700 w-full h-[30px] rounded-lg"
+            style="--p:{{ $user->getPercentageCompleteAttribute() }}">
+            {{-- <div class="range__label">Progress</div> --}}
+        </div>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>
@@ -87,8 +94,8 @@
 
         <div>
             <x-input-label for="school" :value="__('School Name')" />
-            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full"
-                :value="old('school', $user->school)" />
+            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('school', $user->school)"
+                required />
             <x-input-error class="mt-2" :messages="$errors->get('school')" />
         </div>
 

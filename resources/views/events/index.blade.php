@@ -48,6 +48,10 @@
                                                 <h2 class="mt-8 mb-2  font-bold">{{ $var->name }}</h2>
                                                 <div class="flex flex-col gap-1">
                                                     <p class="flex items-center text-sm"><i
+                                                            class="fa-regular fa-location-pin fa-fw mr-2 text-gray-900"></i>
+                                                        {{ $var->address }}
+                                                    </p>
+                                                    <p class="flex items-center text-sm"><i
                                                             class="fa-sharp fa-solid fa-flag-checkered fa-fw mr-2 text-gray-900"></i>
                                                         {{ $var->start_date }}
                                                     </p>

@@ -25,6 +25,14 @@
                                 :value="old('name', $event->name)" required autofocus autocomplete="name" />
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
+                        
+                        <!-- Address -->
+                        <div>
+                            <x-input-label for="address" :value="__('Event Address')" />
+                            <x-text-input id="address" class="block mt-1 w-full" type="text" name="address"
+                                :value="old('address', $event->address)" required autocomplete="address" />
+                            <x-input-error :messages="$errors->get('address')" class="mt-2" />
+                        </div>
 
                         <!-- Description -->
                         <div class="mt-4">
@@ -102,7 +110,7 @@
                                     </script>
                                 @endpush
                             </div>
-                            <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('banner')" class="mt-2" />
                         </div>
 
                         <div class="flex items-center mt-4 gap-4">

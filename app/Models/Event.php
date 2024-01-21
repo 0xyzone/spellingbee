@@ -11,10 +11,13 @@ class Event extends Model
 
     protected $fillable = [
         "name",
+        "address",
         "start_date",
         "end_date",
         "description",
         "logo",
         "banner"
     ];
+
+    protected $dates = ['start_date', 'end_date'];
 }

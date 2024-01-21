@@ -71,7 +71,7 @@
             @endif
         </div>
 
-        <div>
+        {{-- <div>
             <x-input-label for="school" :value="__('School')" />
             <select name="school" id="school"
                 class="block border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-yellow-500 dark:focus:border-yellow-600 focus:ring-yellow-500 dark:focus:ring-yellow-600 rounded-md shadow-sm mt-1 w-full">
@@ -81,10 +81,14 @@
                     selected
                 @endif>{{ $var->name }}</option>
                 @endforeach
-                {{-- @foreach ($schools as $var)
-                    <option value="{{ $var->name }}">{{ $var->name }}</option>
-                @endforeach --}}
             </select>
+            <x-input-error class="mt-2" :messages="$errors->get('school')" />
+        </div> --}}
+
+        <div>
+            <x-input-label for="school" :value="__('School Name')" />
+            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full"
+                :value="old('school', $user->school)" />
             <x-input-error class="mt-2" :messages="$errors->get('school')" />
         </div>
 

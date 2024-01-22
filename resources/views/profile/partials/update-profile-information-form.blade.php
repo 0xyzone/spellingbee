@@ -2,6 +2,46 @@
     <header>
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+            .range {
+                font-family: 'Orbitron', monospace;
+
+                &:before {
+                    --width: calc(var(--p) * 1%);
+
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 100%;
+                    background-color: #c79f00;
+                    z-index: 0;
+                    animation: load .5s forwards linear, glitch 2s infinite linear;
+                }
+
+                &:after {
+                    counter-reset: progress var(--p);
+                    content: counter(progress) '%';
+                    color: #fff;
+                    position: absolute;
+                    left: 5%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                }
+
+                &__label {
+                    transform: skew(-30deg) translateY(-100%) translateX(50px);
+                    line-height: 3;
+                }
+            }
+
+            @keyframes load {
+                to {
+                    width: var(--width);
+                }
+            }
         </style>
         <div class="range my-6 before:rounded-lg relative bg-gray-700 w-full h-[30px] rounded-lg"
             style="--p:{{ $user->getPercentageCompleteAttribute() }}">

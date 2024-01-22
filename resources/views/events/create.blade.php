@@ -11,9 +11,10 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100 font-bold text-2xl">
                     <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
                         @csrf
-                        @if ($errors)
+                        {{-- @if ($errors)
                             {{ $errors }}
-                        @endif
+                        @endif --}}
+                        
                         <!-- Name -->
                         <div>
                             <x-input-label for="name" :value="__('Event Name')" />

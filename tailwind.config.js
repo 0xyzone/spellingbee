@@ -20,6 +20,8 @@ export default {
 
     plugins: [
         forms,
-        require('tailwind-scrollbar')({ nocompatible: true })
+        require('tailwind-scrollbar')({ nocompatible: true }),
+        require('tailwindcss/nesting'),
+        
     ],
 };

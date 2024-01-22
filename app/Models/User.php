@@ -52,9 +52,6 @@ class User extends Authenticatable implements MustVerifyEmail
     public function getPercentageCompleteAttribute(): float
     {
         $attributes = [
-            'name',
-            'email',
-            'password',
             'dateOfBirth',
             'contact_number',
             'address',

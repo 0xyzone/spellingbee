@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +38,7 @@ Route::resource('/events', EventController::class)->only('show');
 Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('schools', SchoolController::class);
     Route::resource('sponsors', SponsorController::class);
+    Route::resource('registrations', RegistrationController::class);
 });
 
 

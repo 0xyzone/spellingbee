@@ -54,16 +54,21 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        $registered = Registration::where('user_id', Auth::user()->id)->get();
-        if ($registered->count() > 0) {
-            if ($registered->status == 1) {
-                $status = 'Completed';
-            } else {
-                $status = 'Pending';
-            }
+        if (Auth::guest()) {
+            $registered = null;
+            $status = null;
         } else {
-            $status = 'null';
-        };
+            $registered = Registration::where('user_id', Auth::user()->id)->first();
+            if ($registered->count() > 0) {
+                if ($registered->status == 1) {
+                    $status = 'Completed';
+                } else {
+                    $status = 'Pending';
+                }
+            } else {
+                $status = 'null';
+            };
+        }
         return view("events.show", compact("event", "registered", "status"));
     }
 

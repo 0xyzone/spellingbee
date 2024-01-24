@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Registration;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\EventsStoreRequest;
 
@@ -52,7 +54,17 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view("events.show", compact("event"));
+        $registered = Registration::where('user_id', Auth::user()->id)->get();
+        if ($registered->count() > 0) {
+            if ($registered->status == 1) {
+                $status = 'Completed';
+            } else {
+                $status = 'Pending';
+            }
+        } else {
+            $status = 'null';
+        };
+        return view("events.show", compact("event", "registered", "status"));
     }
 
     /**

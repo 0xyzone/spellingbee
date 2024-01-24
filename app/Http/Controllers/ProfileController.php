@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\School;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Models\PastSchoolRecord;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\PastSchoolRecord;
 
 class ProfileController extends Controller
 {
@@ -18,6 +19,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('profile.edit', [
             'user' => $request->user(),
             'schools' => School::all(),
@@ -47,7 +49,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return redirect()->intended(RouteServiceProvider::PROFILE)->with('status', 'profile-updated');
     }
 
     /**

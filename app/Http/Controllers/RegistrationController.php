@@ -17,19 +17,21 @@ class RegistrationController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'user_id'=> 'required',
+            'event_id'=> 'required',
+            'status'=> 'required',
+        ]);
+
+        
+
+        $registration = Registration::create($formFields);
+
+        return redirect()->back()->with('success','Registered successfully! Please wait for the approval from one fo the admins.');
     }
 
     /**

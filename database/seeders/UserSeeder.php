@@ -20,6 +20,6 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('malaiktha1290')
         ]);
-        $admin->assignRole('admin');
+        $admin->assignRole('Super Admin');
     }
 }

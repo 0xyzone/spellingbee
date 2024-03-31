@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
@@ -23,5 +24,11 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(125);
         Model::unguard();
+
+        // Register the ENUM type mapping
+        DB::connection()
+            ->getDoctrineSchemaManager()
+            ->getDatabasePlatform()
+            ->registerDoctrineTypeMapping('enum', 'string');
     }
 }

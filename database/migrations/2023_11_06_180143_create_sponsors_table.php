@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('contact_person_name');
-            $table->string('contact_person_email');
+            $table->string('contact_person_email')->nullable();
             $table->string('contact_person_phone');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->longText('description');
             $table->string('sponsor_logo_path');
             $table->string('sponsor_banner_path')->nullable();

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->integer('event_id');
-            $table->integer('status');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('event_id')->constrained()->cascadeOnDelete();
+            $table->enum('status', ['pending', 'needs_revision', 'under_revision', 'approved', 'declined']);
             $table->timestamps();
         });
     }

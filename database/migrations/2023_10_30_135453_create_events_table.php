@@ -14,9 +14,15 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->longText('description')->nullable();
             $table->date('start_date');
             $table->date('end_date')->nullable();
-            $table->string('logo')->nullable();
+            $table->date('registration_start_date');
+            $table->date('registration_end_date');
+            $table->enum('event_type', ['online', 'offline']);
+            $table->text('venue');
+            $table->string('event_logo_path')->nullable();
+            $table->string('event_banner_path')->nullable();
             $table->timestamps();
         });
     }

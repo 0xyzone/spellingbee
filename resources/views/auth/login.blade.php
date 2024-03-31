@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('login') }}" onsubmit="$(':input[type=submit]').prop('disabled', true);">
         @csrf
 
         <!-- Email Address -->
@@ -60,7 +60,7 @@
                 </a>
             @endif
 
-            <x-primary-button class="ml-3">
+            <x-primary-button class="ml-3 disabled:bg-gray-800 disabled:dark:bg-gray-700">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>

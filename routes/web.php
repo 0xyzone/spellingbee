@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\SchoolController;
-use App\Http\Controllers\SponsorController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SponsorController;
+use App\Http\Controllers\RegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'user'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,6 +41,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('sponsors', SponsorController::class);
     Route::resource('registrations', RegistrationController::class);
 });
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 require __DIR__.'/auth.php';

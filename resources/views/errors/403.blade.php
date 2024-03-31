@@ -88,7 +88,7 @@
         </g>
     </svg>
     <h1>You are not allowed to enter here</h1>
-    <h2>Go <a href="{{ route('dashboard') }}">to dashboard!</a></h2>
+    <h2>Go <a href="{{ route('home') }}">to home!</a></h2>
     <script>
         var root = document.documentElement;
         var eyef = document.getElementById('eyef');

@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Althinect\FilamentSpatieRolesPermissions\Concerns\HasSuperAdmin;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail, FilamentUser
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles, HasSuperAdmin;
 
@@ -24,7 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'username',
         'password',
-        'dateOfBirth',
+        'date_of_birth',
         'contact_number',
         'address',
         'school'
@@ -65,5 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
             ->count();
 
         return ($complete / count($attributes)) * 100;
+    }
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return Auth()->user()->isSuperAdmin() || Auth()->user()->hasRole('Admin');
     }
 }

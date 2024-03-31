@@ -24,8 +24,8 @@
                         <p class="my-2 text-gray-300">Sorry about that! Please visit our hompage to get where you need
                             to go.</p>
                         <button
-                            class="sm:w-full lg:w-auto my-2 border rounded-md py-4 px-8 text-center bg-violet-200 text-violet-800 hover:bg-violet-300 smooth focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
-                            onclick="location.href='{{ route('dashboard') }}'">Take me there!</button>
+                            class="sm:w-full lg:w-auto my-2 border border-amber-700 rounded-md py-4 px-8 text-center bg-amber-200 text-amber-800 hover:bg-amber-500 smooth focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-opacity-50"
+                            onclick="location.href='{{ route('home') }}'">Take me there!</button>
                     </div>
                 </div>
                 <div>

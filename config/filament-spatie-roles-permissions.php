@@ -45,7 +45,7 @@ return [
      */
     'icons' => [
         'role_navigation' => 'heroicon-o-lock-closed',
-        'permission_navigation' => 'heroicon-o-lock-closed',
+        'permission_navigation' => 'heroicon-o-key',
     ],
 
     /*

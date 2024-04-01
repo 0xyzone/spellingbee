@@ -19,7 +19,8 @@ class SponsorResource extends Resource
 {
     protected static ?string $model = Sponsor::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-sun';
+    protected static ?string $activeNavigationIcon = 'heroicon-c-sun';
 
     public static function form(Form $form): Form
     {
@@ -88,7 +89,10 @@ class SponsorResource extends Resource
                 ->iconColor('primary')
                 ->iconPosition(IconPosition::After),
                 Tables\Columns\ImageColumn::make('sponsor_logo_path')
-                ->size(80),
+                ->width(150)
+                ->extraImgAttributes([
+                    'class' => '!object-scale-down'
+                ]),
                 Tables\Columns\ImageColumn::make('sponsor_banner_path')
                 ->toggleable(isToggledHiddenByDefault: true)
                 ->size(80),

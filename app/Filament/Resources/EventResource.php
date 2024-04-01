@@ -24,7 +24,8 @@ class EventResource extends Resource
 {
     protected static ?string $model = Event::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-trophy';
+    protected static ?string $activeNavigationIcon = 'heroicon-c-trophy';
 
     public static function form(Form $form): Form
     {
@@ -111,7 +112,6 @@ class EventResource extends Resource
                     Repeater::make('sponsors')
                         ->addActionLabel('+ Add more')
                         ->collapsible()
-                        ->cloneable()
                         ->relationship()
                         ->simple(
                             Select::make('sponsor_id')
@@ -132,21 +132,30 @@ class EventResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('start_date')
+                    ->label('Starts From')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('end_date')
+                    ->label('Ends On')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('registration_start_date')
+                    ->label('Reg Starts')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('registration_end_date')
+                    ->label('Reg Ends')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('event_type')
                     ->badge(),
-                Tables\Columns\ImageColumn::make('event_logo_path'),
-                Tables\Columns\ImageColumn::make('event_banner_path'),
+                Tables\Columns\ImageColumn::make('event_logo_path')
+                    ->label('Logo')
+                    ->extraImgAttributes([
+                        'class' => '!object-fit'
+                    ]),
+                Tables\Columns\ImageColumn::make('event_banner_path')
+                    ->label('Banner'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

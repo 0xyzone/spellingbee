@@ -18,12 +18,12 @@
                                         <div
                                             class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden h-full">
                                             <div class="relative pb-48 overflow-hidden">
-                                                <img class="absolute inset-0 h-full w-full object-cover z-10"
-                                                    src="{{ $var->event_banner_path ? storage_path($var->event_banner_path) : asset('img/home-office.jpg') }}"
+                                                <img class="absolute inset-0 h-full w-full object-scale-down z-10"
+                                                    src="{{ $var->event_banner_path ? storage_path($var->event_banner_path) : asset('img/defaultImage.png') }}"
                                                     alt="">
                                             </div>
                                             <div>
-                                                <img src="{{ $var->event_logo_path ? storage_path($var->event_logo_path) : asset('img/upload.png') }}"
+                                                <img src="{{ $var->event_logo_path ? storage_path($var->event_logo_path) : asset('img/defaultImage.png') }}"
                                                     alt="logo"
                                                     class="w-24 aspect-square rounded-full object-cover -mt-[3rem] z-20 absolute border-4 bg-white left-8">
                                             </div>
@@ -57,11 +57,11 @@
                                             <div class="p-4 border-t border-b text-xs text-gray-700">
                                                 <span class="flex items-center mb-1">
                                                     <i class="far fa-clock fa-fw mr-2 text-gray-900"></i>
-                                                    {{ $var->created_at->diffForHumans() }}
+                                                    {{ 'Created '.$var->created_at->diffForHumans() }}
                                                 </span>
                                             </div>
                                             <div class="p-4 justify-center flex items-center text-sm text-gray-600">
-                                                <a href="{{ route('events.show', $var) }}">
+                                                {{-- <a href="{{ route('events.show', $var) }}">
                                                     <x-secondary-button class="ml-3">
                                                         <i class="fa-regular fa-eye fa-fw mr-2"></i>{{ __('View') }}
                                                     </x-secondary-button>
@@ -72,8 +72,8 @@
                                                         <i
                                                             class="fa-regular fa-pencil fa-fw mr-2 text-gray-900"></i>{{ __('Edit') }}
                                                     </x-primary-button>
-                                                </a>
-
+                                                </a> --}} 
+                                                {{ $var->registration_start_date }}
                                             </div>
                                         </div>
                                     </div>

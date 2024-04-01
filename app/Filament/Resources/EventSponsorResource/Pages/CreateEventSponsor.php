@@ -9,4 +9,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateEventSponsor extends CreateRecord
 {
     protected static string $resource = EventSponsorResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

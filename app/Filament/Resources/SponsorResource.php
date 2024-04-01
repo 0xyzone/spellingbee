@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SponsorResource\Pages;
-use App\Filament\Resources\SponsorResource\RelationManagers;
-use App\Models\Sponsor;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Sponsor;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Filament\Support\Enums\IconPosition;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\SponsorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\SponsorResource\RelationManagers;
 
 class SponsorResource extends Resource
 {
@@ -36,8 +37,8 @@ class SponsorResource extends Resource
                             ->columnSpanFull(),
                         Forms\Components\TextInput::make('url')
                             ->label('Website')
+                            ->prefix('https://')
                             ->prefixIcon('heroicon-o-globe-asia-australia')
-                            ->url()
                             ->maxLength(125),
                         Forms\Components\FileUpload::make('sponsor_logo_path')
                             ->label('Logo')
@@ -80,11 +81,17 @@ class SponsorResource extends Resource
                 Tables\Columns\TextColumn::make('contact_person_phone')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sponsor_logo_path')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('sponsor_banner_path')
-                    ->searchable(),
+                ->label('Website')
+                ->default('-')
+                ->url(fn ($state) => $state == '-' ? null : 'https://' . $state)
+                ->icon(fn ($state)  => $state == '-' ? '' : 'heroicon-c-arrow-top-right-on-square')
+                ->iconColor('primary')
+                ->iconPosition(IconPosition::After),
+                Tables\Columns\ImageColumn::make('sponsor_logo_path')
+                ->size(80),
+                Tables\Columns\ImageColumn::make('sponsor_banner_path')
+                ->toggleable(isToggledHiddenByDefault: true)
+                ->size(80),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

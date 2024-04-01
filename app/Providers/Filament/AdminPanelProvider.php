@@ -25,6 +25,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            // ->unsavedChangesAlerts()
             ->id('admin')
             ->path('admin')
             ->font('Poppins')

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('registration_start_date');
             $table->date('registration_end_date');
             $table->enum('event_type', ['online', 'offline', 'both']);
-            $table->text('venue');
+            $table->text('venue')->nullable();
             $table->string('event_logo_path')->nullable();
             $table->string('event_banner_path')->nullable();
             $table->timestamps();

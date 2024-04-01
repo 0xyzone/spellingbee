@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-6">
+    {{-- <div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100 font-bold text-2xl flex justify-between">
@@ -18,8 +18,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div>
+    </div> --}}
+    <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -34,11 +34,11 @@
                                             class="c-card block bg-white shadow-md hover:shadow-xl rounded-lg overflow-hidden h-full">
                                             <div class="relative pb-48 overflow-hidden">
                                                 <img class="absolute inset-0 h-full w-full object-cover z-10"
-                                                    src="{{ $var->banner ? asset('storage/' . $var->banner) : asset('img/home-office.jpg') }}"
+                                                    src="{{ $var->event_banner_path ? storage_path($var->event_banner_path) : asset('img/home-office.jpg') }}"
                                                     alt="">
                                             </div>
                                             <div>
-                                                <img src="{{ $var->logo ? asset('storage/' . $var->logo) : '' }}"
+                                                <img src="{{ $var->event_logo_path ? storage_path($var->event_logo_path) : asset('img/upload.png') }}"
                                                     alt="logo"
                                                     class="w-24 aspect-square rounded-full object-cover -mt-[3rem] z-20 absolute border-4 bg-white left-8">
                                             </div>
@@ -49,7 +49,7 @@
                                                 <div class="flex flex-col gap-1">
                                                     <p class="flex items-center text-sm"><i
                                                             class="fa-solid fa-location-dot fa-fw mr-2 text-amber-600"></i>
-                                                        {{ $var->address }}
+                                                        {{ $var->venue }}
                                                     </p>
                                                     <div class="flex flex-col lg:flex-row gap-1 lg:gap-4">
                                                         <p class="flex items-center text-sm"><i

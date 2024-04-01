@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class EventSponsorResource extends Resource
 {
     protected static ?string $model = EventSponsor::class;
+    protected static bool $shouldRegisterNavigation = false;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -55,12 +56,12 @@ class EventSponsorResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                // Tables\Actions\BulkActionGroup::make([
+                //     Tables\Actions\DeleteBulkAction::make(),
+                // ]),
             ]);
     }
 
@@ -75,8 +76,12 @@ class EventSponsorResource extends Resource
     {
         return [
             'index' => Pages\ListEventSponsors::route('/'),
-            'create' => Pages\CreateEventSponsor::route('/create'),
-            'edit' => Pages\EditEventSponsor::route('/{record}/edit'),
+            // 'create' => Pages\CreateEventSponsor::route('/create'),
+            // 'edit' => Pages\EditEventSponsor::route('/{record}/edit'),
         ];
+    }
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }

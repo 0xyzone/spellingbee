@@ -41,6 +41,7 @@ class UserResource extends Resource
                 ->required()
                     ->tel(),
                 Forms\Components\Textarea::make('address')
+                ->autosize()
                     ->columnSpanFull(),
             ]);
     }
@@ -101,5 +102,9 @@ class UserResource extends Resource
             // 'create' => Pages\CreateUser::route('/create'),
             // 'edit' => Pages\EditUser::route('/{record}/edit'),
         ];
+    }
+    public static function canCreate(): bool
+    {
+        return false;
     }
 }

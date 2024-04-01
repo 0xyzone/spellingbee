@@ -2,21 +2,23 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\EventResource\Pages;
-use App\Filament\Resources\EventResource\RelationManagers;
+use Carbon\Carbon;
+use Filament\Forms;
+use Filament\Tables;
 use App\Models\Event;
 use App\Models\Sponsor;
-use Filament\Forms;
-use Filament\Forms\Components\Group;
-use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Components\Select;
+use Filament\Forms\Get;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Group;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Repeater;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\EventResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\EventResource\RelationManagers;
 
 class EventResource extends Resource
 {
@@ -40,13 +42,16 @@ class EventResource extends Resource
                                     'offline' => 'Offline',
                                     'both' => 'Online + Offline'
                                 ])
-                                ->required(),
+                                ->searchable()
+                                ->required()
+                                ->reactive(),
                             Forms\Components\Textarea::make('description')
                                 ->autosize()
                                 ->columnSpanFull(),
                             Forms\Components\TextInput::make('venue')
-                            ->prefixIcon('heroicon-m-map-pin')
-                                ->required(),
+                                ->prefixIcon('heroicon-m-map-pin')
+                                ->required()
+                                ->hidden(fn(Get $get): bool => !$get('event_type') ? true : ($get('event_type') == 'online' ? true : false)),
                             Group::make([
                                 Forms\Components\FileUpload::make('event_logo_path')
                                     ->label('Logo')
@@ -59,26 +64,63 @@ class EventResource extends Resource
                             ])->columns(2)
                         ])->columnSpan(2),
                     Group::make([
+                        Section::make('Registration')->schema([
+                            Forms\Components\DateTimePicker::make('registration_start_date')
+                                ->native(false)
+                                ->label('Start Date')
+                                ->minDate(today())
+                                ->seconds(false)
+                                ->minutesStep(15)
+                                ->weekStartsOnSunday()
+                                ->reactive()
+                                ->required(),
+                            Forms\Components\DateTimePicker::make('registration_end_date')
+                                ->native(false)
+                                ->label('End Date')
+                                ->minDate(function (Get $get) {
+                                    return Carbon::createFromDate($get('registration_start_date'))->addDays(1);
+                                })
+                                ->reactive()
+                                ->seconds(false)
+                                ->minutesStep(15)
+                                ->weekStartsOnSunday()
+                                ->required()
+                                ->hidden(fn(Get $get): bool => !$get('registration_start_date') ? true : false),
+                        ]),
                         Section::make('Event Dates')->schema([
                             Forms\Components\DatePicker::make('start_date')
-                                ->required(),
-                            Forms\Components\DatePicker::make('end_date'),
-                        ]),
-                        Section::make('Registration')->schema([
-                            Forms\Components\DatePicker::make('registration_start_date')
-                                ->label('Start Date')
-                                ->required(),
-                            Forms\Components\DatePicker::make('registration_end_date')
-                                ->label('End Date')
-                                ->required(),
-                        ]),
+                                ->native(false)
+                                ->minDate(function (Get $get) {
+                                    return Carbon::createFromDate($get('registration_end_date'))->addDays(1);
+                                })
+                                ->weekStartsOnSunday()
+                                ->closeOnDateSelection()
+                                ->required()
+                                ->reactive(),
+                            Forms\Components\DatePicker::make('end_date')
+                                ->native(false)
+                                ->weekStartsOnSunday()
+                                ->closeOnDateSelection()
+                                ->minDate(function (Get $get) {
+                                    return Carbon::createFromDate($get('start_date'))->addDays(1);
+                                })
+                                ->label('End date (optional)')
+                                ->hidden(fn(Get $get): bool => !$get('start_date') ? true : false),
+                        ])->hidden(fn(Get $get): bool => !$get('registration_end_date') ? true : false),
                     ])->columnSpan(1),
-                        Repeater::make('sponsors')
+                    Repeater::make('sponsors')
+                        ->addActionLabel('+ Add more')
+                        ->collapsible()
+                        ->cloneable()
                         ->relationship()
-                        ->schema([
+                        ->simple(
                             Select::make('sponsor_id')
-                            ->options(Sponsor::all()->pluck('name', 'id'))
-                        ])
+                                ->required()
+                                ->searchable()
+                                ->distinct()
+                                ->label('')
+                                ->options(Sponsor::all()->pluck('name', 'id'))
+                        )->columnSpan(2)
                 ])->columns(3),
             ]);
     }
@@ -102,11 +144,9 @@ class EventResource extends Resource
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('event_type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('event_logo_path')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('event_banner_path')
-                    ->searchable(),
+                    ->badge(),
+                Tables\Columns\ImageColumn::make('event_logo_path'),
+                Tables\Columns\ImageColumn::make('event_banner_path'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

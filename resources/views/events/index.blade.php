@@ -4,21 +4,6 @@
             {{ __('Events') }}
         </h2>
     </x-slot>
-
-    {{-- <div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100 font-bold text-2xl flex justify-between">
-                    <p>{{ __('List of Events') }}</p>
-                    <a href="{{ route('events.create') }}">
-                        <x-primary-button class="ml-3">
-                            {{ __('Add event') }}
-                        </x-primary-button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div> --}}
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">

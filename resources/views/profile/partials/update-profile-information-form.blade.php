@@ -86,10 +86,10 @@
         </div>
 
         <div>
-            <x-input-label for="dateOfBirth" :value="__('Date of Birth')" />
-            <x-text-input id="dateOfBirth" name="dateOfBirth" type="date" class="mt-1 block w-full"
-                :value="old('dateOfBirth', $user->dateOfBirth)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('dateOfBirth')" />
+            <x-input-label for="date_of_birth" :value="__('Date of Birth')" />
+            <x-text-input id="date_of_birth" name="date_of_birth" type="date" class="mt-1 block w-full"
+                :value="old('date_of_birth', $user->date_of_birth)" required />
+            <x-input-error class="mt-2" :messages="$errors->get('date_of_birth')" />
         </div>
 
         <div>

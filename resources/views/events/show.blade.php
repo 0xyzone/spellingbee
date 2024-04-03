@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <title>{{ $event->name }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/all.css'])
 </head>
 
-<body
-    class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full h-screen"
-    style="background-image:url('{{ url('/storage/' . $event->banner) }}');">
+<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full h-screen bg-white" style="background-image:url('{{ $event->event_banner_path == null ? '' : url('/storage/' . $event->event_banner_path) }}');">
     <div class="w-full h-full backdrop-brightness-50 bg-gray-900/60 fixed top-0">
         <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
 
             <!--Img Col-->
             <div class="w-full lg:w-3/6">
-                <img src="{{ url('/storage/' . $event->logo) }}"
-                    class="rounded-none lg:rounded-l-lg shadow-2xl hidden lg:block bg-white">
+                <img src="{{ $event->event_logo_path == null ? '/img/defaultImage.png' : url('/storage/' . $event->event_logo_path) }}" class="rounded-none lg:rounded-l-lg shadow-2xl hidden lg:block bg-white object-cover w-full aspect-square">
 
             </div>
 
@@ -29,59 +27,76 @@
 
                 <div class="p-4 md:p-12 text-center lg:text-left">
                     <!-- Image for mobile view-->
-                    <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
-                        style="background-image: url('{{ url('/storage/' . $event->logo) }}')"></div>
+                    <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-white" style="background-image: url('{{ $event->event_logo_path == null ? '/img/defaultImage.png' : url('/storage/' . $event->event_logo_path) }}')"></div>
 
-                    <h1 class="text-xl lg:text-3xl font-bold pt-8 lg:pt-0">{{ $event->name }} <span
-                            class="text-gray-600 text-sm">({{ date('Y', strtotime($event->start_date)) }})</span> </h1>
-                    <div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-yellow-500 opacity-25"></div>
-                    <p class="pt-4 lg:text-base text-sm font-bold flex items-center justify-center lg:justify-start"><i
-                            class="fa-regular fa-calendar text-yellow-500 pr-4 h-4"></i>
+                    <h1 class="text-xl lg:text-3xl font-bold pt-8 lg:pt-0 flex-wrap flex items-end gap-2">{{ $event->name }} <span class="text-gray-600 text-sm">({{ date('Y', strtotime($event->start_date)) }})</span><span class="text-amber-950 text-xs px-2 py-0.5 bg-amber-500 rounded-full capitalize">● {{ $event->event_type }} Event</span> </h1>
+                    <div class="mx-auto lg:mx-0 w-4/5 lg:w-full pt-3 border-b-2 border-yellow-500 opacity-25"></div>
+                    <p class="pt-4 lg:text-base text-sm font-bold flex items-center justify-center lg:justify-start"><i class="fa-regular fa-calendar text-yellow-500 pr-4 h-4"></i>
                         {{ date('jS M', strtotime($event->start_date)) . ' ~ ' . date('jS M', strtotime($event->end_date)) }}
                     </p>
-                    <p
-                        class="pt-2 text-gray-400 text-xs lg:text-sm flex items-center justify-center lg:justify-start pb-8">
-                        <i class="fa-regular fa-location-dot text-yellow-500 pr-4 h-4"></i> {{ $event->address }}
+                    @if ($event->venue)
+                    <p class="pt-2 text-gray-400 lg:text-base text-xs flex items-center justify-center lg:justify-start">
+                        <i class="fa-regular fa-location-dot text-yellow-500 pr-4 h-4"></i> {{ $event->venue }}
                     </p>
-                    <p
-                        class="text-sm line-clamp-5 hover:line-clamp-none hover:overflow-y-auto max-h-48 sacroll hover:smooth">
+                    @endif
+                    <div class="mx-auto lg:mx-0 w-4/5 lg:w-full pt-4 mb-3 border-b-2 border-yellow-500 opacity-25"></div>
+                    <p id='elem' class="text-sm line-clamp-5 hover:line-clamp-none hover:overflow-y-auto max-h-48 sacroll hover:smooth">
                         {{ $event->description }} </p>
-                    <p class="text-[0.65rem] text-yellow-500 animate-pulse py-2 w-full hidden lg:block"><i
-                            class="fa-solid fa-info-circle"></i> Hover over description to
-                        see full description</p>
-                    <p class="text-xs text-yellow-500 animate-pulse py-2 w-full lg:hidden"><i
-                            class="fa-solid fa-info-circle"></i> Tap on description to
-                        see full description</p>
+                    @if ($event->description)
+                    <p class="prompt1 text-[0.65rem] text-yellow-500 animate-pulse py-2 w-full hidden"><i class="fa-solid fa-info-circle"></i> Hover over description to
+                        see full description if this not complete</p>
+                    <p class="prompt2 text-xs text-yellow-500 animate-pulse py-2 w-full lg:hidden"><i class="fa-solid fa-info-circle"></i> Tap on description to
+                        see full description if this not complete</p>
+                    @endif
+                    <script>
+                        const isTextClamped = elm => elm.scrollHeight > elm.clientHeight
 
-                    <div class="pt-12 pb-8">
+                        new ResizeObserver(e => {
+                            console.clear()
+                            console.log(isTextClamped(e[0].target))
+                            if (isTextClamped(e[0].target) == true) {
+                                $(".prompt1").addClass('lg:block')
+                                $(".prompt2").removeClass('hidden')
+                            } else {
+                                $(".prompt1").removeClass('lg:block')
+                                $(".prompt2").addClass('hidden')
+                            }
+                        }).observe(elem);
+
+                    </script>
+
+                    <div class="pb-2">
                         @auth
-                            @unless (Auth::user()->getPercentageCompleteAttribute() == 100)
-                                Please complete your profile first! <a href="{{ route('profile.edit') }}"
-                                    class="text-yellow-500 hover:text-yellow-600"> >> Click Here << </a>
-                                    @else
-                                        @unless ($registered->count() == 1) 
-                                            <form action="{{ route('registrations.store') }}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                                                <input type="hidden" name="event_id" value="{{ $event->id }}">
-                                                <input type="hidden" name="status" value="0">
-                                                <button
-                                                    class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
-                                                    Register
-                                                </button>
-                                            </form>
-                                            @else
-                                            <p>You have already registered for the event!</p>
-                                            <p>Registration status: </p>
-                                        @endunless
-                                    @endunless
+                            @if ($event->registrationStatus() == 'on_going') 
+                                @unless (Auth::user()->isComplete() == true)
+                                    Please complete your profile first! <a href="{{ route('profile.edit') }}" class="text-yellow-500 hover:text-yellow-600"> >> Click Here << </a>
                                 @else
-                                    <p class="pb-4">Login to your account to register!</p>
-                                    <a href="{{ route('login') }}"
-                                        class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
-                                        Login
-                                    </a>
-                                @endauth
+                                    @unless (auth()->user()->registrationStatus($event->id) != "Not registered")
+                                        <form action="{{ route('event-registrations.store') }}" method="post" class="pt-8">
+                                            @csrf
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                            <input type="hidden" name="event_id" value="{{ $event->id }}">
+                                            <input type="hidden" name="status" value="pending">
+                                            <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+                                                Register
+                                            </button>
+                                        </form>
+                                    @else
+                                        <p class="pt-8">You have already registered for the event!</p>
+                                        <p class="py-2 flex items-center gap-2">Registration status: <span class="text-xs px-4 py-2 rounded-full {{ (auth()->user()->registrationStatus($event->id) == 'Approved') ? 'bg-lime-600' : ((auth()->user()->registrationStatus($event->id) == 'Declined') ? 'bg-red-600' : 'bg-gray-600') }}">{{ auth()->user()->registrationStatus($event->id) }}</span></p>
+                                    @endunless
+                                @endunless
+                                @elseif($event->registrationStatus() == 'ended')
+                                <p class="mt-8">Registration already ended!</p>
+                                @else
+                                <p class="mt-8">Registration has not started yet!</p>
+                            @endif
+                        @else
+                            <p class="pb-4">Login to your account to register!</p>
+                            <a href="{{ route('login') }}" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+                                Login
+                            </a>
+                        @endauth
                     </div>
 
                 </div>

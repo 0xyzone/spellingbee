@@ -21,7 +21,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::orderBy("created_at", "desc")->paginate(6);
-        
+
         return view("events.index", compact("events"));
     }
 
@@ -41,7 +41,8 @@ class EventController extends Controller
         $formFields = $request->validated();
         if ($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        };
+        }
+        ;
         if ($request->hasFile('banner')) {
             $formFields['banner'] = $request->file('banner')->store('banners', 'public');
         }
@@ -60,15 +61,22 @@ class EventController extends Controller
             $status = null;
         } else {
             $registered = Registration::where('user_id', Auth::user()->id)->first();
-            if ($registered->count() > 0) {
-                if ($registered->status == 1) {
-                    $status = 'Completed';
+            if ($registered) {
+                if ($registered->count() > 0) {
+                    if ($registered->status == 'approved') {
+                        $status = 'Completed';
+                    } elseif ($registered->status == 'declined') {
+                        $status = 'Declined';
+                    } else {
+                        $status = 'Pending';
+                    }
                 } else {
-                    $status = 'Pending';
+                    $status = null;
                 }
             } else {
-                $status = 'null';
-            };
+                $status = null;
+            }
+            ;
         }
         return view("events.show", compact("event", "registered", "status"));
     }
@@ -92,14 +100,17 @@ class EventController extends Controller
             $path = $request->file('logo')->store('logos', 'public');
             if ($oldLogo = $event->logo) {
                 Storage::disk('public')->delete($oldLogo);
-            };
+            }
+            ;
             $formFields['logo'] = $path;
-        };
+        }
+        ;
         if ($request->hasFile('banner')) {
             $path2 = $request->file('banner')->store('banners', 'public');
             if ($oldBanner = $event->banner) {
                 Storage::disk('public')->delete($oldBanner);
-            };
+            }
+            ;
             $formFields['banner'] = $path2;
         }
         $event->update($formFields);

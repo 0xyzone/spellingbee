@@ -69,7 +69,7 @@ class EventResource extends Resource
                             Forms\Components\DateTimePicker::make('registration_start_date')
                                 ->native(false)
                                 ->label('Start Date')
-                                ->minDate(today())
+                                // ->minDate(today())
                                 ->seconds(false)
                                 ->minutesStep(15)
                                 ->weekStartsOnSunday()
@@ -131,14 +131,6 @@ class EventResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('start_date')
-                    ->label('Starts From')
-                    ->date()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('end_date')
-                    ->label('Ends On')
-                    ->date()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('registration_start_date')
                     ->label('Reg Starts')
                     ->date()
@@ -147,14 +139,24 @@ class EventResource extends Resource
                     ->label('Reg Ends')
                     ->date()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('start_date')
+                    ->label('Starts From')
+                    ->date()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('end_date')
+                    ->label('Ends On')
+                    ->date()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('event_type')
                     ->badge(),
                 Tables\Columns\ImageColumn::make('event_logo_path')
                     ->label('Logo')
+                    ->simpleLightbox()
                     ->extraImgAttributes([
                         'class' => '!object-fit'
                     ]),
                 Tables\Columns\ImageColumn::make('event_banner_path')
+                    ->simpleLightbox()
                     ->label('Banner'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

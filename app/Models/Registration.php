@@ -25,4 +25,14 @@ class Registration extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the event that owns the Registration
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function event(): BelongsTo
+    {
+        return $this->belongsTo(Event::class);
+    }
 }

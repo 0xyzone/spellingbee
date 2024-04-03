@@ -31,4 +31,15 @@ class Event extends Model
     {
         return $this->hasMany(EventSponsor::class);
     }
+
+
+    public function registrationStatus() {
+        if($this->registration_start_date > now()) {
+            return "not_started";
+        } elseif($this->registration_start_date <= now() && $this->registration_end_date <= now()) {
+            return "on_going";
+        } else {
+            return "ended";
+        }
+    }
 }

@@ -39,8 +39,8 @@ Route::resource('/events', EventController::class)->only('show');
 Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('schools', SchoolController::class);
     Route::resource('sponsors', SponsorController::class);
-    Route::resource('registrations', RegistrationController::class);
 });
+Route::resource('event-registrations', RegistrationController::class);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

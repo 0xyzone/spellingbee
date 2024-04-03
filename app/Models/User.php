@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Althinect\FilamentSpatieRolesPermissions\Concerns\HasSuperAdmin;
@@ -55,14 +56,14 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     public function getPercentageCompleteAttribute(): float
     {
         $attributes = [
-            'dateOfBirth',
+            'date_of_birth',
             'contact_number',
             'address',
             'school'
         ];
 
         $complete = collect($attributes)
-            ->map(fn ($attribute) => $this->getAttribute($attribute))
+            ->map(fn($attribute) => $this->getAttribute($attribute))
             ->filter()
             ->count();
 
@@ -77,5 +78,48 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         }
 
         return true;
+    }
+
+    public function isComplete(): bool
+    {
+        // Get all fillable attributes
+        $fillableAttributes = $this->fillable;
+
+        // Check if any fillable attribute is null or empty
+        foreach ($fillableAttributes as $attribute) {
+            if (empty($this->{$attribute})) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Get the registrations associated with the user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function registrations(): HasMany
+    {
+        return $this->hasMany(Registration::class);
+    }
+
+    public function registrationStatus(int $eventId): string
+    {
+        $statusMapping = [
+            'pending' => 'Pending',
+            'approved' => 'Approved',
+            'declined' => 'Declined',
+        ];
+
+        $registration = $this->registrations()->where('event_id', $eventId)->latest()->first();
+
+        if ($registration) {
+            $status = $registration->status;
+            return $statusMapping[$status] ?? $status; // Use mapped value if available, otherwise return the original status
+        } else {
+            return 'Not registered'; // Or any default value you prefer
+        }
     }
 }

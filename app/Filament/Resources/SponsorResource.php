@@ -89,12 +89,16 @@ class SponsorResource extends Resource
                 ->iconColor('primary')
                 ->iconPosition(IconPosition::After),
                 Tables\Columns\ImageColumn::make('sponsor_logo_path')
-                ->width(150)
+                ->label('Logo')
+                    ->simpleLightbox()
+                    ->width(150)
                 ->extraImgAttributes([
                     'class' => '!object-scale-down'
                 ]),
                 Tables\Columns\ImageColumn::make('sponsor_banner_path')
-                ->toggleable(isToggledHiddenByDefault: true)
+                ->label('Banner')
+                ->simpleLightbox()
+                    ->toggleable(isToggledHiddenByDefault: true)
                 ->size(80),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

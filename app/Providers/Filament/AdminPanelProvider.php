@@ -17,6 +17,7 @@ use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
+use SolutionForest\FilamentSimpleLightBox\SimpleLightBoxPlugin;
 use Althinect\FilamentSpatieRolesPermissions\FilamentSpatieRolesPermissionsPlugin;
 
 class AdminPanelProvider extends PanelProvider
@@ -34,7 +35,10 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->plugin(FilamentSpatieRolesPermissionsPlugin::make())
+            ->plugins([
+                FilamentSpatieRolesPermissionsPlugin::make(),
+                SimpleLightBoxPlugin::make()
+                ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([

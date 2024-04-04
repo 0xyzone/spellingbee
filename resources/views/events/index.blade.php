@@ -1,9 +1,4 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Events') }}
-        </h2>
-    </x-slot> --}}
     <div class="py-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -15,13 +10,16 @@
                         <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-4 text-gray-900">
                             @foreach ($events as $var)
                             <div class="w-full p-4 relative hover:scale-105 duration-500 group">
-                                <div class="c-card block bg-white shadow-md group-hover:shadow-lg group-hover:shadow-amber-600 duration-500 rounded-lg overflow-hidden h-full">
+                                <div class="c-card block bg-white shadow-md group-hover:shadow-md group-hover:shadow-gray-600 duration-500 rounded-3xl overflow-hidden h-full">
                                     <div class="relative pb-48 overflow-hidden w-full">
                                         <img class="absolute inset-0 h-full w-full {{ $var->event_banner_path ? 'object-cover' : 'object-scale-down' }} z-10" src="{{ $var->event_banner_path ? asset('storage/' . $var->event_banner_path) : asset('img/defaultImage.png') }}" alt="">
-                                        <p class="absolute z-20 right-0 top-2 px-2 py-1 text-white text-right shadow-lg {{ $var->registrationStatus() == 'not_started' ? 'bg-gray-500/50' : ($var->registrationStatus() == 'on_going' ? 'bg-amber-500/80' : 'bg-red-500/50') }}  text-[0.7rem] rounded-l-lg"><span>Registration</span><br>{{ $var->registrationStatus() == 'not_started' ? 'Not Started' : ($var->registrationStatus() == 'on_going' ? 'On going' : 'Ended') }}</p>
+                                        <p class="absolute z-20 right-0 top-2 px-2 py-1 text-white text-right shadow-lg {{ $var->registrationStatus() == 'not_started' ? 'bg-gray-500/50' : ($var->registrationStatus() == 'on_going' ? 'bg-amber-500/50' : 'bg-red-500/50') }}  text-[0.7rem] rounded-l-lg"><span>Registration</span><br>{{ $var->registrationStatus() == 'not_started' ? 'Not Started' : ($var->registrationStatus() == 'on_going' ? 'On going' : 'Ended') }}</p>
                                     </div>
-                                    <div>
-                                        <img src="{{ $var->event_logo_path ? asset('storage/' .$var->event_logo_path) : asset('img/defaultImage.png') }}" alt="logo" class="w-24 aspect-square rounded-full object-cover -mt-[3rem] z-20 absolute border-4 bg-white left-8">
+                                    <div class="relative">
+                                        <img src="{{ $var->event_logo_path ? asset('storage/' .$var->event_logo_path) : asset('img/defaultImage.png') }}" alt="logo" class="w-24 aspect-square rounded-full object-cover -mt-[3rem] z-20 absolute border-4 bg-white left-4">
+                                            <a href="{{ route('events.show', $var) }}" class="absolute right-4 top-2 z-20 bg-black/30 flex justify-center items-center w-max px-2 py-2 rounded-full hover:bg-gray-800 hover:!text-amber-500 hover:scale-105 hover:shadow-lg text-gray-500 duration-150" title="View event">
+                                                <i class="fas fa-eye text-xs"></i>
+                                            </a>
                                     </div>
 
                                     <div class="p-4">

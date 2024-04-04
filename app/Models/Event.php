@@ -36,7 +36,7 @@ class Event extends Model
     public function registrationStatus() {
         if($this->registration_start_date > now()) {
             return "not_started";
-        } elseif($this->registration_start_date <= now() && $this->registration_end_date <= now()) {
+        } elseif($this->registration_start_date <= now() && $this->registration_end_date >= now()) {
             return "on_going";
         } else {
             return "ended";

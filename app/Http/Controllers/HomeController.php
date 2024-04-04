@@ -16,6 +16,8 @@ class HomeController extends Controller
             } else {
                 return redirect(route('dashboard'));
             }
+        } else {
+            return redirect(route('welcome'));
         }
     }
 }

@@ -20,8 +20,11 @@ use App\Http\Controllers\RegistrationController;
 */
 
 Route::get('/', function () {
+    if(auth()->id()){
+        return redirect(route('home'));
+    }
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

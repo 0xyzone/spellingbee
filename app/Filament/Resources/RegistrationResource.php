@@ -7,6 +7,9 @@ use App\Filament\Resources\RegistrationResource\RelationManagers;
 use App\Models\Registration;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ViewEntry;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -20,24 +23,40 @@ class RegistrationResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
     protected static ?string $activeNavigationIcon = 'heroicon-c-clipboard-document-check';
 
-    public static function form(Form $form): Form
+    // public static function form(Form $form): Form
+    // {
+    //     return $form
+    //         ->schema([
+    //             Forms\Components\Select::make('user_id')
+    //                 ->relationship('user', 'name')
+    //                 ->required(),
+    //             Forms\Components\Select::make('event_id')
+    //                 ->relationship('event', 'name')
+    //                 ->required(),
+    //             Forms\Components\Select::make('status')
+    //                 ->options([
+    //                     'pending' => 'Pending',
+    //                     'approved' => 'Approved',
+    //                     'declined' => 'Declined',
+    //                 ])
+    //                 ->required(),
+    //         ]);
+    // }
+
+    public static function infolist(Infolist $infolist): Infolist
     {
-        return $form
-            ->schema([
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
-                Forms\Components\Select::make('event_id')
-                    ->relationship('event', 'name')
-                    ->required(),
-                Forms\Components\Select::make('status')
-                ->options([
-                    'pending' => 'Pending',
-                    'approved' => 'Approved',
-                    'declined' => 'Declined',
-                ])
-                    ->required(),
-            ]);
+        return $infolist
+        ->schema([
+            // TextEntry::make('user.name'),
+            // TextEntry::make('user.contact_number')
+            // ->label('Phone'),
+            // TextEntry::make('user.email')
+            // ->label('Email'),
+            // TextEntry::make('user.address')
+            // ->label('Address'),
+            ViewEntry::make('')
+            ->view('infolists.components.registration')
+        ]);
     }
 
     public static function table(Table $table): Table
@@ -47,11 +66,20 @@ class RegistrationResource extends Resource
                 Tables\Columns\TextColumn::make('user.name')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user.contact_number')
+                    ->label('Phone')
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('event.name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->badge(),
+                Tables\Columns\SelectColumn::make('status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'declined' => 'Declined',
+                        'approved' => 'Approved',
+                    ])
+                    ->disablePlaceholderSelection(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -65,7 +93,7 @@ class RegistrationResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
@@ -91,8 +119,6 @@ class RegistrationResource extends Resource
     {
         return [
             'index' => Pages\ListRegistrations::route('/'),
-            'create' => Pages\CreateRegistration::route('/create'),
-            'edit' => Pages\EditRegistration::route('/{record}/edit'),
         ];
     }
 }

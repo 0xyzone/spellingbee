@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\RegistrationResource\Pages;
+namespace App\Filament\Resources\ReistrationResource\Pages;
 
-use App\Filament\Resources\RegistrationResource;
+use App\Filament\Resources\ReistrationResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditRegistration extends EditRecord
+class EditReistration extends EditRecord
 {
-    protected static string $resource = RegistrationResource::class;
+    protected static string $resource = ReistrationResource::class;
 
     protected function getHeaderActions(): array
     {

@@ -43,10 +43,11 @@
                 }
             }
         </style>
-        <div class="range my-6 before:rounded-lg relative bg-gray-700 w-full h-[30px] rounded-lg"
-            style="--p:{{ $user->getPercentageCompleteAttribute() }}">
-            {{-- <div class="range__label">Progress</div> --}}
-        </div>
+        @unless ($user->getPercentageCompleteAttribute() == 100) 
+            <div class="range my-6 before:rounded-lg relative bg-gray-700 w-full h-[30px] rounded-lg"
+                style="--p:{{ $user->getPercentageCompleteAttribute() }}">
+            </div>
+        @endunless
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
         </h2>

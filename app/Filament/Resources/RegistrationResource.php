@@ -2,19 +2,15 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\RegistrationResource\Pages;
-use App\Filament\Resources\RegistrationResource\RelationManagers;
-use App\Models\Registration;
-use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Infolists\Components\TextEntry;
-use Filament\Infolists\Components\ViewEntry;
-use Filament\Infolists\Infolist;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Models\Registration;
+use Filament\Infolists\Infolist;
+use Filament\Resources\Resource;
+use Filament\Infolists\Components\Section;
+use Filament\Infolists\Components\Livewire;
+use Filament\Infolists\Components\Actions\Action;
+use App\Filament\Resources\RegistrationResource\Pages;
 
 class RegistrationResource extends Resource
 {
@@ -23,49 +19,51 @@ class RegistrationResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
     protected static ?string $activeNavigationIcon = 'heroicon-c-clipboard-document-check';
 
-    // public static function form(Form $form): Form
-    // {
-    //     return $form
-    //         ->schema([
-    //             Forms\Components\Select::make('user_id')
-    //                 ->relationship('user', 'name')
-    //                 ->required(),
-    //             Forms\Components\Select::make('event_id')
-    //                 ->relationship('event', 'name')
-    //                 ->required(),
-    //             Forms\Components\Select::make('status')
-    //                 ->options([
-    //                     'pending' => 'Pending',
-    //                     'approved' => 'Approved',
-    //                     'declined' => 'Declined',
-    //                 ])
-    //                 ->required(),
-    //         ]);
-    // }
-
     public static function infolist(Infolist $infolist): Infolist
     {
         return $infolist
-        ->schema([
-            // TextEntry::make('user.name'),
-            // TextEntry::make('user.contact_number')
-            // ->label('Phone'),
-            // TextEntry::make('user.email')
-            // ->label('Email'),
-            // TextEntry::make('user.address')
-            // ->label('Address'),
-            ViewEntry::make('')
-            ->view('infolists.components.registration')
-        ]);
+            ->schema([
+                Section::make('Registration Details')
+                    ->description(fn($record) => 'Status: ' . ucfirst($record->status))
+                    ->headerActions([
+                        Action::make('Call')
+                            ->url(fn (Registration $record) => 'tel:' . $record->user->contct_number)
+                            ->color('info')
+                            ->icon('heroicon-c-phone-arrow-up-right'),
+                        Action::make('Approve')
+                            ->action(function (Registration $record) {
+                                $record->status = 'approved';
+                                $record->save();
+                            })
+                            ->color('success'),
+                        Action::make('Decline')
+                            ->action(function (Registration $record) {
+                                $record->status = 'declined';
+                                $record->save();
+                            })
+                            ->color('danger'),
+                    ])
+                    ->schema([
+                        Livewire::make('')
+                            ->view('infolists.components.registration')
+                            ->columns(2)
+                            ->columnSpan(2)
+                            ->lazy(),
+                    ])
+            ])->columns(1);
     }
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('user.avatar.user_avatar_path')
+                    ->simpleLightbox(),
                 Tables\Columns\TextColumn::make('user.name')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('user.address')
+                    ->label('Address'),
                 Tables\Columns\TextColumn::make('user.contact_number')
                     ->label('Phone')
                     ->searchable()
@@ -93,7 +91,6 @@ class RegistrationResource extends Resource
                 //
             ])
             ->actions([
-                // Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
@@ -119,6 +116,7 @@ class RegistrationResource extends Resource
     {
         return [
             'index' => Pages\ListRegistrations::route('/'),
+            // 'view' => Pages\ViewRegistration::route('/{record}'),
         ];
     }
 }

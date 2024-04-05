@@ -8,6 +8,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
             'date_of_birth',
             'contact_number',
             'address',
-            'school'
+            'school',
         ];
 
         $complete = collect($attributes)
@@ -121,5 +122,15 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         } else {
             return 'Not registered'; // Or any default value you prefer
         }
+    }
+
+    /**
+     * Get the avatar associated with the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function avatar(): HasOne
+    {
+        return $this->hasOne(UserAvatar::class);
     }
 }

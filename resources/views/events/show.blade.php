@@ -11,9 +11,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/all.css'])
 </head>
 
-<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full h-screen bg-white" style="background-image:url('{{ $event->event_banner_path == null ? '' : url('/storage/' . $event->event_banner_path) }}');">
-    <div class="w-full h-full backdrop-brightness-50 bg-gray-900/60 fixed top-0">
-        <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full min-h-screen bg-white overflow-y-auto" style="background-image:url('{{ $event->event_banner_path == null ? '' : url('/storage/' . $event->event_banner_path) }}');">
+    <div class="w-full h-full backdrop-brightness-50 bg-gray-900/60 fixed top-0 overflow-auto">
+        <div class="max-w-4xl flex items-center flex-wrap mx-auto mt-32">
 
             <!--Img Col-->
             <div class="w-full lg:w-3/6">
@@ -46,17 +46,14 @@
                     </h1>
                     <div class="mx-auto lg:mx-0 w-4/5 lg:w-full pt-3 border-b-2 border-gray-700 opacity-25"></div>
                     <h2 class="mt-4 mb-2 font-bold text-sm">Event Details</h2>
-                    <div class="flex flex-col lg:flex-row gap-1 lg:gap-4 items-center lg:items-start">
-                        <p class="flex items-center text-sm"><i class="fa-solid fa-flag-checkered fa-fw mr-2 text-amber-500"></i>
+                    <div class="text-base flex flex-col lg:flex-row gap-1 lg:gap-4 items-center lg:items-start">
+                        <p class="flex items-center"><i class="fa-solid fa-flag-checkered fa-fw mr-2 text-amber-500"></i>
                             {{ date('jS M, Y', strtotime($event->start_date)) }}
                         </p>
-                        <p class="flex items-center text-sm"><i class="fa-solid fa-power-off fa-fw mr-2 text-amber-500"></i>
+                        <p class="flex items-center"><i class="fa-solid fa-power-off fa-fw mr-2 text-amber-500"></i>
                             {{ date('jS M, Y', strtotime($event->end_date)) }}
                         </p>
                     </div>
-                    <p class="pt-4 lg:text-base text-sm font-bold flex items-center justify-center lg:justify-start"><i class="fa-regular fa-calendar text-amber-500 pr-4 h-4"></i>
-                        {{ date('jS M', strtotime($event->start_date)) . ' ~ ' . date('jS M', strtotime($event->end_date)) }}
-                    </p>
                     @if ($event->venue)
                     <p class="pt-2 lg:text-base flex items-center justify-center lg:justify-start">
                         <i class="fa-regular fa-location-dot text-amber-500 pr-4 h-4"></i> {{ $event->venue }}
@@ -73,9 +70,9 @@
                         </p>
                     </div>
                     <div class="mx-auto lg:mx-0 w-4/5 lg:w-full pt-4 mb-3 border-b-2 border-gray-700 opacity-25"></div>
-                    <p id='elem' class="text-sm line-clamp-5 hover:line-clamp-none hover:overflow-y-auto max-h-48 sacroll hover:smooth">
-                        {{ $event->description }} </p>
                     @if ($event->description)
+                    <p id='elem' class="text-sm line-clamp-5 hover:line-clamp-none hover:overflow-y-auto max-h-full sacroll smooth ease-in-out">
+                        {{ $event->description }} </p>
                     <p class="prompt1 text-[0.65rem] text-amber-500 animate-pulse py-2 w-full hidden"><i class="fa-solid fa-info-circle"></i> Hover over description to
                         see full description if this not complete</p>
                     <p class="prompt2 text-xs text-amber-500 animate-pulse py-2 w-full lg:hidden"><i class="fa-solid fa-info-circle"></i> Tap on description to
@@ -88,7 +85,7 @@
                         new ResizeObserver(e => {
                             console.clear()
                             console.log(isTextClamped(e[0].target))
-                            if (isTextClamped(e[0].target) == true) {
+                            if (isTextClamped(e[0].target) === true) {
                                 $(".prompt1").addClass('lg:block')
                                 $(".prompt2").removeClass('hidden')
                             } else {
@@ -137,6 +134,44 @@
 
             </div>
 
+        </div>
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+            <div class="text-2xl">
+                Sponsors
+            </div>
+            <div class="flex flex-col gap-4">
+                @if ($event->sponsors->count() == 0)
+                <div class="flex flex-col gap-2 text-center">
+                    <p>No sponsors! We are on our own for now.</p>
+                    <p>Feel like collaborating? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9801234567</a></p>
+                </div>
+                @else
+                <div class="flex gap-4 justify-center nowrap overflow-auto px-8 auto-cols-max w-full z-20">
+                    @foreach ($event->sponsors as $sponsor)
+                    <img src="{{ Storage::url($sponsor->sponsor->sponsor_logo_path) }}" alt="{{ $sponsor->sponsor->name }} logo" class="w-32" onclick="document.getElementById('dialog{{ $sponsor->id }}').showModal()">
+                    <dialog id="dialog{{ $sponsor->id }}" class="p-4 ring-0 border-none bg-gray-800 text-white relative w-10/12 lg:w-4/12" onclick="close()">
+                        <div onclick="stopPropagation()" class="w-full h-full">
+                            <p>{{ $sponsor->sponsor->name }}</p>
+                            @if ($sponsor->sponsor->url) 
+                                <a href="https://{{ ($sponsor->sponsor->url) }}" target="_blank" class="bg-lime-600 text-white">Visit them</a>
+                            @endif
+                        </div>
+                    </dialog>
+                    @endforeach
+                    <script>
+                        const closeButton = $('button');
+                        // "Close" button closes the dialog
+                        closeButton.addEventListener("click", () => {
+                            dialog.close();
+                        });
+
+                    </script>
+                </div>
+                <div class="flex flex-col gap-2 text-center">
+                    <p class="px-4">Want your logo among these? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9801234567</a></p>
+                </div>
+                @endif
+            </div>
         </div>
     </div>
 

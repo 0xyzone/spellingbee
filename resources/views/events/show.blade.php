@@ -146,15 +146,19 @@
                     <p>Feel like collaborating? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9801234567</a></p>
                 </div>
                 @else
-                <div class="flex gap-4 justify-center nowrap overflow-auto px-8 auto-cols-max w-full z-20">
+                <div class="flex gap-4 justify-center nowrap overflow-x-auto overflow-y-hidden px-8 auto-cols-max w-full z-20 h-full">
                     @foreach ($event->sponsors as $sponsor)
-                    <img src="{{ Storage::url($sponsor->sponsor->sponsor_logo_path) }}" alt="{{ $sponsor->sponsor->name }} logo" class="w-32" onclick="document.getElementById('dialog{{ $sponsor->id }}').showModal()">
-                    <dialog id="dialog{{ $sponsor->id }}" class="p-4 ring-0 border-none bg-gray-800 text-white relative w-10/12 lg:w-4/12" onclick="close()">
-                        <div onclick="stopPropagation()" class="w-full h-full">
-                            <p>{{ $sponsor->sponsor->name }}</p>
-                            @if ($sponsor->sponsor->url) 
-                                <a href="https://{{ ($sponsor->sponsor->url) }}" target="_blank" class="bg-lime-600 text-white">Visit them</a>
-                            @endif
+                    <img src="{{ Storage::url($sponsor->sponsor->sponsor_logo_path) }}" alt="{{ $sponsor->sponsor->name }} logo" class="w-32 cursor-pointer hover:scale-105 duration-300 transform ease-in-out" onclick="document.getElementById('dialog{{ $sponsor->id }}').showModal()">
+                    <dialog id="dialog{{ $sponsor->id }}" class="py-8 ring-0 border-none bg-gray-800/85 text-white relative w-10/12 lg:w-4/12 duration-300 rounded-2xl shadow-xl shadow-gray-950 backdrop-blur-sm" onclick="close()">
+                        <div class="flex flex-col gap-2 items-center">
+                            <img src="{{ Storage::url($sponsor->sponsor->sponsor_logo_path) }}" alt="" class="shrink w-4/12">
+                            <div onclick="stopPropagation()" class="w-max h-full shrink-0 flex flex-col items-center">
+                                <p class="pb-4 text-2xl">{{ $sponsor->sponsor->name }}</p>
+                                <p class="pb-4">{{ $sponsor->sponsor->description }}</p>
+                                @if ($sponsor->sponsor->url)
+                                <a href="https://{{ ($sponsor->sponsor->url) }}" target="_blank" class="bg-lime-600 text-white px-2 py-1 rouned-xl focus:outline-none rounded-lg hover:bg-lime-700 hover:scale-105 duration-150 ease-in-out">Visit them</a>
+                                @endif
+                            </div>
                         </div>
                     </dialog>
                     @endforeach

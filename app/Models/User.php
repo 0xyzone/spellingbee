@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Filament\Panel;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -132,5 +133,14 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     public function avatar(): HasOne
     {
         return $this->hasOne(UserAvatar::class);
+    }
+
+    public function age(): ?int
+    {
+        if ($this->date_of_birth) {
+            return Carbon::parse($this->date_of_birth)->age;
+        }
+
+        return null;
     }
 }

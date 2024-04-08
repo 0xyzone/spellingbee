@@ -34,7 +34,7 @@
             </div>
         </div>
         <div>
-            <img src="{{ asset('img/group.png') }}" class="max-w-sm" />
+            <img src="{{ asset('img/Group.png') }}" class="max-w-sm" />
         </div>
     </div>
 </body>

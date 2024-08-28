@@ -17,7 +17,7 @@ class UpdateAvatar extends Component
     {
         // Validate file upload
         $this->validate([
-            'file' => 'image|max:1024', // Assuming maximum file size is 1MB
+            'file' => 'image', // Assuming maximum file size is 1MB
         ]);
 
         // Store the uploaded file

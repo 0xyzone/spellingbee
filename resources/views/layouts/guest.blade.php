@@ -29,7 +29,7 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
         <div>
             <a href="/">
-                <x-application-logo class="w-auto h-9 lg:h-20 fill-current text-gray-500" />
+                <x-application-logo class="w-auto h-32 lg:h-44 fill-current text-gray-500" />
             </a>
         </div>
 
@@ -37,6 +37,9 @@
             class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
+        @if (request()->routeIs('login'))
+            <a href="{{ route('register') }}" class="text-amber-500 text-sm mt-4">Don't have an account?</a>
+        @endif
     </div>
     @stack('scripts')
 </body>

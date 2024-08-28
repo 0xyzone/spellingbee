@@ -27,7 +27,10 @@
 
                 <div class="p-4 md:p-12 text-center lg:text-left">
                     <span class="items-center text-[0.6rem] text-gray-500 gap-1 mb-1 lg:flex hidden">
-                        <p>{{ 'Created '.$event->created_at->diffForHumans() }}</p>
+                        <p>
+                            <a href="{{ route('home') }}"><span class="text-amber-900 font-bold text-sm px-2 py-1 bg-amber-500 rounded-lg"><i class="far fa-home"></i> Go home</span></a><br><br>
+                            {{ 'Created '.$event->created_at->diffForHumans() }}
+                        </p>
                     </span>
                     <!-- Image for mobile view-->
                     <div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-white" style="background-image: url('{{ $event->event_logo_path == null ? '/img/defaultImage.png' : url('/storage/' . $event->event_logo_path) }}')"></div>

@@ -32,7 +32,9 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         'date_of_birth',
         'contact_number',
         'address',
-        'school'
+        'school',
+        'gender',
+        'grade',
     ];
 
     /**
@@ -62,6 +64,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
             'contact_number',
             'address',
             'school',
+            'gender',
+            'grade',
         ];
 
         $complete = collect($attributes)

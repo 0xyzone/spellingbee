@@ -115,7 +115,6 @@ class EventResource extends Resource
                         ->relationship()
                         ->simple(
                             Select::make('sponsor_id')
-                                ->required()
                                 ->searchable()
                                 ->distinct()
                                 ->label('')

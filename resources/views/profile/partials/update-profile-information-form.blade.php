@@ -140,6 +140,19 @@
             <x-input-error class="mt-2" :messages="$errors->get('school')" />
         </div>
 
+        <div>
+            <x-input-label for="gender" :value="__('Gender')" />
+            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('school', $user->school)"
+                required />
+
+                <select name="gender" id="gender" class="mt-1 block w-full" :value="old('gender', $user->gender)"
+                    required >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            <x-input-error class="mt-2" :messages="$errors->get('school')" />
+        </div>
+
         <script>
             $(document).ready(function() {
                 $('select').selectize({

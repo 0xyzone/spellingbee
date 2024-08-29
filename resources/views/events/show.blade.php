@@ -11,8 +11,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/all.css'])
 </head>
 
-<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full min-h-screen bg-white overflow-y-auto" style="background-image:url('{{ $event->event_banner_path == null ? '' : url('/storage/' . $event->event_banner_path) }}');">
-    <div class="w-full h-full backdrop-brightness-50 bg-gray-900/60 fixed top-0 overflow-auto">
+<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full min-h-screen bg-white overflow-y-auto" style="background-image:url('{{ $event->event_banner_path == null ? asset('img/Spellingbeebg_1920x1080.png') : url('/storage/' . $event->event_banner_path) }}');">
+    <div class="w-full h-full backdrop-brightness-50 bg-gray-900/80 fixed top-0 overflow-auto">
         <div class="max-w-4xl flex items-center flex-wrap mx-auto mt-32">
 
             <!--Img Col-->

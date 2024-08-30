@@ -8,6 +8,24 @@
     }
 }
 
+.selectize-input {
+    background-image: none !important;
+    box-shadow: none !important;
+    @apply !bg-gray-900 text-white rounded-lg !border-none outline-none;
+}
+
+.selectize-control {
+    @apply !bg-gray-900 text-white rounded-lg;
+}
+
+.selectize-dropdown.single {
+    @apply !border-none !mt-0;
+}
+
+.selectize-dropdown .selected {
+    @apply !bg-amber-500 text-amber-900;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -16,11 +34,10 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
     -moz-appearance: textfield;
 }
 
 .sacroll {
     @apply scrollbar scrollbar-w-1 scrollbar-thumb-yellow-500 scrollbar-thumb-rounded-xl;
 }
-

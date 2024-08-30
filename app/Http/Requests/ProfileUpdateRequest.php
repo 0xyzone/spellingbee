@@ -21,7 +21,13 @@ class ProfileUpdateRequest extends FormRequest
             'date_of_birth' => ['required'],
             'contact_number' => ['required'],
             'address' => ['required'],
-            'school' => ['']
+            'school' => ['required'],
+            'gender' => ['required'],
+            'representative_name' => ['required'],
+            'representative_number' => ['required'],
+            'representative_relationship' => ['required'],
+            'grade' => ['required'],
+            'consent' => ['required']
         ];
     }
 }

@@ -49,7 +49,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return redirect()->intended(RouteServiceProvider::PROFILE)->with('status', 'profile-updated');
+        return redirect()->route('profile.edit')->with('status', 'profile-updated');
     }
 
     /**

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('event_sponsors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('sponsor_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('sponsor_id')->nullable();
             $table->timestamps();
         });
     }

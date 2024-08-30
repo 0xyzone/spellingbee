@@ -22,7 +22,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
     <!-- Scripts -->
-    <script async src="https://www.google.com/recaptcha/api.js">
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
 
     
 </head>

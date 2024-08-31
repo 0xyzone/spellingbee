@@ -35,7 +35,7 @@ class RegisteredUserController extends Controller
         $recaptcha_response = $request->input('g-recaptcha-response');
 
         if (is_null($recaptcha_response)) {
-            return redirect()->back()->withInput()->with('status', 'Please Complete the Recaptcha to proceed');
+            return redirect()->back()->withInput($request->input())->with('status', 'Please Complete the Recaptcha to proceed');
         }
 
         $url = "https://www.google.com/recaptcha/api/siteverify";

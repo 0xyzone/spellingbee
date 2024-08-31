@@ -120,6 +120,7 @@ class EventResource extends Resource
                                 ->label('')
                                 ->options(Sponsor::all()->pluck('name', 'id'))
                         )->columnSpan(2)
+                        ->defaultItems(0)
                 ])->columns(3),
             ]);
     }

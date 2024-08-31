@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
@@ -27,7 +28,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $events = Event::paginate(6);
+    return view('dashboard', compact('events'));
 })->middleware(['auth', 'verified', 'user'])->name('dashboard');
 
 Route::middleware(['auth', 'user'])->group(function () {

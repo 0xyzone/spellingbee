@@ -9,6 +9,7 @@ use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Livewire;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\Actions\Action;
 use App\Filament\Resources\RegistrationResource\Pages;
 
@@ -49,7 +50,7 @@ class RegistrationResource extends Resource
                             ->columns(2)
                             ->columnSpan(2)
                             ->lazy(),
-                    ])
+                    ]),
             ])->columns(1);
     }
 

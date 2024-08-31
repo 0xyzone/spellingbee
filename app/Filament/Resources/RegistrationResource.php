@@ -27,7 +27,7 @@ class RegistrationResource extends Resource
                     ->description(fn($record) => 'Status: ' . ucfirst($record->status))
                     ->headerActions([
                         Action::make('Call')
-                            ->url(fn (Registration $record) => 'tel:' . $record->user->contct_number)
+                            ->url(fn (Registration $record) => 'tel:' . $record->user->contact_number)
                             ->color('info')
                             ->icon('heroicon-c-phone-arrow-up-right'),
                         Action::make('Approve')

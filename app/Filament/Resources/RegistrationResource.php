@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Exports\RegistrationExporter;
+use Filament\Tables\Actions\ExportAction;
 use Filament\Tables;
 use Filament\Tables\Table;
 use App\Models\Registration;
@@ -93,6 +95,10 @@ class RegistrationResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
+            ])
+            ->headerActions([
+                ExportAction::make()
+                ->exporter(RegistrationExporter::class)
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

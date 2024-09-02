@@ -65,63 +65,65 @@
         @csrf
         @method('patch')
 
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
-        </div>
-
-        <div>
-            <x-input-label for="gender" :value="__('Gender')" />
-            <select name="gender" id="gender" class="mt-1 block w-full rounded-lg">
-                <option value="male" @if($user->gender == "male") selected @endif>Male</option>
-                <option value="female" @if($user->gender == "female") selected @endif>Female</option>
-            </select>
-            <x-input-error class="mt-2" :messages="$errors->get('gender')" />
-        </div>
-
-        <div>
-            <x-input-label for="address" :value="__('Address')" />
-            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('address')" />
-        </div>
-
-        <div>
-            <x-input-label for="contact_number" :value="__('Contact Number')" />
-            <x-text-input id="contact_number" name="contact_number" type="text" class="mt-1 block w-full" :value="old('contact_number', $user->contact_number)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
-        </div>
-
-        <div>
-            <x-input-label for="date_of_birth" :value="__('Date of Birth')" />
-            <x-text-input id="date_of_birth" name="date_of_birth" type="date" class="mt-1 block w-full" :value="old('date_of_birth', $user->date_of_birth)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('date_of_birth')" />
-        </div>
-
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
+        <fieldset class="border rounded-lg border-white px-4 py-4 pb-5 gap-4 flex flex-col">
+            <legend class="px-2 text-white">Personal Detail</legend>
             <div>
-                <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
-                    {{ __('Your email address is unverified.') }}
+                <x-input-label for="name" :value="__('Name')" />
+                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+                <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            </div>
 
-                    <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                        {{ __('Click here to re-send the verification email.') }}
-                    </button>
-                </p>
+            <div>
+                <x-input-label for="gender" :value="__('Gender')" />
+                <select name="gender" id="gender" class="mt-1 block w-full rounded-lg">
+                    <option value="male" @if($user->gender == "male") selected @endif>Male</option>
+                    <option value="female" @if($user->gender == "female") selected @endif>Female</option>
+                </select>
+                <x-input-error class="mt-2" :messages="$errors->get('gender')" />
+            </div>
 
-                @if (session('status') === 'verification-link-sent')
-                <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
-                    {{ __('A new verification link has been sent to your email address.') }}
-                </p>
+            <div>
+                <x-input-label for="address" :value="__('Address')" />
+                <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('address')" />
+            </div>
+
+            <div>
+                <x-input-label for="contact_number" :value="__('Contact Number')" />
+                <x-text-input id="contact_number" name="contact_number" type="text" class="mt-1 block w-full" :value="old('contact_number', $user->contact_number)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
+            </div>
+
+            <div>
+                <x-input-label for="date_of_birth" :value="__('Date of Birth')" />
+                <x-text-input id="date_of_birth" name="date_of_birth" type="date" class="mt-1 block w-full" :value="old('date_of_birth', $user->date_of_birth)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('date_of_birth')" />
+            </div>
+
+            <div>
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+                <x-input-error class="mt-2" :messages="$errors->get('email')" />
+
+                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
+                <div>
+                    <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                        {{ __('Your email address is unverified.') }}
+
+                        <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                            {{ __('Click here to re-send the verification email.') }}
+                        </button>
+                    </p>
+
+                    @if (session('status') === 'verification-link-sent')
+                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                        {{ __('A new verification link has been sent to your email address.') }}
+                    </p>
+                    @endif
+                </div>
                 @endif
             </div>
-            @endif
-        </div>
-
+        </fieldset>
         {{-- <div>
             <x-input-label for="school" :value="__('School')" />
             <select name="school" id="school"
@@ -136,17 +138,35 @@
         <x-input-error class="mt-2" :messages="$errors->get('school')" />
         </div> --}}
 
-        <div>
-            <x-input-label for="school" :value="__('School Name')" />
-            <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('school', $user->school)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('school')" />
-        </div>
+        <fieldset class="border rounded-lg border-white px-4 py-4 pb-5">
+            <legend class="px-2 text-white">School Detail</legend>
+            <div>
+                <x-input-label for="school" :value="__('School Name')" />
+                <x-text-input id="school" name="school" type="text" class="mt-1 block w-full" :value="old('school', $user->school)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('school')" />
+            </div>
+            <div class="mt-4">
+                <x-input-label for="school_address" :value="__('School Address')" />
+                <x-text-input id="school_address" name="school_address" type="text" class="mt-1 block w-full" :value="old('school_address', $user->school_address)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('school_address')" />
+            </div>
+            <div class="mt-4">
+                <x-input-label for="school_email" :value="__('School Email')" />
+                <x-text-input id="school_email" name="school_email" type="email" class="mt-1 block w-full" :value="old('school_email', $user->school_email)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('school_email')" />
+            </div>
+            <div class="mt-4">
+                <x-input-label for="school_number" :value="__('School Number')" />
+                <x-text-input id="school_number" name="school_number" type="text" class="mt-1 block w-full" :value="old('school_number', $user->school_number)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('school_number')" />
+            </div>
+            <div class="mt-4">
+                <x-input-label for="grade" :value="__('Grade')" />
+                <x-text-input id="grade" name="grade" type="text" class="mt-1 block w-full" :value="old('grade', $user->grade)" required />
+                <x-input-error class="mt-2" :messages="$errors->get('grade')" />
+            </div>
+        </fieldset>
 
-        <div>
-            <x-input-label for="grade" :value="__('Grade')" />
-            <x-text-input id="grade" name="grade" type="text" class="mt-1 block w-full" :value="old('grade', $user->grade)" required />
-            <x-input-error class="mt-2" :messages="$errors->get('grade')" />
-        </div>
 
         <fieldset class="border rounded-lg border-white px-4 py-4 pb-5">
             <legend class="px-2 text-white">Representative Detail</legend>

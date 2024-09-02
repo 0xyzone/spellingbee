@@ -9,6 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,6 +34,9 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
         'contact_number',
         'address',
         'school',
+        'school_address',
+        'school_email',
+        'school_number',
         'gender',
         'representative_name',
         'representative_number',
@@ -152,6 +156,17 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         if ($this->date_of_birth) {
             return Carbon::parse($this->date_of_birth)->age;
+        }
+
+        return null;
+    }
+
+    public function umer(): ?Attribute
+    {
+        if ($this->date_of_birth) {
+            return Attribute::make(
+                get: fn () => Carbon::parse($this->date_of_birth)->age
+            );
         }
 
         return null;

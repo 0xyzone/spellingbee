@@ -3,11 +3,13 @@
 namespace App\Filament\Resources;
 
 use Filament\Tables;
+use App\Models\Event;
 use Filament\Tables\Table;
 use App\Models\Registration;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
 use pxlrbt\FilamentExcel\Columns\Column;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Livewire;
 use Filament\Infolists\Components\TextEntry;
@@ -31,6 +33,10 @@ class RegistrationResource extends Resource
                 Section::make('Registration Details')
                     ->description(fn($record) => 'Status: ' . ucfirst($record->status))
                     ->headerActions([
+                        Action::make('Call Representative')
+                            ->url(fn(Registration $record) => 'tel:' . $record->user->representative_number)
+                            ->color('info')
+                            ->icon('heroicon-c-phone-arrow-up-right'),
                         Action::make('Call')
                             ->url(fn(Registration $record) => 'tel:' . $record->user->contact_number)
                             ->color('info')
@@ -62,27 +68,51 @@ class RegistrationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('user.avatar.user_avatar_path')
-                    ->simpleLightbox(),
-                Tables\Columns\TextColumn::make('user.name')
+                Tables\Columns\TextColumn::make('event.name')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\ImageColumn::make('user.avatar.user_avatar_path')
+                    ->simpleLightbox(),
+                Tables\Columns\TextColumn::make('user.id')
+                    ->label('#')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Contestnt')
+                    ->searchable()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('user.umer')
+                    ->label('Age'),
                 Tables\Columns\TextColumn::make('user.address')
                     ->label('Address'),
                 Tables\Columns\TextColumn::make('user.contact_number')
                     ->label('Phone')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('event.name')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user.email')
+                    ->label('Email')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('user.school')
+                    ->label('School'),
+                Tables\Columns\TextColumn::make('user.school_address')
+                    ->label('School Address'),
+                Tables\Columns\TextColumn::make('user.school_number')
+                    ->label('School Number'),
+                Tables\Columns\TextColumn::make('user.school_email')
+                    ->label('School Email'),
+                Tables\Columns\TextColumn::make('user.representative_name')
+                    ->label('Representative Name'),
+                Tables\Columns\TextColumn::make('user.representative_number')
+                    ->label('Representative Number'),
+                Tables\Columns\TextColumn::make('user.representative_relationship')
+                    ->label('Representative Relationship'),
                 Tables\Columns\SelectColumn::make('status')
                     ->options([
                         'pending' => 'Pending',
                         'declined' => 'Declined',
                         'approved' => 'Approved',
                     ])
-                    ->disablePlaceholderSelection(),
+                    ->disablePlaceholderSelection()
+                    ->extraAttributes(['class' => 'min-w-max']),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -93,7 +123,9 @@ class RegistrationResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                //
+                SelectFilter::make('event_id')
+                    ->label('Event')
+                    ->options(fn(): array => Event::query()->pluck('name', 'id')->all())
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -102,9 +134,11 @@ class RegistrationResource extends Resource
                 // ExportAction::make()
                 // ->exporter(RegistrationExporter::class)
                 ExportAction::make()->exports([
-                    ExcelExport::make('table')->withColumns([
-                        Column::make('user.name')->heading('Contestant Name'),
-                        Column::make('user.address')->heading('Address'),
+                    ExcelExport::make('table')->fromTable()->only([
+                        'user.id', 'user.name', 'user.school', 'user.umer', 'user.contact_number', 'user.address', 'user.representative_name','user.representative_number','user.representative_relationship'
+                    ])->withColumns([
+                        Column::make('age')
+                        ->formatStateUsing(fn ($record) => $record->user->age())
                     ])
                         ->askForFilename()
                         ->askForWriterType(),

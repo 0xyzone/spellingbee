@@ -2,17 +2,19 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Exports\RegistrationExporter;
-use Filament\Tables\Actions\ExportAction;
 use Filament\Tables;
 use Filament\Tables\Table;
 use App\Models\Registration;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Filament\Infolists\Components\Section;
 use Filament\Infolists\Components\Livewire;
 use Filament\Infolists\Components\TextEntry;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use App\Filament\Exports\RegistrationExporter;
 use Filament\Infolists\Components\Actions\Action;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use App\Filament\Resources\RegistrationResource\Pages;
 
 class RegistrationResource extends Resource
@@ -30,7 +32,7 @@ class RegistrationResource extends Resource
                     ->description(fn($record) => 'Status: ' . ucfirst($record->status))
                     ->headerActions([
                         Action::make('Call')
-                            ->url(fn (Registration $record) => 'tel:' . $record->user->contact_number)
+                            ->url(fn(Registration $record) => 'tel:' . $record->user->contact_number)
                             ->color('info')
                             ->icon('heroicon-c-phone-arrow-up-right'),
                         Action::make('Approve')
@@ -97,8 +99,16 @@ class RegistrationResource extends Resource
                 Tables\Actions\ViewAction::make(),
             ])
             ->headerActions([
-                ExportAction::make()
-                ->exporter(RegistrationExporter::class)
+                // ExportAction::make()
+                // ->exporter(RegistrationExporter::class)
+                ExportAction::make()->exports([
+                    ExcelExport::make('table')->withColumns([
+                        Column::make('user.name')->heading('Contestant Name'),
+                        Column::make('user.address')->heading('Address'),
+                    ])
+                        ->askForFilename()
+                        ->askForWriterType(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

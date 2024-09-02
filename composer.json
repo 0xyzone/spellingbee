@@ -12,6 +12,7 @@
         "althinect/filament-spatie-roles-permissions": "^2.2",
         "doctrine/dbal": "^3.9",
         "dominion-solutions/filament-captcha": "^0.1.0",
+        "filament/actions": "3.2",
         "filament/filament": "3.2",
         "guzzlehttp/guzzle": "^7.2",
         "itsgoingd/clockwork": "^5.1",

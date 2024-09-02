@@ -13,6 +13,7 @@
 
 <body class="font-sans antialiased text-gray-100 leading-normal tracking-wider select-none bg-cover bg-center bg-no-repeat w-full min-h-screen bg-white overflow-y-auto" style="background-image:url('{{ $event->event_banner_path == null ? asset('img/Spellingbeebg_1920x1080.png') : url('/storage/' . $event->event_banner_path) }}');">
     <div class="w-full h-full backdrop-brightness-50 bg-gray-900/80 fixed top-0 overflow-auto">
+        {{-- Event --}}
         <div class="max-w-4xl flex items-center flex-wrap mx-auto mt-32">
 
             <!--Img Col-->
@@ -138,6 +139,27 @@
             </div>
 
         </div>
+        {{-- Event --}}
+
+        {{-- Contestants --}}
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+            <div class="text-2xl">
+                Contestants
+            </div>
+            <div class="flex flex-col gap-4 px-6">
+                @if ($contestants->count() == 0)
+                    No Contestants!
+                @else
+                <x-contestants :contestants=$contestants></x-contestants>
+                @endif
+            </div>
+            <div class="mt-4">
+                {{ $contestants->links() }}
+            </div>
+        </div>
+        {{-- Contestants --}}
+
+        {{-- Sponsors --}}
         <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
             <div class="text-2xl">
                 Sponsors
@@ -180,21 +202,7 @@
                 @endif
             </div>
         </div>
-        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
-            <div class="text-2xl">
-                Contestants
-            </div>
-            <div class="flex flex-col gap-4 px-6">
-                @if ($contestants->count() == 0)
-                    No Contestants!
-                @else
-                <x-contestants :contestants=$contestants></x-contestants>
-                @endif
-            </div>
-            <div class="mt-4">
-                {{ $contestants->links() }}
-            </div>
-        </div>
+        {{-- Sponsors --}}
     </div>
     <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
 </body>

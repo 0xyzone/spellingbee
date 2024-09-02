@@ -142,7 +142,7 @@
         {{-- Event --}}
 
         {{-- Contestants --}}
-        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
             <div class="text-2xl">
                 Contestants
             </div>
@@ -160,7 +160,7 @@
         {{-- Contestants --}}
 
         {{-- Sponsors --}}
-        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
             <div class="text-2xl">
                 Sponsors
             </div>

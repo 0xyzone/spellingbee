@@ -52,6 +52,7 @@ class EventController extends Controller
             }
             ;
         }
-        return view("events.show", compact("event", "registered", "status"));
+        $contestants = Registration::where('event_id', $event->id)->where('status', 'approved')->paginate(3);
+        return view("events.show", compact("event", "registered", "status", "contestants"));
     }
 }

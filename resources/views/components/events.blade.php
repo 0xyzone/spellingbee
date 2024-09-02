@@ -18,9 +18,11 @@
 
                 <h2 class="mt-8 mb-2  font-bold">{{ $var->name }}</h2>
                 <div class="flex flex-col gap-1">
-                    <p class="flex items-center text-sm"><i class="fa-solid fa-location-dot fa-fw mr-2 text-amber-600"></i>
-                        {{ $var->venue }}
-                    </p>
+                    @if ($var->venue) 
+                        <p class="flex items-center text-sm"><i class="fa-solid fa-location-dot fa-fw mr-2 text-amber-600"></i>
+                            {{ $var->venue }}
+                        </p>
+                    @endif
                     <div class="flex flex-col lg:flex-row gap-1 lg:gap-4">
                         <p class="flex items-center text-sm"><i class="fa-solid fa-flag-checkered fa-fw mr-2 text-amber-600"></i>
                             {{ date('jS M, Y', strtotime($var->start_date)) }}

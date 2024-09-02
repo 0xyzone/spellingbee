@@ -138,7 +138,7 @@
             </div>
 
         </div>
-        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
             <div class="text-2xl">
                 Sponsors
             </div>
@@ -180,8 +180,22 @@
                 @endif
             </div>
         </div>
+        <div class="max-w-4xl w-5/6 flex flex-col justify-center items-center flex-wrap gap-4 mx-auto mb-32 bg-gray-900 rounded-2xl shadow-xl shadow-gray-950 py-8 mt-10 overflow-visible">
+            <div class="text-2xl">
+                Contestants
+            </div>
+            <div class="flex flex-col gap-4 px-6">
+                @if ($contestants->count() == 0)
+                    No Contestants!
+                @else
+                <x-contestants :contestants=$contestants></x-contestants>
+                @endif
+            </div>
+            <div class="mt-4">
+                {{ $contestants->links() }}
+            </div>
+        </div>
     </div>
-
     <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
 </body>
 

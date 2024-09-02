@@ -28,7 +28,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/dashboard', function () {
-    $events = Event::paginate(6);
+    $events = Event::orderBy('id', 'desc')->paginate(3);
     return view('dashboard', compact('events'));
 })->middleware(['auth', 'verified', 'user'])->name('dashboard');
 

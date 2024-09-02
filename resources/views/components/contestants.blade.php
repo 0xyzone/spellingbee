@@ -7,8 +7,12 @@
             </div>
 
             <div class="p-4">
-                <h2 class="font-bold">{{ $var->user->name }} <span class="text-xs text-gray-600 font-medium">{{ "(" . $var->user->age() . 'years young)' }}</span></h2>
+                <h2 class="font-bold">{{ $var->user->name }} </h2>
                 <div class="flex flex-col gap-1">
+                    <p class="flex items-center text-xs">
+                        <i class="fa-solid fa-cake-candles fa-fw mr-2 text-amber-600"></i>
+                        {{ $var->user->age }} years young
+                    </p>
                     <p class="flex items-center text-xs">
                         <i class="fa-solid fa-school fa-fw mr-2 text-amber-600"></i>
                         {{ $var->user->school }}

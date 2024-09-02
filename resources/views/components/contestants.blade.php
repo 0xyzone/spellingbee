@@ -11,7 +11,7 @@
                 <div class="flex flex-col gap-1">
                     <p class="flex items-center text-xs">
                         <i class="fa-solid fa-cake-candles fa-fw mr-2 text-amber-600"></i>
-                        {{ $var->user->age }} years young
+                        {{ $var->user->age() }} years young
                     </p>
                     <p class="flex items-center text-xs">
                         <i class="fa-solid fa-school fa-fw mr-2 text-amber-600"></i>

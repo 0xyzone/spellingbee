@@ -102,6 +102,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     {
         // Get all fillable attributes
         $fillableAttributes = $this->fillable;
+        $user = Auth()->user();
+        $userAvatar = UserAvatar::where('user_id', $user->id)->first();
 
         // Check if any fillable attribute is null or empty
         foreach ($fillableAttributes as $attribute) {
@@ -109,7 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
                 return false;
             }
         }
-        if($this->avatar() === null) {
+        if($userAvatar === null) {
             return false;
         }
 

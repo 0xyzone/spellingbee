@@ -28,7 +28,6 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
     protected $fillable = [
         'name',
         'email',
-        'username',
         'password',
         'date_of_birth',
         'contact_number',
@@ -109,6 +108,9 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
             if (empty($this->{$attribute})) {
                 return false;
             }
+        }
+        if($this->avatar() === null) {
+            return false;
         }
 
         return true;

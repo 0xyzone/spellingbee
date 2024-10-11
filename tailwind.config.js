@@ -8,6 +8,7 @@ export default {
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./storage/framework/views/*.php",
         "./resources/views/**/*.blade.php",
+        "./node_modules/flowbite/**/*.js",
     ],
 
     theme: {
@@ -25,5 +26,10 @@ export default {
         forms,
         require("tailwind-scrollbar")({ nocompatible: true }),
         require("tailwindcss/nesting"),
+        require('flowbite/plugin')({
+            charts: true,
+            forms: true,
+            tooltips: true
+        }),
     ],
 };

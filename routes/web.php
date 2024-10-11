@@ -28,16 +28,7 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/demo', function() {
-    $basePath = "https://www.dictionaryapi.com/api/v3/references/sd4/json/";
-    $word = "Development";
-    $key = "4e42890c-c48a-4ea5-9a51-01f5cedf587b";
-
-    $api = $basePath . $word . '?key=' . $key;
-
-    $response = Http::get($api);
-
-    $data = $response->json();
-    return view('demo', compact('data'));
+    return view('demo');
 });
 
 Route::get('/dashboard', function () {

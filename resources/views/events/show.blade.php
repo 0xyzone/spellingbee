@@ -197,7 +197,7 @@
                     </script>
                 </div>
                 <div class="flex flex-col gap-2 text-center">
-                    <p class="px-4">Want your logo among these? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9705998433</a></p>
+                    <p class="px-4">Want your logo among these? Give us a call at <a href="tel:+9779705998433" class="text-amber-500">+977 9705998433</a></p>
                 </div>
                 @endif
             </div>

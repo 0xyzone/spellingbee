@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "Ubuntu", sans-serif;
+  scroll-behavior: smooth;
+}
+
+.font-jaro {
+  font-family: "Jaro", sans-serif;
+}
+
+.font-aclonica {
+  font-family: "Aclonica", sans-serif;
+}
+
+.font-nunito {
+    font-family: "Nunito", sans-serif;
+  }
+
+.separator {
+  height: 0;
+  width: 0;
+  border-left: 100vw solid transparent;
+  border-bottom: 250px solid #fff;
+  margin-top: -250px;
+}
+
+.bg-bee-gradient {
+  background: linear-gradient(to right, #d4ad00, #FFD316, #d4ad00);
+}
+
+#mobile-sidebar {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mobile-sidebar.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* owl carousel  */
+.owl-stage {
+  padding: 10px 0px 20px 0px !important;
+  overflow: hidden;
+}
+
+#sponsors-container > .owl-nav > .owl-prev {
+  position: absolute;
+  top: 20%;
+ 
+  left: -5px;
+  font-size: 30px !important;
+}
+#sponsors-container > .owl-nav > .owl-next {
+  position: absolute;
+  top: 20%;
+ 
+  right: -5px;
+  font-size: 30px !important;
+}
+
+#sponsors-container > .owl-nav > .owl-prev,
+#sponsors-container > .owl-nav > .owl-next{
+  padding: 0px 15px !important;
+  background-color: #d4d4d4 !important;
+  color: white !important;
+}
+
+#sponsors-container > .owl-nav > .owl-prev:hover,
+#sponsors-container > .owl-nav > .owl-next:hover{
+  background-color: #35b3a8 !important;
+}

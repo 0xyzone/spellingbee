@@ -168,7 +168,7 @@
                 @if ($event->sponsors->count() == 0)
                 <div class="flex flex-col gap-2 text-center">
                     <p>No sponsors! We are on our own for now.</p>
-                    <p>Feel like collaborating? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9801234567</a></p>
+                    <p>Feel like collaborating? Give us a call at <a href="tel:+9779705998433" class="text-amber-500">+977 9705998433</a></p>
                 </div>
                 @else
                 <div class="flex gap-4 justify-center nowrap overflow-x-auto overflow-y-hidden px-8 auto-cols-max w-full z-20 h-full">
@@ -197,7 +197,7 @@
                     </script>
                 </div>
                 <div class="flex flex-col gap-2 text-center">
-                    <p class="px-4">Want your logo among these? Give us a call at <a href="tel:+9779801234567" class="text-amber-500">+977 9801234567</a></p>
+                    <p class="px-4">Want your logo among these? Give us a call at <a href="tel:+9779705998433" class="text-amber-500">+977 9705998433</a></p>
                 </div>
                 @endif
             </div>
@@ -206,5 +206,4 @@
     </div>
     <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
 </body>
-
 </html>

@@ -31,6 +31,10 @@ Route::get('/demo', function() {
     return view('demo');
 });
 
+Route::get('/main', function() {
+    return view('main-demo');
+});
+
 Route::get('/dashboard', function () {
     $events = Event::orderBy('id', 'desc')->paginate(3);
     return view('dashboard', compact('events'));

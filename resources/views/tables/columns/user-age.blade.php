@@ -1,3 +1,3 @@
 <div class="pl-3">
-    {{ $getRecord()->user->age() }}
+    {{ $getRecord()->user->age() . "years" }}
 </div>

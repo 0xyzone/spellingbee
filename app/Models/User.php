@@ -162,17 +162,17 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser
             return Carbon::parse($this->date_of_birth)->age;
         }
 
-        return null;
+        return 0;
     }
 
-    public function umer(): ?Attribute
-    {
-        if ($this->date_of_birth) {
-            return Attribute::make(
-                get: fn () => Carbon::parse($this->date_of_birth)->age
-            );
-        }
+    // public function umer(): ?Attribute
+    // {
+    //     if ($this->date_of_birth) {
+    //         return Attribute::make(
+    //             get: fn () => Carbon::parse($this->date_of_birth)->age
+    //         );
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

@@ -81,7 +81,7 @@ class RegistrationResource extends Resource
                     ->label('Contestnt')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user.umer')
+                Tables\Columns\TextColumn::make('user.age')
                     ->label('Age'),
                 Tables\Columns\TextColumn::make('user.address')
                     ->label('Address'),
@@ -135,7 +135,7 @@ class RegistrationResource extends Resource
                 // ->exporter(RegistrationExporter::class)
                 ExportAction::make()->exports([
                     ExcelExport::make('table')->fromTable()->only([
-                        'user.id', 'user.name', 'user.school', 'user.umer', 'user.contact_number', 'user.address', 'user.representative_name','user.representative_number','user.representative_relationship'
+                        'user.id', 'user.name', 'user.school', 'user.age', 'user.contact_number', 'user.address', 'user.representative_name','user.representative_number','user.representative_relationship'
                     ])->withColumns([
                         Column::make('age')
                         ->formatStateUsing(fn ($record) => $record->user->age())

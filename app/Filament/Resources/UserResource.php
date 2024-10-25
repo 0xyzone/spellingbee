@@ -36,7 +36,7 @@ class UserResource extends Resource
                 ->disabled(fn ($state): bool => $state != null ? true : false)
                 ->required()
                     ->maxLength(125),
-                Forms\Components\DatePicker::make('dateOfBirth')
+                Forms\Components\DatePicker::make('date_of_birth')
                 ->required(),
                 Forms\Components\TextInput::make('contact_number')
                 ->required()
@@ -60,8 +60,8 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('username')
-                    ->searchable(),
+                // Tables\Columns\TextColumn::make('username')
+                //     ->searchable(),
                 Tables\Columns\TextColumn::make('dateOfBirth')
                     ->date()
                     ->sortable(),
@@ -80,7 +80,7 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

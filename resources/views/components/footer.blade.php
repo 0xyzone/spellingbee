@@ -1,5 +1,5 @@
 <footer class="relative mt-10 overflow-hidden">
-    <div class="text-neutral-00 bg-honey w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36">
+    <div class="text-neutral-900 bg-honey w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36">
         <div class="border-2 border-x-0 border-t-0 pb-5 border-current">
             <h1 class="text-xl font-extrabold">Connect With Us</h1>
             <div class="mt-5 flex flex-col font-semibold gap-3">

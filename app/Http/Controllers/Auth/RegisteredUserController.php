@@ -54,12 +54,14 @@ class RegisteredUserController extends Controller
         if ($response->successful() && $result->success == true) {
             $request->validate([
                 'name' => ['required', 'string', 'max:255'],
+                'contact_number' => ['required', 'string', 'max:255', 'unique:' . User::class],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
             ]);
 
             $user = User::create([
                 'name' => $request->name,
+                'contact_number' => $request->contact_number,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
@@ -76,14 +78,14 @@ class RegisteredUserController extends Controller
         }
         // $request->validate([
         //     'name' => ['required', 'string', 'max:255'],
-        //     'username' => ['string', 'max:255', Rule::unique('users')],
+        //     'contact_number' => ['string', 'max:255', Rule::unique('users')],
         //     'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
 
         // $user = User::create([
         //     'name' => $request->name,
-        //     'username' => $request->username,
+        //     'contact_number' => $request->contact_number,
         //     'email' => $request->email,
         //     'password' => Hash::make($request->password),
         // ]);

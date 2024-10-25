@@ -81,8 +81,8 @@ class RegistrationResource extends Resource
                     ->label('Contestnt')
                     ->searchable()
                     ->sortable(),
-                // Tables\Columns\TextColumn::make('user.age')
-                //     ->label('Age'),
+                Tables\Columns\TextColumn::make('age')
+                    ->label('Age'),
                 Tables\Columns\TextColumn::make('user.address')
                     ->label('Address'),
                 Tables\Columns\TextColumn::make('user.contact_number')

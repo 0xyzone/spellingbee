@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Event;
+use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EventController;
@@ -32,7 +33,10 @@ Route::get('/demo', function() {
 });
 
 Route::get('/main', function() {
-    return view('main-demo');
+    $sponsors = Sponsor::all();
+    return view('main-demo', [
+        'sponsors' => Sponsor::all()->toArray(),
+    ]);
 });
 
 Route::get('/dashboard', function () {

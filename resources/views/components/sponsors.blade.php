@@ -4,25 +4,19 @@
             Our Sponsors
         </div>
         <div class="mt-5">
-            <div id="sponsors-container" class="owl-carousel owl-carousel-sponsors owl-theme z-10">
+            {{-- {{ dd($sponsors) }} --}}
+            <div id="sponsors-container" class="owl-carousel owl-carousel-sponsors owl-theme z-10 flex justify-center">
                 <script>
                     const sponsors_list = [
-                        "/public/images/sponsors/sponsor-1.png"
-                        , "/public/images/sponsors/sponsor-2.png"
-                        , "/public/images/sponsors/sponsor-3.png"
-                        , "/public/images/sponsors/sponsor-4.png"
-                        , "/public/images/sponsors/sponsor-5.png"
-                        , "/public/images/sponsors/sponsor-1.png"
-                        , "/public/images/sponsors/sponsor-2.png"
-                        , "/public/images/sponsors/sponsor-3.png"
-                        , "/public/images/sponsors/sponsor-4.png"
-                        , "/public/images/sponsors/sponsor-5.png"
+                        @foreach ($sponsors as $var)
+                            '{{ asset('/storage/' . $var['sponsor_logo_path']) }}',
+                        @endforeach
                     , ];
                     const sponsors = sponsors_list
                         .map(
                             (sponsor) => `
-                                    <div class="h-20 w-32">
-                                        <img src="${sponsor}" alt="" class="h-full w-full object-fit">
+                                    <div class="h-32 w-32">
+                                        <img src="${sponsor}" alt="" class="h-auto w-full object-scale-down">
                                     </div>
                                 `
                         )

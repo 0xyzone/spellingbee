@@ -35,8 +35,8 @@ document.addEventListener("alpine:init", () => {
 $(document).ready(function () {
     $(".owl-carousel-sponsors").owlCarousel({
         loop: false,
-        nav: true,
-        dots: false,
+        nav: false,
+        dots: true,
         margin: 30,
         autoWidth: true,
         items: 6,

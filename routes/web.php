@@ -35,7 +35,7 @@ Route::get('/demo', function() {
 Route::get('/main', function() {
     $sponsors = Sponsor::all();
     return view('main-demo', [
-        'sponsors' => Sponsor::all()->toArray(),
+        'sponsors' => Sponsor::all(),
     ]);
 });
 

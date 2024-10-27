@@ -53,9 +53,15 @@
                         </p>
                     </div>
                 </div>
-                <a href="{{ route('register') }}" class="mt-5 w-max px-5 py-2 text-base md:text-xl 2xl:text-2xl bg-honey text-neutral-900 animate-bounce rounded-lg shadow-lg hover:bg-lime-600 transform duration-300">
-                    Register Now
-                </a>
+                <div class="flex gap-2 items-center">
+                    <a href="{{ route('register') }}" class="mt-5 w-max px-5 py-2 text-base md:text-xl 2xl:text-2xl bg-honey text-neutral-900 rounded-lg shadow-lg animate-bounce hover:bg-lime-600 transform duration-300">
+                        Register Now
+                    </a>
+                    <p class="text-white py-2 mt-5 ">or</p>
+                    <a href="{{ route('login') }}" class="mt-5 w-max px-5 py-2 text-base md:text-xl 2xl:text-2xl text-honey border border-current rounded-lg shadow-lg hover:bg-honey hover:text-gray-900 transform duration-300">
+                        Login
+                    </a>
+                </div>
             </div>
             <div class="hidden xl:block relative shrink-0">
                 <img src="{{ asset('images/honeybee.png') }}" alt="" class="z-[9999] h-72 md:h-96 2xl:h-[500px] select-none shrink-0" />

@@ -67,9 +67,6 @@
                 <div class="flex flex-col gap-5 justify-between">
                     <ul class="list-none text-sm flex flex-col font-semibold lg:flex-row gap-0">
                         <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
-                            <a href="/src/index.html">Home</a>
-                        </li>
-                        <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
                             <a href="https://evention.top/spellingbee" target="_blank">Evention Master</a>
                         </li>
                         <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">

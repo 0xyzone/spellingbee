@@ -28,18 +28,18 @@
     <x-main-nav></x-main-nav>
     {{ $slot }}
     <x-footer></x-footer>
-    <div id="evention-payment" class="hide">
-        <div class="z-[9999] fixed h-screen w-screen overflow-hidden bg-neutral-900/90 inset-0 backdrop:blur-[40px]">
+    <div id="evention-payment" class="hide backdrop:blur-[140px]">
+        <div class="z-[9999] fixed h-screen w-screen overflow-hidden bg-neutral-900/[0.95] inset-0">
             <div class="grid place-items-center h-full w-full">
-                <div class="flex flex-col items-center gap-3">
+                <div class="flex flex-col items-center gap-3 overflow-visible">
                     <h1 class="text-white text-2xl">Evention Master Private Limited</h1>
                     <div class="h-52 aspect-square bg-white p-3 rounded-lg">
                         <img src="{{ asset('images/evention-qr.jpeg') }}" alt="Evention Payment QR" class="h-full w-full object-scale-down" />
                     </div>
                     <p class="text-gray-300">Terminal: 2222080000600114</p>
                     <p class="text-gray-300">Address: Kathmandu MP</p>
-                    <div class="overflow-hidden">
-                        <button id="close-payment" class="bg-neutral-800 text-white px-5 py-2 rounded-md hover:scale-105 ease-in-out transform duration-150">
+                    <div class="w-auto h-auto hover:scale-105 ease-in-out transform duration-150">
+                        <button id="close-payment" class="bg-neutral-300 text-neutral-900 px-5 py-2 rounded-md">
                             Close
                         </button>
                     </div>

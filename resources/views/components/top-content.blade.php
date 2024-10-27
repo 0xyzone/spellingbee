@@ -4,7 +4,7 @@
             <div class="mt-0 2xl:mt-5 flex flex-col gap-1 max-w-2xl 2xl:max-w-full">
                 <h1 class="z-20 text-[3rem] sm:text-6xl xl:text-[4rem] 2xl:text-[5.5rem] text-[#FFD316] font-aclonica overflow-hidden break-normal hyphens-auto flex-none md:flex-auto leading-tight">
                     SPELLING BEE CHAMPIONSHIP 2024
-                    <span style="position: relative; top: -5px" class="align-middle bg-neutral-900 text-xs lg:text-base py-2 px-5 text-white font-aclonica font-bold">
+                    <span style="position: relative; top: -5px" class="align-middle bg-neutral-900 text-xs lg:text-base py-2 px-2 lg:px-5 text-white font-aclonica font-bold">
                         <span>22<sup>th</sup>&nbsp;Dec.</span>&nbsp;-&nbsp;<span>28<sup>th</sup>&nbsp;Dec. &nbsp;|&nbsp; Kathmandu</span>
                     </span>
                 </h1>

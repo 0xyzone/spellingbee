@@ -7,6 +7,13 @@
         @apply transform-gpu duration-150;
     }
 }
+* {
+    scroll-behavior: smooth;
+}
+
+.hide {
+    display: none;
+}
 
 .nav-items > a {
     @apply text-sm px-4 py-2 rounded-lg bg-honey text-neutral-800 font-semibold font-serif;
@@ -18,7 +25,12 @@ body > section > div {
 .primary-button {
     @apply px-4 py-2 rounded-lg bg-honey hover:bg-[#509926] max-w-max transform duration-300 ease-in-out;
 }
-
+.left-item {
+    transform: translateX(-100%); /* Start off-screen to the left */
+}
+.right-item {
+    transform: translateX(100%); /* Start off-screen to the right */
+}
 .selectize-input {
     background-image: none !important;
     box-shadow: none !important;

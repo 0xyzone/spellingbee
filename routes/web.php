@@ -25,7 +25,7 @@ Route::get('/', function () {
     if(auth()->id()){
         return redirect(route('home'));
     }
-    return view('welcome');
+    return view('main');
 })->name('welcome');
 
 Route::get('/demo', function() {
@@ -34,10 +34,18 @@ Route::get('/demo', function() {
 
 Route::get('/main', function() {
     $sponsors = Sponsor::all();
-    return view('main-demo', [
+    return view('main', [
         'sponsors' => Sponsor::all(),
     ]);
 });
+
+Route::get('/about', function() {
+    return view('about');
+})->name('about');
+
+Route::get('/rules', function() {
+    return view('rules');
+})->name('rules');
 
 Route::get('/dashboard', function () {
     $events = Event::orderBy('id', 'desc')->paginate(3);

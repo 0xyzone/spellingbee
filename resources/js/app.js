@@ -7,31 +7,6 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-document.addEventListener("alpine:init", () => {
-    Alpine.store("accordion", {
-        tab: 0,
-    });
-
-    Alpine.data("accordion", (idx) => ({
-        init() {
-            this.idx = idx;
-        },
-        idx: -1,
-        handleClick() {
-            this.$store.accordion.tab =
-                this.$store.accordion.tab === this.idx ? 0 : this.idx;
-        },
-        handleRotate() {
-            return this.$store.accordion.tab === this.idx ? "rotate-180" : "";
-        },
-        handleToggle() {
-            return this.$store.accordion.tab === this.idx
-                ? `max-height: ${this.$refs.tab.scrollHeight}px`
-                : "";
-        },
-    }));
-});
-
 $(document).ready(function () {
     $(".owl-carousel-sponsors").owlCarousel({
         loop: false,
@@ -46,7 +21,6 @@ $(document).ready(function () {
 // mobile responsive navbar
 const openMobileNavButton = document.getElementById("open-mobile-nav");
 if (openMobileNavButton) {
-    console.log("clicked");
     openMobileNavButton.addEventListener("click", function () {
         document.getElementById("mobile-sidebar").classList.add("show");
     });
@@ -67,3 +41,43 @@ if (closeMobileNavBlankRight) {
         document.getElementById("mobile-sidebar").classList.remove("show");
     });
 }
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".left-item").forEach((leftItem) => {
+    gsap.fromTo(
+        leftItem,
+        { x: -100 },
+        {
+            x: 0,
+            duration: 1.5,
+            // ease: "power2.out",
+            scrollTrigger: {
+                trigger: leftItem,
+                start: "top 80%",
+                end: "top 30%",
+                scrub: 2.5,
+            },
+        }
+    );
+});
+
+gsap.utils.toArray(".right-item").forEach((rightItem) => {
+    gsap.fromTo(
+        rightItem,
+        { x: 100 },
+        {
+            x: 0,
+            duration: 1.5,
+            // ease: "power2.out",
+            scrollTrigger: {
+                trigger: rightItem,
+                start: "top 80%",
+                end: "top 30%",
+                scrub: 2.5,
+            },
+        }
+    );
+});

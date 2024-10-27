@@ -25,7 +25,9 @@ Route::get('/', function () {
     if(auth()->id()){
         return redirect(route('home'));
     }
-    return view('main');
+    return view('main', [
+        'sponsors' => Sponsor::all(),
+    ]);
 })->name('welcome');
 
 Route::get('/demo', function() {

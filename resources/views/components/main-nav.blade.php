@@ -1,13 +1,13 @@
 <nav id="navbar" class="fixed z-[999] w-full top-0 bg-neutral-900 py-3 px-3 lg:px-10">
     <div class="flex justify-between items-center overflow-visible">
-        <div class="flex gap-3">
+        <a href="{{ route('welcome') }}" class="flex gap-3">
             <div class="h-20 w-20 drop-shadow-lg shadow-[#FFD316]">
                 <img src="{{ asset('images/Evention_LOGO.png') }}" alt="" class="h-full w-full object-scale-down" />
             </div>
             <div class="h-20 w-20 bg-white rounded-full p-2">
                 <img src="{{ asset('images/spelling-bee-nepal.png') }}" alt="" class="h-full w-full object-scale-down" />
             </div>
-        </div>
+        </a>
         <div class="relative flex items-center gap-5">
             <div class="hidden lg:inline-block gap-2">
                 <ul class="text-white list-none text-sm flex flex-col lg:flex-row font-bold gap-5 overflow-visible h-auto">
@@ -50,14 +50,14 @@
         <div class="flex w-full h-full">
             <div class="h-full w-80 bg-neutral-900 text-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto">
                 <div class="pb-2 flex justify-between items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50">
-                    <div class="flex gap-3">
+                    <a href="{{ route('welcome') }}" class="flex gap-3">
                         <div class="h-20 w-20">
                             <img src="{{ asset('images/Evention_LOGO.png') }}" alt="" class="h-full w-full object-fit" />
                         </div>
                         <div class="h-20 w-20 bg-white rounded-full p-2">
                             <img src="{{ asset('images/spelling-bee-nepal.png') }}" alt="" class="h-full w-full object-fit" />
                         </div>
-                    </div>
+                    </a>
                     <span id="close-mobile-nav" class="overflow-hidden">
                         <button class="border-none bg-white cursor-pointer text-xl text-red-500">
                             <x-feathericon-x class="w-6 h-6 bg-transparent" />

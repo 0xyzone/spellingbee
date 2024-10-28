@@ -1,9 +1,4 @@
 <x-base>
-    <style>
-        .container li::before {
-            content: "-";
-        }
-    </style>
     <div class="flex-grow h-full bg-neutral-800 select-none">
         <div class="pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36 container mx-auto">
             <h2 class="text-4xl font-bold text-center text-[#FFD50D] mb-14">
@@ -15,7 +10,7 @@
                     <ol class="list-decimal">
                         <h2 class="font-bold">Eligibility:</h2>
                         <p>All spellers must meet the following requirements:</p>
-                        <ul class="list-disc rounded-lg text-neutral-200/80 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
+                        <ul class="!list-disc list-outside rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
                             <li>
                                 Participants must be currently enrolled in class 6 to 10.
                             </li>
@@ -49,7 +44,7 @@
                         </ul>
                         <h2 class="font-bold">Format:</h2>
                         <p>The competition will be conducted in 4 distinct sessions.</p>
-                        <ul class="list-disc list-outside rounded-lg text-neutral-200/80 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
+                        <ul class="list-disc list-outside rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
                             <li>
                                 <span class="font-bold">Preliminaries:</span> This session is
                                 to prepare and introduce participants to the spelling bee
@@ -82,7 +77,7 @@
                 <div class="list-decimal" start="3">
                     <h2 class="font-bold">Official Dictionary and source of words:</h2>
                 </div>
-                <p class= rounded-lg text-neutral-200/80 my-5 px-5 py-2 text-[1rem]">
+                <p class="rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem]">
                     Webster’s Third New International Dictionary and its addenda
                     section, copyright 2002, Merriam Webster, (Webster Third) is the
                     final authority for the spelling of all words. All words given in
@@ -107,7 +102,7 @@
                 <h3 class="text-xl font-bold mb-2 mt-5">
                     WORD BANK (book ) can be collect from:
                 </h3>
-                <ul class="list-disc rounded-lg text-neutral-200/80 my-5 px-5 py-2 text-[1rem]">
+                <ul class="list-disc rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem]">
                     <li>
                         Evention Master, Manamaiju, Tarakeshwor Municipality <a href="tel:9705998433" class="text-honey">(9705998433)</a>
                     </li>

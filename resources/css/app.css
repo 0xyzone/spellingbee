@@ -7,6 +7,13 @@
         @apply transform-gpu duration-150;
     }
 }
+
+@layer base {
+    ul,
+    ol {
+        list-style: revert;
+    }
+}
 * {
     scroll-behavior: smooth;
 }

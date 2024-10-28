@@ -51,7 +51,7 @@
 <div class="lg:hidden">
     <div id="mobile-sidebar" class="fixed top-0 z-[9999] overflow-hidden h-screen w-full bg-black bg-opacity-50">
         <div class="flex w-full h-full">
-            <div class="h-full w-80 bg-neutral-900 text-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto">
+            <div class="h-full w-64 bg-neutral-900/70 backdrop-blur-md text-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto">
                 <div class="pb-2 flex justify-end items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50">
                     {{-- <a href="{{ route('welcome') }}" class="flex gap-3">
                         <div class="h-20 w-20">

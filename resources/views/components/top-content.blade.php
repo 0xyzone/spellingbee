@@ -13,14 +13,15 @@
                     spelling skills and vocabulary knowledge encouraging learning
                     and sharpening language abilities
                 </p>
-                <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
-                    <h1>Alright, knowledge and power:</h1> <br />
-                    <h1>In the hall of champions, Spelling Bee esteemed,</h1>
-                    <h1>Young intellects gather, each a wordsmith deemed.</h1>
-                    <h1>Their minds are sharp, with knowledge they beam,</h1>
-                    <h1>Every word a testament to their scholarly dream.</h1>
-                    <h1>Victory is wisdom, in the academic stream.</h1>
-                </div>
+                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20">
+                    In the hall of champions, Spelling Bee esteemed, <br>
+                    Young intellects gather, each a wordsmith deemed. <br>
+                    Their minds are sharp, with knowledge they beam, <br>
+                    Every word a testament to their scholarly dream. <br>
+                    Victory is wisdom, in the academic stream.
+                </p>
+                {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
+                </div> --}}
 
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0">

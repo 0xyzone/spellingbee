@@ -26,6 +26,9 @@
                     <li class="hover:text-honey transform ease-in-out duration-300">
                         <a href="{{ route('rules') }}">Rules and Regulation</a>
                     </li>
+                    <li class="hover:text-honey transform ease-in-out duration-300">
+                        <a href="{{ route('about') . '#faq' }}">FAQ</a>
+                    </li>
                     {{-- <li>
                         <a href="/src/upcoming-events.html">Upcoming Events</a>
                     </li> --}}
@@ -74,6 +77,8 @@
                         </li>
                         <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
                             <a href="{{ route('rules') }}">Rules and Regulation</a>
+                        </li><li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                            <a href="{{ route('about') . "#faq" }}">FAQ</a>
                         </li>
                         {{-- <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
                             <a href="/src/upcoming-events.html">Upcoming Events</a>

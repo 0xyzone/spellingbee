@@ -28,7 +28,7 @@
 
     </script>
     <div class="bg-neutral-800 text-white flex-grow h-full">
-        <div class="pt-5 md:pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36">
+        <div class="pt-5 md:pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36 container mx-auto">
             <div>
                 <div class="flex flex-col items-center justify-center md:float-right pb-10">
                     <img src="{{ ('/images/spelling-bee-nepal.png') }}" alt="" class="" />
@@ -82,8 +82,8 @@
                 </div>
             </div>
 
-            <div class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div id="faq-section" class="accordion-group order-2 scroll-mt-24" data-accordion="default-accordion">
+            <div id="faq" class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5 scroll-m-40">
+                <div id="faq-section" class="accordion-group order-2" data-accordion="default-accordion">
                     <script>
                         const faqs = [{
                                 question: "What is Spelling Bee Nepal?"

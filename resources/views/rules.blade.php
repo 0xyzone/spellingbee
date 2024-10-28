@@ -1,6 +1,11 @@
 <x-base>
+    <style>
+        .container li::before {
+            content: "-";
+        }
+    </style>
     <div class="flex-grow h-full bg-neutral-800">
-        <div class="pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36">
+        <div class="pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36 container mx-auto">
             <h2 class="text-4xl font-bold text-center text-[#FFD50D] mb-14">
                 Spelling Bee Championship 2024
             </h2>
@@ -8,9 +13,9 @@
                 <div class="zigzag-text font-medium text-lg">
                     <h3 class="text-xl font-bold mb-2">Rule and Regulation:</h3>
                     <ol class="list-decimal">
-                        <li class="font-bold">Eligibility:</li>
+                        <h2 class="font-bold">Eligibility:</h2>
                         <p>All spellers must meet the following requirements:</p>
-                        <ul class="list-disc bg-neutral-950 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
+                        <ul class="list-disc bg-honey/10 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
                             <li>
                                 Participants must be currently enrolled in class 6 to 10.
                             </li>
@@ -42,9 +47,9 @@
                                 any rules of the ‘Spelling Bee Contest’.
                             </li>
                         </ul>
-                        <li class="font-bold">Format:</li>
+                        <h2 class="font-bold">Format:</h2>
                         <p>The competition will be conducted in 4 distinct sessions.</p>
-                        <ul class="list-disc list-outside bg-neutral-950 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
+                        <ul class="list-disc list-outside bg-honey/10 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem] flex flex-col gap-2">
                             <li>
                                 <span class="font-bold">Preliminaries:</span> This session is
                                 to prepare and introduce participants to the spelling bee
@@ -74,10 +79,10 @@
                 </div>
             </div>
             <div class=" text-full-width font-medium text-lg text-white">
-                <ol class="list-decimal" start="3">
-                    <li class="font-bold">Official Dictionary and source of words:</li>
-                </ol>
-                <p class="bg-neutral-950 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem]">
+                <div class="list-decimal" start="3">
+                    <h2 class="font-bold">Official Dictionary and source of words:</h2>
+                </div>
+                <p class="bg-honey/10 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem]">
                     Webster’s Third New International Dictionary and its addenda
                     section, copyright 2002, Merriam Webster, (Webster Third) is the
                     final authority for the spelling of all words. All words given in
@@ -102,12 +107,16 @@
                 <h3 class="text-xl font-bold mb-2 mt-5">
                     WORD BANK (book ) can be collect from:
                 </h3>
-                <ul class="list-disc bg-neutral-950 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem]">
+                <ul class="list-disc bg-honey/10 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem]">
                     <li>
                         Evention Master, Manamaiju, Tarakeshwor Municipality <a href="tel:9705998433" class="text-honey">(9705998433)</a>
                     </li>
-                    <li>Patan Dhoka, Lalitpur <a href="tel:9841078207" class="text-honey">(9841078207)</a></li>
-                    <li>Precious, Sorhakhutte, Kathmandu <a href="tel:014-4980405" class="text-honey">(014-4980405)</a></li>
+                    <li>
+                        Patan Dhoka, Lalitpur <a href="tel:9841078207" class="text-honey">(9841078207)</a>
+                    </li>
+                    <li>
+                        Precious, Sorhakhutte, Kathmandu <a href="tel:014-4980405" class="text-honey">(014-4980405)</a>
+                    </li>
                     <li>
                         Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9843369865" class="text-honey">(9843369865)</a>
                     </li>

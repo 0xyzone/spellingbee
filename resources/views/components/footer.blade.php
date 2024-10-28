@@ -30,7 +30,7 @@
             <h1 class="text-sm">© 2024 Evention Master | Spelling Bee 2024</h1>
             <div class="text-sm flex gap-2 items-center">
                 <h2 class="z-10">Connet with us: </h2>
-                <a href="#" target="_blank" class="hover:text-honey z-10">
+                <a href="https://fb.com/spellingbee.asia" target="_blank" class="hover:text-honey z-10">
                     <x-fab-facebook class="w-6 h-6"/>
                 </a>
                 <a href="https://www.instagram.com/eventionmaster/" target="_blank" class="hover:text-honey z-10">

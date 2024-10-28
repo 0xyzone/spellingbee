@@ -52,21 +52,7 @@
     <div id="mobile-sidebar" class="fixed top-0 z-[9999] overflow-hidden h-screen w-full bg-black bg-opacity-50">
         <div class="flex w-full h-full">
             <div class="h-full w-64 bg-neutral-900/70 backdrop-blur-md text-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto">
-                <div class="pb-2 flex justify-end items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50">
-                    {{-- <a href="{{ route('welcome') }}" class="flex gap-3">
-                        <div class="h-20 w-20">
-                            <img src="{{ asset('images/Evention_LOGO.png') }}" alt="" class="h-full w-full object-fit" />
-                        </div>
-                        <div class="h-20 w-20 bg-white rounded-full p-2">
-                            <img src="{{ asset('images/spelling-bee-nepal.png') }}" alt="" class="h-full w-full object-fit" />
-                        </div>
-                    </a> --}}
-                    <span id="close-mobile-nav" class="overflow-hidden">
-                        <button class="border-none cursor-pointer text-xl text-white">
-                            <x-feathericon-x class="w-6 h-6 bg-transparent" />
-                        </button>
-                    </span>
-                </div>
+                <div class="pb-2 flex justify-end items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50"></div>
                 <div class="flex flex-col gap-5 justify-between">
                     <ul class="list-none text-sm flex flex-col font-semibold lg:flex-row gap-0">
                         <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
@@ -77,7 +63,8 @@
                         </li>
                         <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
                             <a href="{{ route('rules') }}">Rules and Regulation</a>
-                        </li><li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
+                        </li>
+                        <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
                             <a href="{{ route('about') . "#faq" }}">FAQ</a>
                         </li>
                         {{-- <li class="px-2 py-2 hover:bg-gray-200 transform ease-in-out duration-150 w-full">
@@ -87,6 +74,8 @@
                             <button id="payment-button-mb">Payment</button>
                         </li>
                     </ul>
+                    <div class="pb-2 flex justify-end items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50"></div>
+                    <img src="{{ asset('images/sbn2024.png') }}" alt="" class="w-40 mx-auto">
                 </div>
                 <div class="flex-grow"></div>
             </div>

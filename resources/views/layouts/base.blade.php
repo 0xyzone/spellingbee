@@ -28,10 +28,44 @@
     <x-main-nav></x-main-nav>
     {{ $slot }}
     <x-footer></x-footer>
-    <div id="evention-payment" class="hide backdrop:blur-[140px]">
-        <div class="z-[9999] fixed h-screen w-screen overflow-hidden bg-neutral-900/[0.95] inset-0">
+    <div id="evention-payment" class="hide">
+        <div class="z-[9999] fixed h-screen w-screen overflow-hidden inset-0">
             <div class="grid place-items-center h-full w-full">
-                <div class="flex flex-col items-center gap-3 overflow-visible">
+                <style>
+                    .fadeInTop {
+                        animation: fadeInTop 0.3s forwards;
+                    }
+
+                    @keyframes fadeInTop {
+                        0% {
+                            transform: translateY(150px);
+                            opacity: 0;
+                        }
+
+                        100% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+                    }
+
+                    .fadeOutBottom {
+                        animation: fadeOutBottom 0.3s forwards;
+                    }
+
+                    @keyframes fadeOutBottom {
+                        0% {
+                            transform: translateY(0);
+                            opacity: 1;
+                        }
+
+                        100% {
+                            transform: translateY(150px);
+                            opacity: 0;
+                        }
+                    }
+
+                </style>
+                <div id="model" class="flex flex-col items-center gap-3 overflow-visible bg-neutral-900/90 backdrop-blur-lg p-10 rounded-md shadow-xl shadow-honey/50 fadeInTop">
                     <h1 class="text-white text-2xl">Evention Master Private Limited</h1>
                     <div class="h-52 aspect-square bg-white p-3 rounded-lg">
                         <img src="{{ asset('images/evention-qr.jpeg') }}" alt="Evention Payment QR" class="h-full w-full object-scale-down" />
@@ -51,19 +85,30 @@
         const paymentButton = document.getElementById("payment-button");
         const paymentButtonMb = document.getElementById("payment-button-mb");
         const paymentElement = document.getElementById("evention-payment");
+        const paymentModel = document.getElementById("model");
         const closePaymentButton = document.getElementById("close-payment");
 
         paymentButton.addEventListener("click", () => {
             paymentElement.classList.remove("hide");
+            paymentModel.classList.remove("fadeOutBottom");
+            paymentModel.classList.add("fadeInTop");
             document.body.style.overflow = "hidden";
         });
         paymentButtonMb.addEventListener("click", () => {
             paymentElement.classList.remove("hide");
+            paymentModel.classList.remove("fadeOutBottom");
+            paymentModel.classList.add("fadeInTop");
             document.body.style.overflow = "hidden";
         });
         closePaymentButton.addEventListener("click", () => {
-            paymentElement.classList.add("hide");
-            document.body.style.overflow = "";
+            paymentModel.classList.remove("fadeInTop");
+            paymentModel.classList.add("fadeOutBottom");
+            
+            setTimeout(() => {
+                paymentElement.classList.add("hide");
+                document.body.style.overflow = "";
+                paymentModel.classList.remove("fadeOutBottom");
+            }, 300);
         });
 
     </script>

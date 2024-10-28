@@ -112,7 +112,6 @@
                         Capture Photography Studio, Old Baneshwor, Kathmandu @
                         (9843369865)
                     </li>
-                    <li>Radhe Radhe Stationary, Thimi, Bhaktapur</li>
                 </ul>
             </div>
         </div>

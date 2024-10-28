@@ -49,17 +49,17 @@
     <div id="mobile-sidebar" class="fixed top-0 z-[9999] overflow-hidden h-screen w-full bg-black bg-opacity-50">
         <div class="flex w-full h-full">
             <div class="h-full w-80 bg-neutral-900 text-white px-3 pt-3 pb-5 flex flex-col gap-5 overflow-y-auto">
-                <div class="pb-2 flex justify-between items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50">
-                    <a href="{{ route('welcome') }}" class="flex gap-3">
+                <div class="pb-2 flex justify-end items-center border-b border-solid border-x-0 border-t-0 border-b-blue/50">
+                    {{-- <a href="{{ route('welcome') }}" class="flex gap-3">
                         <div class="h-20 w-20">
                             <img src="{{ asset('images/Evention_LOGO.png') }}" alt="" class="h-full w-full object-fit" />
                         </div>
                         <div class="h-20 w-20 bg-white rounded-full p-2">
                             <img src="{{ asset('images/spelling-bee-nepal.png') }}" alt="" class="h-full w-full object-fit" />
                         </div>
-                    </a>
+                    </a> --}}
                     <span id="close-mobile-nav" class="overflow-hidden">
-                        <button class="border-none bg-white cursor-pointer text-xl text-red-500">
+                        <button class="border-none cursor-pointer text-xl text-white">
                             <x-feathericon-x class="w-6 h-6 bg-transparent" />
                         </button>
                     </span>

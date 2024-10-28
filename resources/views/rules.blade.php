@@ -104,13 +104,12 @@
                 </h3>
                 <ul class="list-disc bg-neutral-950 rounded-lg text-neutral-200 my-5 px-5 py-2 text-[1rem]">
                     <li>
-                        Evention Master, Manamaiju, Tarakeshwor Municipality (9705998433)
+                        Evention Master, Manamaiju, Tarakeshwor Municipality <a href="tel:9705998433" class="text-honey">(9705998433)</a>
                     </li>
-                    <li>Patan Dhoka, Lalitpur (9841078207)</li>
-                    <li>Precious, Sorhakhutte, Kathmandu (014-4980405)</li>
+                    <li>Patan Dhoka, Lalitpur <a href="tel:9841078207" class="text-honey">(9841078207)</a></li>
+                    <li>Precious, Sorhakhutte, Kathmandu <a href="tel:014-4980405" class="text-honey">(014-4980405)</a></li>
                     <li>
-                        Capture Photography Studio, Old Baneshwor, Kathmandu @
-                        (9843369865)
+                        Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9843369865" class="text-honey">(9843369865)</a>
                     </li>
                 </ul>
             </div>

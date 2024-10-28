@@ -82,7 +82,7 @@
                 </div>
             </div>
 
-            <div id="faq" class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5 scroll-m-40">
+            <div id="faq" class="my-10 grid grid-cols-1 md:grid-cols-2 gap-5 scroll-mt-40">
                 <div id="faq-section" class="accordion-group order-2" data-accordion="default-accordion">
                     <script>
                         const faqs = [{

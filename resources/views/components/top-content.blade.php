@@ -14,10 +14,10 @@
                     and sharpening language abilities
                 </p>
                 <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20">
-                    In the hall of champions, Spelling Bee esteemed, <br>
-                    Young intellects gather, each a wordsmith deemed. <br>
-                    Their minds are sharp, with knowledge they beam, <br>
-                    Every word a testament to their scholarly dream. <br>
+                    In the hall of champions, Spelling Bee esteemed,
+                    Young intellects gather, each a wordsmith deemed.
+                    Their minds are sharp, with knowledge they beam,
+                    Every word a testament to their scholarly dream.
                     Victory is wisdom, in the academic stream.
                 </p>
                 {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">

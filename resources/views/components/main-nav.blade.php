@@ -1,7 +1,7 @@
 <nav id="navbar" class="fixed z-[999] w-full top-0 bg-neutral-900 py-3 px-3 lg:px-10">
     <div class="flex justify-between items-center overflow-visible">
         <a href="{{ route('welcome') }}" class="flex gap-3">
-            <div class="h-20 w-20">
+            <div class="h-20 w-20 p-[0.4rem]">
                 <img src="{{ asset('images/sbn2024.png') }}" alt="" class="h-full w-full object-scale-down" />
             </div>
             <div class="h-20 w-20 drop-shadow-lg shadow-[#FFD316]">
@@ -10,7 +10,7 @@
         </a>
         <div class="relative flex items-center gap-5">
             <div class="hidden lg:inline-block gap-2">
-                <ul class="text-white list-none text-sm flex flex-col lg:flex-row font-bold gap-5 overflow-visible h-auto">
+                <ul class="text-white list-none text-xl flex flex-col lg:flex-row font-bold gap-10 overflow-visible h-auto">
                     <li class="hover:text-honey transform ease-in-out duration-300">
                         <a href="https://evention.top/spellingbee" target="_blank" class="group flex gap-2 items-center">
                             <span class="group-hover:inline hidden"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">

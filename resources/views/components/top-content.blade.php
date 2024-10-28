@@ -8,12 +8,12 @@
                         <span>22<sup>th</sup>&nbsp;Dec.</span>&nbsp;-&nbsp;<span>28<sup>th</sup>&nbsp;Dec. &nbsp;|&nbsp; Kathmandu</span>
                     </span>
                 </h1>
-                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl">
+                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl text-justify">
                     An exciting competition where participants can showcase their
                     spelling skills and vocabulary knowledge encouraging learning
-                    and sharpening language abilities
+                    and sharpening language abilities.
                 </p>
-                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl">
+                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl text-justify">
                     In the hall of champions, Spelling Bee esteemed,
                     Young intellects gather, each a wordsmith deemed.
                     Their minds are sharp, with knowledge they beam,

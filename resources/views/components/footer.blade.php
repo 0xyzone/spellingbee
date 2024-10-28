@@ -1,7 +1,7 @@
 <footer class="relative overflow-hidden">
     <div class="bg-neutral-900 text-gray-300 w-full pt-10 pb-5 px-5 sm:px-10 lg:px-20 2xl:px-36">
-        <div class="flex gap-4 flex-col lg:flex-row border-2 border-x-0 border-t-0 ">
-            <img src="{{ asset('images/Evention_Master_logo.png') }}" alt="" class="max-w-sm object-scale-down">
+        <div class="flex gap-4 lg:gap-8 flex-col lg:flex-row border-2 border-x-0 border-t-0 ">
+            <img src="{{ asset('images/Evention_Master_logo.png') }}" alt="" class="max-w-lg object-scale-down">
             <div class="pb-5 border-current">
                 <h1 class="text-xl font-extrabold">Connect With Us</h1>
                 <div class="mt-5 flex flex-col font-semibold gap-3">

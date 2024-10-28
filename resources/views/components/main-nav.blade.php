@@ -1,7 +1,7 @@
 <nav id="navbar" class="fixed z-[999] w-full top-0 bg-neutral-900 py-3 px-3 lg:px-10">
     <div class="flex justify-between items-center overflow-visible">
         <a href="{{ route('welcome') }}" class="flex gap-3">
-            <div class="h-20 w-20 bg-white rounded-full p-2">
+            <div class="h-20 w-20">
                 <img src="{{ asset('images/sbn2024.png') }}" alt="" class="h-full w-full object-scale-down" />
             </div>
             <div class="h-20 w-20 drop-shadow-lg shadow-[#FFD316]">

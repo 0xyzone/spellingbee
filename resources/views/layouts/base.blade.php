@@ -65,7 +65,7 @@
                     }
 
                 </style>
-                <div id="model" class="flex flex-col items-center gap-3 overflow-visible bg-neutral-900/90 backdrop-blur-lg p-10 rounded-md shadow-xl shadow-honey/50 fadeInTop">
+                <div id="model" class="flex flex-col items-center gap-3 overflow-visible bg-neutral-900/90 backdrop-blur-lg p-10 lg:p-40 rounded-md shadow-xl shadow-honey/50 fadeInTop">
                     <h1 class="text-white text-2xl">Evention Master Private Limited</h1>
                     <div class="h-52 aspect-square bg-white p-3 rounded-lg">
                         <img src="{{ asset('images/evention-qr.jpeg') }}" alt="Evention Payment QR" class="h-full w-full object-scale-down" />

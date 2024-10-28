@@ -2,7 +2,7 @@
     <div class="flex justify-between items-center overflow-visible">
         <a href="{{ route('welcome') }}" class="flex gap-3">
             <div class="h-20 w-20 bg-white rounded-full p-2">
-                <img src="{{ asset('images/spelling-bee-nepal.png') }}" alt="" class="h-full w-full object-scale-down" />
+                <img src="{{ asset('images/sbn2024.png') }}" alt="" class="h-full w-full object-scale-down" />
             </div>
             <div class="h-20 w-20 drop-shadow-lg shadow-[#FFD316]">
                 <img src="{{ asset('images/Evention_LOGO.png') }}" alt="" class="h-full w-full object-scale-down" />

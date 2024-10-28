@@ -13,7 +13,7 @@
                     spelling skills and vocabulary knowledge encouraging learning
                     and sharpening language abilities
                 </p>
-                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20">
+                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl">
                     In the hall of champions, Spelling Bee esteemed,
                     Young intellects gather, each a wordsmith deemed.
                     Their minds are sharp, with knowledge they beam,

@@ -135,7 +135,7 @@
                             , }
                             , {
                                 question: "What should participants wear for the competition?"
-                                , answer: "Participants are encouraged to wear their school uniforms or formal attire during the competition. Comfortable clothing is recommended, as the event may last several hours."
+                                , answer: "Participants are encouraged to wear formal attire during the competition. Comfortable clothing is recommended, as the event may last several hours."
                             , }
                             , {
                                 question: "Is there a fee to participate in Spelling Bee Nepal?"

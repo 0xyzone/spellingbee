@@ -43,7 +43,7 @@
                 <a href="https://fb.com/spellingbee.asia" target="_blank" class="hover:text-honey z-10">
                     <x-fab-facebook class="w-6 h-6" />
                 </a>
-                <a href="https://www.instagram.com/eventionmaster/" target="_blank" class="hover:text-honey z-10">
+                <a href="https://www.instagram.com/spellingbee.asia/" target="_blank" class="hover:text-honey z-10">
                     <x-fab-instagram-square class="w-6 h-6" />
                 </a>
             </div>

@@ -102,7 +102,7 @@
                 <h3 class="text-xl font-bold mb-2 mt-5">
                     WORD BANK (book ) can be collect from:
                 </h3>
-                <ul class="list-disc rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem]">
+                <ul class="list-disc rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem] select-text">
                     <li>
                         Evention Master, Manamaiju, Tarakeshwor Municipality <a href="tel:9705998433" class="text-honey">(9705998433)</a>
                     </li>
@@ -113,7 +113,7 @@
                         Precious, Sorhakhutte, Kathmandu <a href="tel:014-4980405" class="text-honey">(014-4980405)</a>
                     </li>
                     <li>
-                        Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9843369865" class="text-honey">(9843369865)</a>
+                        Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9709605400" class="text-honey">(9709605400)</a>
                     </li>
                 </ul>
             </div>

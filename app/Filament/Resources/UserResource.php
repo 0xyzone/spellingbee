@@ -62,7 +62,7 @@ class UserResource extends Resource
                     ->searchable(),
                 // Tables\Columns\TextColumn::make('username')
                 //     ->searchable(),
-                Tables\Columns\TextColumn::make('dateOfBirth')
+                Tables\Columns\TextColumn::make('date_of_birth')
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_number')

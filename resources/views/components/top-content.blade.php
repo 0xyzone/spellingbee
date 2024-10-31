@@ -23,33 +23,48 @@
                 {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
                 </div> --}}
                 <script>
-                    const firstDate = "01/11/2024";
+                    const firstDate = "31/10/2024";
                     const secondDate = "15/11/2024";
                     const thirdDate = "05/12/2024";
 
-                    var today = "{{ date('d/m/Y', strtotime(today())) }}";
+                    const today = new Date();
+                    const todayFormatted = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
 
-                    $(document).ready( function() {
-                        if (today > firstDate){
-                            $("#first").addClass("line-through opacity-30")
+                    // Function to convert date strings (dd/mm/yyyy) to Date objects for comparison
+                    function parseDate(dateString) {
+                        const [day, month, year] = dateString.split('/');
+                        return new Date(`${year}-${month}-${day}`);
+                    }
+
+                    $(document).ready(function() {
+                        const todayDate = parseDate(todayFormatted);
+                        const firstDateObj = parseDate(firstDate);
+                        const secondDateObj = parseDate(secondDate);
+                        const thirdDateObj = parseDate(thirdDate);
+
+                        // Apply line-through and opacity if today's date is past the respective dates
+                        if (todayDate > firstDateObj) {
+                            $("#first").addClass("line-through opacity-10");
+                            $("#first").removeClass("animate-pulse");
+                            $("#second").addClass("animate-pulse");
                         }
 
-                        if (today > secondDate){
-                            $("#second").addClass("line-through opacity-30")
+                        if (todayDate > secondDateObj) {
+                            $("#second").addClass("line-through opacity-10");
+                            $("#second").removeClass("animate-pulse");
+                            $("#third").addClass("animate-pulse");
                         }
 
-                        if (today > thirdDate){
-                            $("#third").addClass("line-through opacity-30")
+                        if (todayDate > thirdDateObj) {
+                            $("#third").addClass("line-through opacity-10");
+                            $("#third").removeClass("animate-pulse");
                         }
-                        console.log(firstDate);
-                        console.log(secondDate);
-                        console.log(thirdDate);
-                        console.log(today);
                     })
+
                 </script>
 
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div id="first" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line">
+                    <div id="first" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line animate-pulse">
                         <p class="font-bold text-sm sm:text-base">1st Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start overflow-hidden">Rs.</span><span class="overflow-hidden">300</span><span class="text-xl self-end">.00</span>

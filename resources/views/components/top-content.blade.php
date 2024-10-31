@@ -23,15 +23,23 @@
                 {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
                 </div> --}}
                 <script>
-                    const firstDate = "{{ date('d/m/Y', 01/11/2024) }}";
+                    const firstDate = "01/11/2024";
                     const secondDate = "15/11/2024";
                     const thirdDate = "05/12/2024";
 
                     var today = "{{ date('d/m/Y', strtotime(today())) }}";
 
                     $(document).ready( function() {
-                        if (firstDate > today){
-                            console.log('today is greater')
+                        if (today > firstDate){
+                            $("#first").addClass("line-through opacity-30")
+                        }
+
+                        if (today > secondDate){
+                            $("#second").addClass("line-through opacity-30")
+                        }
+
+                        if (today > thirdDate){
+                            $("#third").addClass("line-through opacity-30")
                         }
                         console.log(firstDate);
                         console.log(secondDate);
@@ -41,7 +49,7 @@
                 </script>
 
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line line-through opacity-30">
+                    <div id="first" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line">
                         <p class="font-bold text-sm sm:text-base">1st Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start overflow-hidden">Rs.</span><span class="overflow-hidden">300</span><span class="text-xl self-end">.00</span>
@@ -51,7 +59,7 @@
                         </p>
                     </div>
 
-                    <div class="h-max bg-neutral-800 flex flex-col rounded-lg p-4 items-center text-white">
+                    <div id="second" class="h-max bg-neutral-800 flex flex-col rounded-lg p-4 items-center text-white">
                         <p class="font-bold text-sm sm:text-base">2nd Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">500</span><span class="text-xl self-end">.00</span>
@@ -61,7 +69,7 @@
                         </p>
                     </div>
 
-                    <div class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center">
+                    <div id="third" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center">
                         <p class="font-bold text-sm sm:text-base">3rd Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">1000</span><span class="text-xl self-end">.00</span>

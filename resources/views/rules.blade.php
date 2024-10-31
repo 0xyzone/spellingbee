@@ -100,7 +100,7 @@
                     details
                 </h3>
                 <h3 class="text-xl font-bold mb-2 mt-16 leading-10">
-                    WORD BANK (book ) can be collect from:
+                    WORD BANK (book) can be collect from:
                     <span class="px-3 py-2 bg-honey/50 rounded-lg font-normal w-max text-sm inline">
                         <x-fas-info-circle class="w-4 h-4 inline" /> Click on the number below to make a call</span>
                 </h3>

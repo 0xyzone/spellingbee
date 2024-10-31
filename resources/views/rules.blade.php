@@ -112,7 +112,7 @@
                         Patan Dhoka, Lalitpur <a href="tel:9841078207" class="text-honey">(9841078207)</a>
                     </li>
                     <li>
-                        Precious, Sorhakhutte, Kathmandu <span class="text-honey">(<a href="tel:0144980405">0144980405</a> , <a href="tel:015916384">015916384</a>)</span>
+                        Precious, Sorhakhutte, Kathmandu <span class="text-honey">(<a href="tel:0144980405">014980405</a> , <a href="tel:015916384">015916384</a>)</span>
                     </li>
                     <li>
                         Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9709605400" class="text-honey">(9709605400)</a>

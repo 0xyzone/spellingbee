@@ -22,9 +22,26 @@
                 </p>
                 {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
                 </div> --}}
+                <script>
+                    const firstDate = "{{ date('d/m/Y', 01/11/2024) }}";
+                    const secondDate = "15/11/2024";
+                    const thirdDate = "05/12/2024";
+
+                    var today = "{{ date('d/m/Y', strtotime(today())) }}";
+
+                    $(document).ready( function() {
+                        if (firstDate > today){
+                            console.log('today is greater')
+                        }
+                        console.log(firstDate);
+                        console.log(secondDate);
+                        console.log(thirdDate);
+                        console.log(today);
+                    })
+                </script>
 
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0">
+                    <div class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line line-through opacity-30">
                         <p class="font-bold text-sm sm:text-base">1st Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start overflow-hidden">Rs.</span><span class="overflow-hidden">300</span><span class="text-xl self-end">.00</span>

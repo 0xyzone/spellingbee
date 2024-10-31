@@ -99,10 +99,12 @@
                     *Note: More information you will get inside WORD BANK book in
                     details
                 </h3>
-                <h3 class="text-xl font-bold mb-2 mt-5">
+                <h3 class="text-xl font-bold mb-2 mt-16 leading-10">
                     WORD BANK (book ) can be collect from:
+                    <span class="px-3 py-2 bg-honey/50 rounded-lg font-normal w-max text-sm inline">
+                        <x-fas-info-circle class="w-4 h-4 inline" /> Click on the number below to make a call</span>
                 </h3>
-                <ul class="list-disc rounded-lg text-neutral-400 my-5 px-5 py-2 text-[1rem] select-text">
+                <ul class="list-disc rounded-lg text-neutral-400 mt-2 mb-5 px-5 py-2 text-[1rem] select-text">
                     <li>
                         Evention Master, Manamaiju, Tarakeshwor Municipality <a href="tel:9705998433" class="text-honey">(9705998433)</a>
                     </li>
@@ -110,7 +112,7 @@
                         Patan Dhoka, Lalitpur <a href="tel:9841078207" class="text-honey">(9841078207)</a>
                     </li>
                     <li>
-                        Precious, Sorhakhutte, Kathmandu <a href="tel:014-4980405" class="text-honey">(014-4980405)</a>
+                        Precious, Sorhakhutte, Kathmandu <span class="text-honey">(<a href="tel:0144980405">0144980405</a> , <a href="tel:015916384">015916384</a>)</span>
                     </li>
                     <li>
                         Capture Photography Studio, Old Baneshwor, Kathmandu <a href="tel:9709605400" class="text-honey">(9709605400)</a>

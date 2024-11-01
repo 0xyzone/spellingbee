@@ -21,6 +21,10 @@ use App\Filament\Resources\RegistrationResource\Pages;
 
 class RegistrationResource extends Resource
 {
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $model = Registration::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';
@@ -136,11 +140,19 @@ class RegistrationResource extends Resource
                 // ->exporter(RegistrationExporter::class)
                 ExportAction::make()->exports([
                     ExcelExport::make('table')->fromTable()->only([
-                        'user.id', 'user.name', 'user.school', 'user.age', 'user.contact_number', 'user.address', 'user.representative_name','user.representative_number','user.representative_relationship'
+                        'user.id',
+                        'user.name',
+                        'user.school',
+                        'user.age',
+                        'user.contact_number',
+                        'user.address',
+                        'user.representative_name',
+                        'user.representative_number',
+                        'user.representative_relationship'
                     ])->withColumns([
-                        Column::make('age')
-                        ->formatStateUsing(fn ($record) => $record->user->age())
-                    ])
+                                Column::make('age')
+                                    ->formatStateUsing(fn($record) => $record->user->age())
+                            ])
                         ->askForFilename()
                         ->askForWriterType(),
                 ])

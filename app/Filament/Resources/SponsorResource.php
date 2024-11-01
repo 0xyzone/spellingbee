@@ -17,6 +17,10 @@ use App\Filament\Resources\SponsorResource\RelationManagers;
 
 class SponsorResource extends Resource
 {
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $model = Sponsor::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-sun';

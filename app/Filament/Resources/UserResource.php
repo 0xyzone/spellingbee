@@ -15,6 +15,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class UserResource extends Resource
 {
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('id', '!=', 1)->count();
+    }
     protected static ?string $model = User::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
@@ -33,16 +37,16 @@ class UserResource extends Resource
                     ->disabledOn('edit')
                     ->maxLength(125),
                 Forms\Components\TextInput::make('username')
-                ->disabled(fn ($state): bool => $state != null ? true : false)
-                ->required()
+                    ->disabled(fn($state): bool => $state != null ? true : false)
+                    ->required()
                     ->maxLength(125),
                 Forms\Components\DatePicker::make('date_of_birth')
-                ->required(),
+                    ->required(),
                 Forms\Components\TextInput::make('contact_number')
-                ->required()
+                    ->required()
                     ->tel(),
                 Forms\Components\Textarea::make('address')
-                ->autosize()
+                    ->autosize()
                     ->columnSpanFull(),
             ]);
     }
@@ -52,8 +56,8 @@ class UserResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->searchable()
-                ->sortable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('roles.name'),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()

@@ -22,6 +22,10 @@ use App\Filament\Resources\EventResource\RelationManagers;
 
 class EventResource extends Resource
 {
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
     protected static ?string $model = Event::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-trophy';

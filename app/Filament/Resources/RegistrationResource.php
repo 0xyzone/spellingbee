@@ -78,6 +78,14 @@ class RegistrationResource extends Resource
                     ->sortable(),
                 Tables\Columns\ImageColumn::make('user.avatar.user_avatar_path')
                     ->simpleLightbox(),
+                Tables\Columns\SelectColumn::make('status')
+                    ->options([
+                        'pending' => 'Pending',
+                        'declined' => 'Declined',
+                        'approved' => 'Approved',
+                    ])
+                    ->disablePlaceholderSelection()
+                    ->extraAttributes(['class' => 'min-w-max']),
                 Tables\Columns\TextColumn::make('user.id')
                     ->label('#')
                     ->searchable()
@@ -111,14 +119,6 @@ class RegistrationResource extends Resource
                     ->label('Representative Number'),
                 Tables\Columns\TextColumn::make('user.representative_relationship')
                     ->label('Representative Relationship'),
-                Tables\Columns\SelectColumn::make('status')
-                    ->options([
-                        'pending' => 'Pending',
-                        'declined' => 'Declined',
-                        'approved' => 'Approved',
-                    ])
-                    ->disablePlaceholderSelection()
-                    ->extraAttributes(['class' => 'min-w-max']),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -108,6 +108,10 @@
                 <img src="{{ asset('images/honeybee.png') }}" alt="" class="z-[9999] h-72 md:h-96 2xl:h-[500px] select-none shrink-0" />
             </div>
         </div>
+        <div class="bg-honey rounded-lg mt-4 max-w-5xl flex flex-col gap-1 items-center p-1 pb-3">
+            <h2 class="text-center text-xs lg:text-xl">Confused on how to register? Check out the video below!</h2>
+            <iframe class="border-2 rounded-lg border-honey w-[95%] lg:w-[98%] aspect-video" src="https://www.youtube.com/embed/u5ZYI15SBjQ?si=mrQJ2w7jfWJ4bE1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
     </div>
     <div class="separator"></div>
     <div class="mt-0 bg-black px-5 sm:px-10 lg:px-24 xl:px-52 py-10 sm:py-4">

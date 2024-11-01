@@ -75,6 +75,7 @@ class RegistrationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                 ->label('Registration Id')
+                ->alignRight()
                 ->searchable(isIndividual: true),
                 Tables\Columns\TextColumn::make('event.name')
                     ->searchable()

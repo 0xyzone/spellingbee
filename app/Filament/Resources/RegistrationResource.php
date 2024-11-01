@@ -75,7 +75,7 @@ class RegistrationResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                 ->label('Reg. Id')
-                ->searchabel(isIndividual: true),
+                ->searchable(isIndividual: true),
                 Tables\Columns\TextColumn::make('event.name')
                     ->searchable()
                     ->sortable(),

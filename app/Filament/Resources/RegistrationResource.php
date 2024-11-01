@@ -74,7 +74,8 @@ class RegistrationResource extends Resource
             ->defaultSort('id','desc')
             ->columns([
                 Tables\Columns\TextColumn::make('id')
-                ->label('Reg. Id'),
+                ->label('Reg. Id')
+                ->searchabel(isIndividual: true),
                 Tables\Columns\TextColumn::make('event.name')
                     ->searchable()
                     ->sortable(),

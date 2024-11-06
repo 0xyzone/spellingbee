@@ -48,6 +48,8 @@ class UserResource extends Resource
                 Forms\Components\Textarea::make('address')
                     ->autosize()
                     ->columnSpanFull(),
+                    Forms\Components\Select::make('roles')
+                    ->relationship('roles', 'name')
             ]);
     }
 
@@ -86,6 +88,7 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
+                Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

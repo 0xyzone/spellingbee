@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form wire:submit.prevent="save" class="mt-6 space-y-6" enctype="multipart/form-data" @updated="$refresh">
+    <form wire:submit="save" class="mt-6 space-y-6" enctype="multipart/form-data" @updated="$refresh">
         <div class="flex gap-4">
             @if(!$file && !auth()->user()->avatar)
             <label for="file" class="block !w-max">
@@ -37,7 +37,7 @@
                 <button wire:click="removeImage" class="absolute top-2 right-2 bg-red-500 rounded-full px-1"><i class="far fa-circle-xmark text-white"></i></button>
                 @endif
             </div>
-            <input type="file" id="file" wire:model="file" wire:change="previewFile" hidden wire:ref="fileInput">
+            <input type="file" id="file" wire:model.live="file" wire:change="previewFile" hidden wire:ref="fileInput">
         </div>
 
         <div class="flex items-center gap-4">

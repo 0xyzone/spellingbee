@@ -25,6 +25,7 @@ class ParticipantPanelProvider extends PanelProvider
         return $panel
             ->id('participant')
             ->path('participant')
+            ->profile()
             ->colors([
                 'primary' => Color::Amber,
             ])

@@ -25,17 +25,23 @@ class PaymentResource extends Resource
             ->schema([
                 Forms\Components\Select::make('registration_id')
                     ->relationship('registration', 'id')
-                    ->required(),
+                    ->required()
+                    ->searchable()
+                    ->preload(),
                 Forms\Components\Select::make('status')
                     ->required()
                     ->options([
-                        
-                    ]),
+                        'pending' => 'Pending',
+                        'paid' => 'Paid',
+                        'partially_paid' => 'Partially Paid'
+                    ])
+                    ->default('pending'),
                 Forms\Components\TextInput::make('amount')
                     ->numeric(),
                 Forms\Components\FileUpload::make('proof_path')
                     ->image()
-                    ->directory('images/payment_proof'),
+                    ->directory('images/payment_proof')
+                    ->label('Proof/Receipt Image'),
                 Forms\Components\DatePicker::make('payment_date'),
             ]);
     }

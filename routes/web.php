@@ -9,6 +9,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\MyRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,7 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('/events', EventController::class)->only('index');
+    Route::get('myRegs', [MyRegistrationController::class, 'index'])->name('myRegistrations');
 });
 
 Route::resource('/events', EventController::class)->only('show');

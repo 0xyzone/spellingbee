@@ -93,7 +93,7 @@
 
             <div>
                 <x-input-label for="contact_number" :value="__('Contact Number')" />
-                <x-text-input id="contact_number" name="contact_number" type="text" class="mt-1 block w-full" :value="old('contact_number', $user->contact_number)" required />
+                <x-text-input id="contact_number" name="contact_number" type="number" class="mt-1 block w-full" :value="old('contact_number', $user->contact_number)" required />
                 <x-input-error class="mt-2" :messages="$errors->get('contact_number')" />
             </div>
 
@@ -182,7 +182,7 @@
 
             <div class="mt-4">
                 <x-input-label for="representative_number" :value="__('Contact Number')" />
-                <x-text-input id="representative_number" name="representative_number" type="text" class="mt-1 block w-full" :value="old('representative_number', $user->representative_number)" />
+                <x-text-input id="representative_number" name="representative_number" type="number" class="mt-1 block w-full" :value="old('representative_number', $user->representative_number)" />
                 <x-input-error class="mb-2" :messages="$errors->get('representative_number')" />
             </div>
 

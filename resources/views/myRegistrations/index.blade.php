@@ -7,11 +7,11 @@
                     <p>No Registrations recorded!</p>
                     @else
                     <table class="w-full text-center">
-                        <thead class="bg-honey text-neutral-900">
-                            <th>Reg. No.</th>
+                        <thead class="bg-honey text-neutral-900 rounded-t-lg">
+                            <th class="rounded-tl-lg">Reg. No.</th>
                             <th>Event Name</th>
                             <th>Registration Status</th>
-                            <th>Payment Status</th>
+                            <th class="rounded-tr-lg">Payment Status</th>
                         </thead>
                         <tbody>
                             @foreach ($registrations as $reg)
@@ -19,7 +19,8 @@
                                 <td class="py-2">{{ $reg->id }}</td>
                                 <td>{{ $reg->event->name }}</td>
                                 <td class="capitalize">{{ $reg->status }}</td>
-                                <td>{{ $reg->payment->status ?? "N/a" }}</td>
+                                {{-- <td>{{ $reg->payments->where('registration_id', $reg->id)->status ?? "N/a" }}</td> --}}
+                                <td class="capitalize">{{ $reg->payments->where('registration_id', $reg->id)->first()->status ?? "Pending" }}</td>
                             </tr>
                             @endforeach
                         </tbody>

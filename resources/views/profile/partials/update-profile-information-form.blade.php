@@ -160,12 +160,12 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="school_number" :value="__('School Number')" />
-                <x-text-input id="school_number" name="school_number" type="text" class="mt-1 block w-full" :value="old('school_number', $user->school_number)" required />
+                <x-text-input id="school_number" name="school_number" type="number" class="mt-1 block w-full" :value="old('school_number', $user->school_number)" required />
                 <x-input-error class="mt-2" :messages="$errors->get('school_number')" />
             </div>
             <div class="mt-4">
                 <x-input-label for="grade" :value="__('Grade')" />
-                <x-text-input id="grade" name="grade" type="text" class="mt-1 block w-full" :value="old('grade', $user->grade)" required />
+                <x-text-input id="grade" name="grade" type="number" class="mt-1 block w-full" :value="old('grade', $user->grade)" required />
                 <x-input-error class="mt-2" :messages="$errors->get('grade')" />
             </div>
         </fieldset>

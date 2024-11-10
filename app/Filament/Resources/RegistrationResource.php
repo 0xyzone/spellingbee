@@ -25,6 +25,7 @@ class RegistrationResource extends Resource
     {
         return static::getModel()::count();
     }
+    protected static ?int $navigationSort = 4;
     protected static ?string $model = Registration::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-check';

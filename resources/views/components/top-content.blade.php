@@ -24,7 +24,7 @@
                 </div> --}}
                 <script>
                     const firstDate = "31/10/2024";
-                    const secondDate = "15/11/2024";
+                    const secondDate = "30/11/2024";
                     const thirdDate = "05/12/2024";
 
                     const today = new Date();
@@ -79,7 +79,7 @@
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">500</span><span class="text-xl self-end">.00</span>
                         </p>
                         <p class="w-full text-sm text-center py-2 rounded-lg bg-neutral-200 text-neutral-800 font-bold">
-                            Till 15 Nov. 2024
+                            Till 30 Nov. 2024
                         </p>
                     </div>
 

@@ -82,17 +82,25 @@
         </div>
     </div>
     <script>
-        const paymentButton = document.getElementById("payment-button");
+        const paymentButtons = document.getElementsByClassName("payment-button");
         const paymentButtonMb = document.getElementById("payment-button-mb");
         const paymentElement = document.getElementById("evention-payment");
         const paymentModel = document.getElementById("model");
         const closePaymentButton = document.getElementById("close-payment");
 
-        paymentButton.addEventListener("click", () => {
-            paymentElement.classList.remove("hide");
-            paymentModel.classList.remove("fadeOutBottom");
-            paymentModel.classList.add("fadeInTop");
-            document.body.style.overflow = "hidden";
+        // paymentButton.addEventListener("click", () => {
+        //     paymentElement.classList.remove("hide");
+        //     paymentModel.classList.remove("fadeOutBottom");
+        //     paymentModel.classList.add("fadeInTop");
+        //     document.body.style.overflow = "hidden";
+        // });
+        Array.from(paymentButtons).forEach(button => {
+            button.addEventListener("click", () => {
+                paymentElement.classList.remove("hide");
+                paymentModel.classList.remove("fadeOutBottom");
+                paymentModel.classList.add("fadeInTop");
+                document.body.style.overflow = "hidden";
+            });
         });
         paymentButtonMb.addEventListener("click", () => {
             paymentElement.classList.remove("hide");
@@ -103,7 +111,7 @@
         closePaymentButton.addEventListener("click", () => {
             paymentModel.classList.remove("fadeInTop");
             paymentModel.classList.add("fadeOutBottom");
-            
+
             setTimeout(() => {
                 paymentElement.classList.add("hide");
                 document.body.style.overflow = "";

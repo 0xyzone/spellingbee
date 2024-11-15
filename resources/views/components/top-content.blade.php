@@ -46,13 +46,13 @@
                         if (todayDate > firstDateObj) {
                             $("#first").addClass("line-through opacity-10");
                             $("#first").removeClass("animate-pulse");
-                            $("#second").addClass("animate-pulse");
+                            $("#second").addClass("animate-pulse payment-button cursor-pointer");
                         }
 
                         if (todayDate > secondDateObj) {
                             $("#second").addClass("line-through opacity-10");
-                            $("#second").removeClass("animate-pulse");
-                            $("#third").addClass("animate-pulse");
+                            $("#second").removeClass("animate-pulse payment-button cursor-pointer");
+                            $("#third").addClass("animate-pulse payment-button cursor-pointer");
                         }
 
                         if (todayDate > thirdDateObj) {
@@ -62,8 +62,7 @@
                     })
 
                 </script>
-
-                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 slabs">
                     <div id="first" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line animate-pulse">
                         <p class="font-bold text-sm sm:text-base">1st Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
@@ -74,7 +73,7 @@
                         </p>
                     </div>
 
-                    <div id="second" class="h-max bg-neutral-800 flex flex-col rounded-lg p-4 items-center text-white">
+                    <div id="second" class="h-max bg-neutral-800 flex flex-col rounded-lg p-4 items-center text-white payment-button">
                         <p class="font-bold text-sm sm:text-base">2nd Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">500</span><span class="text-xl self-end">.00</span>
@@ -84,7 +83,7 @@
                         </p>
                     </div>
 
-                    <div id="third" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center">
+                    <div id="third" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center payment-button">
                         <p class="font-bold text-sm sm:text-base">3rd Slab</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">1000</span><span class="text-xl self-end">.00</span>

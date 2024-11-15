@@ -33,7 +33,7 @@
                         <a href="/src/upcoming-events.html">Upcoming Events</a>
                     </li> --}}
                     <li class="hover:text-honey transform ease-in-out duration-300">
-                        <button id="payment-button">Payment</button>
+                        <button id="payment-button" class="payment-button">Payment</button>
                     </li>
                 </ul>
             </div>

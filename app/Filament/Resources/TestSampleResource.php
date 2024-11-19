@@ -2,17 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TestSampleResource\Pages;
-use App\Filament\Resources\TestSampleResource\RelationManagers;
-use App\Models\TestSample;
 use Filament\Forms;
-use Filament\Forms\Components\Section;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\TestSample;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Filament\Forms\Components\Section;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\TestSampleResource\Pages;
+use App\Filament\Resources\TestSampleResource\RelationManagers;
 
 class TestSampleResource extends Resource
 {
@@ -40,10 +41,10 @@ class TestSampleResource extends Resource
                 ])->columnSpan(1),
                 Section::make([
                     Forms\Components\FileUpload::make('file')
-                    ->required()
+                        ->required()
                         ->moveFile()
                         ->disk('public')
-                        ->directory('Test Samples')
+                        ->directory('test_samples')
                         ->visibility('public')
                         ->openable()
                         ->downloadable()
@@ -60,7 +61,9 @@ class TestSampleResource extends Resource
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
                 Tables\Columns\IconColumn::make('file')
-                    ->icon('heroicon-o-rectangle-stack'),
+                    ->icon('heroicon-c-document-arrow-down')
+                    ->color('primary')
+                    ->url(fn (Model $record) => asset('storage/'. $record->file), shouldOpenInNewTab: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

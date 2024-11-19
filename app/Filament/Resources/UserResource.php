@@ -2,16 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Filament\Resources\UserResource\RelationManagers;
-use App\Models\User;
+use Carbon\Carbon;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
+use App\Models\User;
 use Filament\Tables;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Illuminate\Database\Eloquent\Model;
+use pxlrbt\FilamentExcel\Columns\Column;
 use Illuminate\Database\Eloquent\Builder;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
+use App\Filament\Resources\UserResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use App\Filament\Resources\UserResource\RelationManagers;
 
 class UserResource extends Resource
 {
@@ -49,7 +54,7 @@ class UserResource extends Resource
                 Forms\Components\Textarea::make('address')
                     ->autosize()
                     ->columnSpanFull(),
-                    Forms\Components\Select::make('roles')
+                Forms\Components\Select::make('roles')
                     ->relationship('roles', 'name')
             ]);
     }
@@ -83,9 +88,31 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->defaultSort('id','desc')
+            ->defaultSort('id', 'desc')
             ->filters([
                 //
+            ])
+            ->headerActions([
+                ExportAction::make()->exports([
+                    ExcelExport::make()
+                    ->withWriterType(\Maatwebsite\Excel\Excel::CSV)
+                    ->withColumns([
+                        Column::make('id'),
+                        Column::make('name'),
+                        Column::make('email'),
+                        Column::make('date_of_birth'),
+                        Column::make('contact_number'),
+                        Column::make('address'),
+                        Column::make('school'),
+                        Column::make('school_email'),
+                        Column::make('school_address'),
+                        Column::make('school_number'),
+                        Column::make('grade'),
+                        Column::make('representative_name'),
+                        Column::make('representative_relationship'),
+                        Column::make('representative_number'),
+                    ])
+                ])
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

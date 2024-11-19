@@ -18,6 +18,7 @@ use App\Filament\Exports\RegistrationExporter;
 use Filament\Infolists\Components\Actions\Action;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use App\Filament\Resources\RegistrationResource\Pages;
+use view;
 
 class RegistrationResource extends Resource
 {

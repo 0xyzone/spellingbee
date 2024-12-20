@@ -24,8 +24,8 @@
                 </div> --}}
                 <script>
                     const firstDate = "31/10/2024";
-                    const secondDate = "30/11/2024";
-                    const thirdDate = "05/12/2024";
+                    const secondDate = "30/04/2025";
+                    const thirdDate = "31/05/2024";
 
                     const today = new Date();
                     const todayFormatted = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
@@ -79,7 +79,7 @@
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">500</span><span class="text-xl self-end">.00</span>
                         </p>
                         <p class="w-full text-sm text-center py-2 rounded-lg bg-neutral-200 text-neutral-800 font-bold">
-                            Till 30 Nov. 2024
+                            Till 30 Apr. 2025
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@
                             <span class="text-xl self-start">Rs.</span><span class="overflow-hidden">1000</span><span class="text-xl self-end">.00</span>
                         </p>
                         <p class="w-full text-sm text-center py-2 rounded-lg bg-neutral-900 text-white font-bold">
-                            Till 5 Dec. 2024
+                            Till May. 2025
                         </p>
                     </div>
                 </div>

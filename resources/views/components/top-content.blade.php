@@ -25,7 +25,7 @@
                 <script>
                     const firstDate = "31/10/2024";
                     const secondDate = "30/04/2025";
-                    const thirdDate = "31/05/2024";
+                    const thirdDate = "31/05/2025";
 
                     const today = new Date();
                     const todayFormatted = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;

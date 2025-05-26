@@ -1,7 +1,7 @@
 <x-base>
     <x-top-content></x-top-content>
     <x-sponsors :sponsors=$sponsors></x-sponsors><!-- Popup Container -->
-    <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
+    {{-- <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 hidden">
         <div class="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full mt-32">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Announcement</h2>
             <p class="text-lg font-semibold text-gray-600 mb-2">Postponement of Spelling Bee Event</p>
@@ -37,5 +37,5 @@
             localStorage.setItem("popupClosed", "true");
         });
 
-    </script>
+    </script> --}}
 </x-base>

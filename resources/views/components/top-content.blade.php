@@ -64,7 +64,7 @@
                 </script>
                 <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 slabs">
                     <div id="first" class="h-max bg-gray-200 flex flex-col rounded-lg p-4 items-center lg:mx-0 line animate-pulse">
-                        <p class="font-bold text-sm sm:text-base">1st Slab</p>
+                        <p class="font-bold text-sm sm:text-base">1st Slabs</p>
                         <p class="font-bold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl flex pb-3">
                             <span class="text-xl self-start overflow-hidden">Rs.</span><span class="overflow-hidden">300</span><span class="text-xl self-end">.00</span>
                         </p>

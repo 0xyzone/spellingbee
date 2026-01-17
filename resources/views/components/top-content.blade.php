@@ -3,7 +3,7 @@
         <div class="z-50 flex justify-between gap-2">
             <div class="mt-0 2xl:mt-5 flex flex-col gap-1 max-w-2xl 2xl:max-w-full">
                 <h1 class="z-20 text-[2rem] sm:text-6xl xl:text-[4rem] 2xl:text-[5.5rem] text-[#FFD316] font-aclonica overflow-hidden break-normal hyphens-auto flex-none md:flex-auto leading-tight">
-                    SPELLING BEE CHAMPIONSHIP 2024
+                    SPELLING BEE CHAMPIONSHIP 2026
                     {{-- <span style="position: relative; top: -3px" class="align-middle bg-neutral-900 text-[0.8rem] lg:text-base py-2 px-2 lg:px-5 text-white font-aclonica font-bold">
                         <span>22<sup>th</sup>&nbsp;Dec.</span>&nbsp;-&nbsp;<span>28<sup>th</sup>&nbsp;Dec. &nbsp;|&nbsp; Kathmandu</span>
                     </span> --}}
@@ -13,7 +13,7 @@
                     spelling skills and vocabulary knowledge encouraging learning
                     and sharpening language abilities.
                 </p>
-                <p class="mt-2 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl text-justify">
+                <p class="mt-2 mb-40 text-sm 2xl:text-base font-semibold text-neutral-800 z-20 max-w-2xl text-justify">
                     In the hall of champions, Spelling Bee esteemed,
                     Young intellects gather, each a wordsmith deemed.
                     Their minds are sharp, with knowledge they beam,
@@ -22,7 +22,7 @@
                 </p>
                 {{-- <div class="mt-2 w-full sm:w-max text-sm 2xl:text-base font-semibold text-white bg-black py-3 px-5 rounded-md z-20 max-w-2xl break-words">
                 </div> --}}
-                <script>
+                {{-- <script>
                     const firstDate = "31/10/2024";
                     const secondDate = "30/04/2025";
                     const thirdDate = "31/05/2025";
@@ -101,19 +101,19 @@
                     <a href="{{ route('login') }}" class="mt-5 w-max px-5 py-2 text-base md:text-xl 2xl:text-2xl text-honey border border-current rounded-lg shadow-lg hover:bg-honey hover:text-gray-900 transform duration-300">
                         Login
                     </a>
-                </div>
+                </div> --}}
             </div>
             <div class="hidden xl:block relative shrink-0">
                 <img src="{{ asset('images/honeybee.png') }}" alt="" class="z-[9999] h-72 md:h-96 2xl:h-[500px] select-none shrink-0" />
             </div>
         </div>
-        <div class="bg-honey rounded-lg mt-4 max-w-5xl flex flex-col gap-1 items-center p-1 pb-3">
+        {{-- <div class="bg-honey rounded-lg mt-4 max-w-5xl flex flex-col gap-1 items-center p-1 pb-3">
             <h2 class="text-center text-xs lg:text-xl">Confused on how to register? Check out the video below!</h2>
             <iframe class="border-2 rounded-lg border-honey w-[95%] lg:w-[98%] aspect-video" src="https://www.youtube.com/embed/u5ZYI15SBjQ?si=mrQJ2w7jfWJ4bE1c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+        </div> --}}
     </div>
     <div class="separator"></div>
-    <div class="mt-0 bg-black px-5 sm:px-10 lg:px-24 xl:px-52 py-10 sm:py-4">
+    {{-- <div class="mt-0 bg-black px-5 sm:px-10 lg:px-24 xl:px-52 py-10 sm:py-4">
         <img src="{{ ('images/prize-banner.png') }}" alt="" class="w-full h-full object-fit" />
-    </div>
+    </div> --}}
 </div>

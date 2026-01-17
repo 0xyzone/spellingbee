@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="mt-2 flex flex-col lg:flex-row justify-between z-10 gap-2 text-center lg:text-left">
-            <h1 class="text-sm">© 2024 Evention Master | Spelling Bee 2024</h1>
+            <h1 class="text-sm">© {{ now()->year }} Evention Master | Spelling Bee {{ now()->year }}</h1>
             <div class="text-sm flex gap-2 items-center justify-center">
                 <h2 class="z-10">Connet with us: </h2>
                 <a href="https://fb.com/spellingbee.asia" target="_blank" class="hover:text-honey z-10">

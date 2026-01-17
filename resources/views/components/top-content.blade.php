@@ -2,8 +2,8 @@
     <div class="relative flex-grow overflow-hidden pt-5 md:pt-10 px-5 sm:px-10 lg:px-20 2xl:px-36">
         <div class="z-50 flex justify-between gap-2">
             <div class="mt-0 2xl:mt-5 flex flex-col gap-1 max-w-2xl 2xl:max-w-full">
-                <h1 class="z-20 text-[2rem] sm:text-6xl xl:text-[4rem] 2xl:text-[5.5rem] text-[#FFD316] font-aclonica overflow-hidden break-normal hyphens-auto flex-none md:flex-auto leading-tight">
-                    SPELLING BEE CHAMPIONSHIP 2026
+                <h1 class="z-20 text-[2rem] sm:text-6xl xl:text-[4rem] 2xl:text-[5.5rem] text-[#FFD316] font-aclonica overflow-hidden break-normal flex-none md:flex-auto leading-tight hyphens-none">
+                    SPELLING BEE CHAMPIONSHIP {{ now()->year }}
                     {{-- <span style="position: relative; top: -3px" class="align-middle bg-neutral-900 text-[0.8rem] lg:text-base py-2 px-2 lg:px-5 text-white font-aclonica font-bold">
                         <span>22<sup>th</sup>&nbsp;Dec.</span>&nbsp;-&nbsp;<span>28<sup>th</sup>&nbsp;Dec. &nbsp;|&nbsp; Kathmandu</span>
                     </span> --}}

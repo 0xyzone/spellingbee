@@ -64,9 +64,9 @@
                         Championship Trophy along with the medals to those who secured
                         second and third positions.
                     </p>
-                    <h3 class="text-xl font-bold my-2">Year 2024:</h3>
+                    <h3 class="text-xl font-bold my-2">Year {{ now()->year }}:</h3>
                     <p class="text-justify">
-                        After a period of gap of 13 years, the event is now again, going
+                        After a period of gap of {{ now()->year - 2010 }} years, the event is now again, going
                         to be organized by Evention Master. With the learning objective of
                         “helping students improve their spelling, increase their
                         vocabularies, learn concepts and develop correct English usage

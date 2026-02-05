@@ -1,134 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SpellingBee</title>
+    <title>Spelling Bee Nepal 2026</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    
 
-    <!-- alpine sources  -->
-    <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
 
-    <!-- font awesome icon package -->
-    <script src="https://kit.fontawesome.com/0a09f83869.js" crossorigin="anonymous"></script>
-    <!-- font awesome icon package -->
+        /* Smooth backdrop for the payment modal */
+        .modal-backdrop {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+        }
+
+    </style>
+
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/style.css'])
 </head>
-<body class="h-full w-full flex flex-col min-h-screen bg-neutral-900 relative">
+
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
+
     <x-main-nav></x-main-nav>
-    {{ $slot }}
+
+    <main>
+        {{ $slot }}
+    </main>
+
     <x-footer></x-footer>
-    <div id="evention-payment" class="hide">
-        <div class="z-[9999] fixed h-screen w-screen overflow-hidden inset-0">
-            <div class="grid place-items-center h-full w-full">
-                <style>
-                    .fadeInTop {
-                        animation: fadeInTop 0.3s forwards;
-                    }
 
-                    @keyframes fadeInTop {
-                        0% {
-                            transform: translateY(150px);
-                            opacity: 0;
-                        }
+    <div x-data="{ open: false }" @open-payment.window="open = true" x-show="open" x-cloak class="fixed inset-0 z-[9999] flex items-center justify-center p-4">
 
-                        100% {
-                            transform: translateY(0);
-                            opacity: 1;
-                        }
-                    }
+        <div class="modal-backdrop absolute inset-0" @click="open = false"></div>
 
-                    .fadeOutBottom {
-                        animation: fadeOutBottom 0.3s forwards;
-                    }
+        <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100" class="relative bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center border border-slate-100">
 
-                    @keyframes fadeOutBottom {
-                        0% {
-                            transform: translateY(0);
-                            opacity: 1;
-                        }
+            <h2 class="text-xl font-black text-slate-800 mb-2">Registration Payment</h2>
+            <p class="text-slate-500 text-sm mb-6">Evention Master Private Limited</p>
 
-                        100% {
-                            transform: translateY(150px);
-                            opacity: 0;
-                        }
-                    }
-
-                </style>
-                <div id="model" class="flex flex-col items-center gap-3 overflow-visible bg-neutral-900/90 backdrop-blur-lg p-10 lg:p-40 rounded-md shadow-xl shadow-honey/50 fadeInTop">
-                    <h1 class="text-white text-2xl">Evention Master Private Limited</h1>
-                    <div class="h-52 aspect-square bg-white p-3 rounded-lg">
-                        <img src="{{ asset('images/evention-qr.jpeg') }}" alt="Evention Payment QR" class="h-full w-full object-scale-down" />
-                    </div>
-                    <p class="text-gray-300">Terminal: 2222080000600114</p>
-                    <p class="text-gray-300">Address: Kathmandu MP</p>
-                    <div class="w-auto h-auto hover:scale-105 ease-in-out transform duration-150">
-                        <button id="close-payment" class="bg-neutral-300 text-neutral-900 px-5 py-2 rounded-md">
-                            Close
-                        </button>
-                    </div>
-                </div>
+            <div class="bg-slate-50 p-4 rounded-2xl mb-6 inline-block border border-slate-200">
+                <img src="{{ asset('images/evention-qr.jpeg') }}" alt="QR Code" class="w-48 h-48 object-contain" />
             </div>
+
+            <div class="space-y-1 mb-8">
+                <p class="text-xs font-mono text-slate-400">ID: 2222080000600114</p>
+                <p class="text-xs font-semibold text-slate-600 uppercase tracking-tighter">Kathmandu, Nepal</p>
+            </div>
+
+            <button @click="open = false" class="w-full py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition-all">
+                Close Window
+            </button>
         </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        const paymentButtons = document.getElementsByClassName("payment-button");
-        const paymentButtonMb = document.getElementById("payment-button-mb");
-        const paymentElement = document.getElementById("evention-payment");
-        const paymentModel = document.getElementById("model");
-        const closePaymentButton = document.getElementById("close-payment");
-
-        // paymentButton.addEventListener("click", () => {
-        //     paymentElement.classList.remove("hide");
-        //     paymentModel.classList.remove("fadeOutBottom");
-        //     paymentModel.classList.add("fadeInTop");
-        //     document.body.style.overflow = "hidden";
-        // });
-        Array.from(paymentButtons).forEach(button => {
-            button.addEventListener("click", () => {
-                paymentElement.classList.remove("hide");
-                paymentModel.classList.remove("fadeOutBottom");
-                paymentModel.classList.add("fadeInTop");
-                document.body.style.overflow = "hidden";
+        // AOS Init
+        window.onload = () => {
+            AOS.init({
+                mirror: true
             });
-        });
-        paymentButtonMb.addEventListener("click", () => {
-            paymentElement.classList.remove("hide");
-            paymentModel.classList.remove("fadeOutBottom");
-            paymentModel.classList.add("fadeInTop");
-            document.body.style.overflow = "hidden";
-        });
-        closePaymentButton.addEventListener("click", () => {
-            paymentModel.classList.remove("fadeInTop");
-            paymentModel.classList.add("fadeOutBottom");
+        };
 
-            setTimeout(() => {
-                paymentElement.classList.add("hide");
-                document.body.style.overflow = "";
-                paymentModel.classList.remove("fadeOutBottom");
-            }, 300);
+        // Helper to trigger the Alpine Modal from anywhere
+        function openPayment() {
+            window.dispatchEvent(new CustomEvent('open-payment'));
+        }
+
+        // Apply to your existing buttons
+        document.querySelectorAll('.payment-button, #payment-button-mb').forEach(btn => {
+            btn.addEventListener('click', openPayment);
         });
 
     </script>
 </body>
-
-<script>
-    window.onload = function() {
-        AOS.init({
-            mirror: true
-        });
-    };
-
-</script>
-
 </html>

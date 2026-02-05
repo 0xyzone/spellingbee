@@ -7,30 +7,29 @@
         <div class="absolute bottom-10 left-10 w-64 h-64 border-[20px] border-amber-400/10 rounded-[50px] rotate-45"></div>
     </div>
 
-    <section class="relative pt-20 lg:pt-32 pb-24 overflow-visible">
+    <section class="relative pt-32 lg:pt-32 pb-12 overflow-visible">
         <div class="max-w-7xl mx-auto px-6 lg:flex items-center gap-12 relative overflow-visible">
             <div class="lg:w-1/2 z-20 text-center lg:text-left overflow-visible">
-                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-2xl bg-white shadow-xl border border-amber-100 mb-8 animate-bounce-slow">
+                <div class="inline-flex items-center gap-3 px-5 py-2 rounded-2xl bg-white shadow-xl border border-amber-100 mb-4 animate-bounce-slow">
                     <span class="flex h-2.5 w-2.5 rounded-full bg-amber-500 shadow-[0_0_15px_#f59e0b]"></span>
                     <span class="text-amber-900 font-black text-[11px] uppercase tracking-[0.25em]">The Hive is Buzzing for 2026</span>
                 </div>
                 <h1 class="text-6xl lg:text-[110px] font-black text-slate-900 leading-[0.85] mb-8 tracking-tighter overflow-visible">Spelling <br> <span class="text-amber-500 drop-shadow-md">Bee Nepal</span></h1>
                 <p class="text-xl text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">Helping students improve spelling, increase vocabularies, and develop correct English usage that will help them <span class="text-slate-900 font-bold underline decoration-amber-400 decoration-8">all their lives</span>.</p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 relative z-30 overflow-visible group">
-                    <a href="https://hive.spellingbee.asia" target="_blank" 
-   class="group relative px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] transition-all duration-500 hover:scale-105 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.4)] overflow-hidden">
-    
-    <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-    
-    <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 via-slate-900 to-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <a href="https://hive.spellingbee.asia" target="_blank" class="group relative px-10 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase text-xs tracking-[0.2em] transition-all duration-500 hover:scale-105 shadow-[0_20px_50px_rgba(0,0,0,0.3)] hover:shadow-[0_20px_50px_rgba(245,158,11,0.4)] overflow-hidden">
 
-    <span class="relative z-10 flex items-center justify-center gap-2">
-        Register at <span class="text-amber-400 group-hover:text-amber-300 transition-colors drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]">The HIVE</span>
-        <svg class="w-4 h-4 transform translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-        </svg>
-    </span>
-</a>
+                        <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+                        <div class="absolute inset-0 bg-gradient-to-tr from-slate-900 via-slate-900 to-amber-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                        <span class="relative z-10 flex items-center justify-center gap-2">
+                            Register at <span class="text-amber-400 group-hover:text-amber-300 transition-colors drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]">The HIVE</span>
+                            <svg class="w-4 h-4 transform translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </span>
+                    </a>
                     <a href="#about-sbn" class="px-10 py-6 bg-white text-slate-900 border-4 border-slate-100 rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:border-amber-400 transition-all shadow-lg">Explore Legacy</a>
                 </div>
             </div>

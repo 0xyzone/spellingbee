@@ -15,14 +15,14 @@ $navLinks = [
         $watch('paymentModalOpen', value => document.body.style.overflow = value ? 'hidden' : '');
     " @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" @open-payment.window="paymentModalOpen = true" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
 
-    <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
+    <div class="max-w-screen-2xl mx-auto flex justify-between items-center overflow-visible">
         <a href="{{ route('welcome') }}" class="flex items-center group">
             <div class="h-16 lg:h-24 transition-all duration-500 transform group-hover:scale-110">
                 <img src="{{ asset('images/sbn2024.png') }}" alt="SBN Logo" class="h-full w-auto object-contain" />
             </div>
         </a>
 
-        <div class="hidden lg:flex items-center gap-12">
+        <div class="hidden lg:flex items-center gap-12 overflow-visible">
             <ul class="flex items-center gap-10 list-none">
                 @foreach($navLinks as $link)
                 <li>
@@ -34,7 +34,7 @@ $navLinks = [
                 @endforeach
             </ul>
 
-            <button @click="paymentModalOpen = true" class="group relative px-10 py-4 bg-slate-900 text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] overflow-hidden transition-all shadow-xl active:scale-95">
+            <button @click="paymentModalOpen = true" class="group relative px-10 py-4 bg-slate-900 text-white rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] overflow-visible transition-all shadow-xl active:scale-95">
                 <div class="absolute inset-0 bg-amber-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 <span class="relative z-10 group-hover:text-slate-900 transition-colors">Pay Registration</span>
             </button>
@@ -63,7 +63,7 @@ $navLinks = [
                 <ul class="flex flex-col gap-8 list-none flex-grow">
                     @foreach($navLinks as $link)
                     <li>
-                        <a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all italic">
+                        <a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all italic">
                             {{ $link['name'] }}
                         </a>
                     </li>

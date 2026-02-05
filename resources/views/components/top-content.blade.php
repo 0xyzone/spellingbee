@@ -14,7 +14,7 @@
                     <span class="flex h-2.5 w-2.5 rounded-full bg-amber-500 shadow-[0_0_15px_#f59e0b]"></span>
                     <span class="text-amber-900 font-black text-[11px] uppercase tracking-[0.25em]">The Hive is Buzzing for 2026</span>
                 </div>
-                <h1 class="text-6xl lg:text-[110px] font-black text-slate-900 leading-[0.85] mb-8 tracking-tighter">Spelling <br> <span class="text-amber-500 drop-shadow-md">Bee Nepal</span></h1>
+                <h1 class="text-6xl lg:text-[110px] font-black text-slate-900 leading-[0.85] mb-8 tracking-tighter overflow-visible">Spelling <br> <span class="text-amber-500 drop-shadow-md">Bee Nepal</span></h1>
                 <p class="text-xl text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">Helping students improve spelling, increase vocabularies, and develop correct English usage that will help them <span class="text-slate-900 font-bold underline decoration-amber-400 decoration-8">all their lives</span>.</p>
                 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 relative z-30 overflow-visible group">
                     <a href="https://hive.spellingbee.asia" target="_blank" 

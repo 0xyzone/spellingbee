@@ -17,7 +17,7 @@ $navLinks = [
 
     <div class="max-w-screen-2xl mx-auto flex justify-between items-center">
         <a href="{{ route('welcome') }}" class="flex items-center group">
-            <div class="h-16 lg:h-24 transition-all duration-500 transform group-hover:scale-110 drop-shadow-2xl">
+            <div class="h-16 lg:h-24 transition-all duration-500 transform group-hover:scale-110">
                 <img src="{{ asset('images/sbn2024.png') }}" alt="SBN Logo" class="h-full w-auto object-contain" />
             </div>
         </a>

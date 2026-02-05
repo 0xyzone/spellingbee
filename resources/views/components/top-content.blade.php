@@ -46,7 +46,7 @@
         <div class="max-w-6xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="grid lg:grid-cols-12 gap-16 items-start overflow-visible">
                 <div class="lg:col-span-7 space-y-10 overflow-visible">
-                    <div>
+                    <div class="overflow-visible">
                         <span class="text-amber-600 font-black uppercase text-xs tracking-widest block mb-4">Est. 2010 • Thamel, Kathmandu</span>
                         <h2 class="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-none overflow-visible">The <span class="text-amber-500">Legacy</span></h2>
                     </div>

@@ -16,7 +16,7 @@ $navLinks = [
     " @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" @open-payment.window="paymentModalOpen = true" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
 
     <div class="max-w-screen-2xl mx-auto flex justify-between items-center overflow-visible">
-        <a href="{{ route('welcome') }}" class="flex items-center group">
+        <a href="{{ route('welcome') }}" class="flex items-center group overflow-visible">
             <div class="h-16 lg:h-24 transition-all duration-500 transform group-hover:scale-110">
                 <img src="{{ asset('images/sbn2024.png') }}" alt="SBN Logo" class="h-full w-auto object-contain" />
             </div>
@@ -53,7 +53,7 @@ $navLinks = [
 
             <div x-show="mobileMenuOpen" x-transition:enter="transition ease-out duration-500 transform" x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-400 transform" x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" class="absolute left-0 top-0 h-full w-[85%] max-w-xs bg-white shadow-2xl flex flex-col p-10">
 
-                <div class="flex justify-between items-center mb-16">
+                <div class="flex justify-between items-center mb-16 overflow-visible">
                     <img src="{{ asset('images/sbn2024.png') }}" class="h-12" alt="Logo">
                     <button @click="mobileMenuOpen = false" class="text-slate-400 p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>

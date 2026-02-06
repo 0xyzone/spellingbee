@@ -258,52 +258,57 @@
         </div>
     </section>
 
-    <section class="py-32 bg-[#fafafa] overflow-hidden relative">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-            <div class="absolute top-[10%] -left-[10%] w-96 h-96 bg-amber-200/30 blur-[120px] rounded-full animate-pulse"></div>
-            <div class="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] bg-slate-200/50 blur-[150px] rounded-full"></div>
+    <section class="py-32 bg-[#fafafa] overflow-hidden relative" x-data="{ loaded: false }" x-init="setTimeout(() => loaded = true, 100)">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-[10%] -left-[5%] w-[600px] h-[600px] bg-amber-200/20 blur-[120px] rounded-full animate-pulse"></div>
+            <div class="absolute -bottom-[10%] -right-[5%] w-[500px] h-[500px] bg-slate-200/40 blur-[150px] rounded-full"></div>
         </div>
 
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row items-end justify-between gap-8 mb-20">
-                <div class="overflow-visible">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="h-[2px] w-12 bg-slate-900"></span>
-                        <span class="text-slate-900 font-black text-xs uppercase tracking-[0.5em]">The Ecosystem</span>
+            <div class="flex flex-col lg:flex-row items-end justify-between gap-12 mb-24">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_10px_#f59e0b]"></span>
+                        <span class="text-slate-900 font-black text-[10px] uppercase tracking-[0.5em]">The Network</span>
                     </div>
-                    <h2 class="text-6xl lg:text-8xl font-black text-slate-900 tracking-tighter leading-[0.85]">
-                        POWERED <br> <span class="text-amber-500 italic">BY PARTNERS</span>
+                    <h2 class="text-7xl lg:text-[100px] font-black text-slate-900 tracking-tighter leading-[0.8] transition-all duration-1000" :class="loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'">
+                        GLOBAL <br> <span class="text-amber-500 italic">ALLIES</span>
                     </h2>
                 </div>
-                <p class="text-slate-500 font-bold max-w-sm text-lg leading-snug border-l-4 border-amber-400 pl-6 italic">
-                    A collective of visionaries fueling the <span class="text-slate-900 underline decoration-amber-400/30">2026 Spelling Revolution</span>.
+                <p class="text-slate-500 font-bold max-w-sm text-lg leading-snug border-l-4 border-amber-400 pl-8 italic">
+                    A high-octane collective of brands fueling the <span class="text-slate-900 underline decoration-amber-400/30">HIVE Revolution 2026</span>.
                 </p>
             </div>
 
-            <div class="grid grid-cols-12 gap-4 lg:gap-6 auto-rows-[200px] lg:auto-rows-[240px]">
+            <div class="grid grid-cols-12 gap-4 lg:gap-8 auto-rows-[200px] lg:auto-rows-[280px]">
                 @foreach($sponsors as $index => $sponsor)
                 @php
-                // Create a "Bento" pattern: Every 3rd item is wide, every 5th is tall
-                $colSpan = ($index % 4 == 0) ? 'col-span-12 md:col-span-8' : 'col-span-6 md:col-span-4';
-                $rowSpan = ($index % 5 == 0) ? 'row-span-2' : 'row-span-1';
+                // Logic: First item is always a "Hero" span.
+                // Then a pattern of Medium (4) and Large (8) spans.
+                $isHero = $index === 0;
+                $colSpan = $isHero ? 'col-span-12 md:col-span-8' : (($index % 3 == 0) ? 'col-span-12 md:col-span-6' : 'col-span-6 md:col-span-4');
+                $rowSpan = ($isHero || $index % 4 == 0) ? 'row-span-2' : 'row-span-1';
                 @endphp
 
-                <div class="{{ $colSpan }} {{ $rowSpan }} group relative overflow-visible">
-                    <a href="{{ $sponsor->url ?? '#' }}" target="_blank" class="relative flex flex-col items-center justify-center w-full h-full bg-white rounded-[3rem] p-10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-3 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100/50 overflow-hidden">
+                <div class="{{ $colSpan }} {{ $rowSpan }} group relative perspective-1000">
+                    <a href="{{ $sponsor['url'] }}" target="_blank" class="relative flex flex-col items-center justify-center w-full h-full bg-white rounded-[3.5rem] p-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-rotate-1 group-hover:-translate-y-4 group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-100/60 overflow-hidden">
 
-                        <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-amber-400/5 to-transparent skew-x-[-20deg]"></div>
+                        <div class="absolute inset-0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent skew-x-[-25deg]"></div>
 
-                        <div class="relative z-10 w-full h-full flex flex-col items-center justify-center gap-6">
-                            <img src="{{ asset('storage/' . $sponsor->sponsor_logo_path) }}" alt="{{ $sponsor->name }}" class="max-h-[60%] w-auto object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out">
+                        <div class="absolute inset-0 opacity-0 group-hover:opacity-[0.04] transition-opacity duration-700 pointer-events-none" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI4IDI0Ij48cGF0aCBkPSJNMTQgMEwyOCA3djEwbC0xNCA3TDAgMTdWN0wxNCAwWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdG09IjEuNSIvPjwvc3ZnPg=='); background-size: 30px;"></div>
 
-                            <span class="absolute bottom-0 opacity-0 group-hover:opacity-100 group-hover:-bottom-2 transition-all duration-500 text-[10px] font-black text-amber-600 uppercase tracking-[0.3em]">
-                                {{ $sponsor->name }}
-                            </span>
+                        <div class="relative z-10 w-full h-full flex flex-col items-center justify-center gap-8">
+                            <img src="{{ $sponsor['sponsor_logo_path'] }}" alt="{{ $sponsor['name'] }}" class="max-h-[50%] w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
+
+                            <div class="flex flex-col items-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                                <span class="text-[9px] font-black text-amber-500 uppercase tracking-[0.4em] mb-1">Official Partner</span>
+                                <h5 class="text-slate-900 font-black text-sm tracking-tight">{{ $sponsor['name'] }}</h5>
+                            </div>
                         </div>
 
-                        <div class="absolute top-8 right-8 w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-500">
-                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-width="3" d="M5 19L19 5m0 0H8m11 0v11"></path>
+                        <div class="absolute top-10 right-10 w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                            <svg class="w-4 h-4 text-slate-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </div>
                     </a>

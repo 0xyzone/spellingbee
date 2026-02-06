@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section id="about-sbn" class="bg-transparent py-40 scroll-mt-20 overflow-visible relative">
+    <section id="about-sbn" class="bg-transparent lg:py-40 py-20 scroll-mt-20 overflow-visible relative">
         <div class="max-w-6xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="grid lg:grid-cols-12 gap-16 items-start overflow-visible">
                 <div class="lg:col-span-7 space-y-10 overflow-visible">
@@ -194,7 +194,7 @@
                     Pick Up Points
                 </div>
                 <h2 class="text-6xl lg:text-7xl font-black text-slate-900 tracking-tighter uppercase italic overflow-visible leading-none">
-                    Secure Your <span class="text-amber-500 relative inline-block">Word Bank
+                    Secure Your <span class="text-amber-500 relative inline-block overflow-visible">Word Bank
                         <svg class="absolute -bottom-4 left-0 w-full h-3 text-amber-200/60" viewBox="0 0 100 10" preserveAspectRatio="none">
                             <path d="M0 5 Q 25 0 50 5 T 100 5" stroke="currentColor" stroke-width="4" fill="none" /></svg>
                     </span>
@@ -250,9 +250,9 @@
             <div class="mt-24 text-center">
                 <p class="text-slate-400 font-medium text-lg">
                     Can't reach a hub?
-                    <button @click="$dispatch('open-payment')" class="text-slate-900 font-black underline decoration-amber-400 decoration-4 hover:text-amber-500 transition-all">
+                    <a href="https://wa.me/9779705998433" target="_blank" class="text-slate-900 font-black underline decoration-amber-400 decoration-4 hover:text-amber-500 transition-all">
                         Get Digital Access via WhatsApp
-                    </button>
+                    </a>
                 </p>
             </div>
         </div>

@@ -23,12 +23,16 @@ use App\Http\Controllers\MyRegistrationController;
 */
 
 Route::get('/', function () {
-    if(auth()->id()){
-        return redirect(route('home'));
-    }
-    return view('main', [
-        'sponsors' => Sponsor::all(),
-    ]);
+    // if(auth()->id()){
+    //     return redirect(route('home'));
+    // }
+    // 1. Call your own API endpoint
+    // Use the internal URL or the full URL
+    $response = Http::get(url('https://spellingbee.asia/api/sponsors'));
+
+    // 2. Decode the JSON into an object/collection
+    $sponsors = $response->successful() ? collect($response->json()) : collect([]);
+    return view('main', compact('sponsors'));
 })->name('welcome');
 
 Route::get('/demo', function() {

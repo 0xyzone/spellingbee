@@ -257,6 +257,61 @@
             </div>
         </div>
     </section>
+
+    <section class="py-32 bg-[#fafafa] overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[10%] -left-[10%] w-96 h-96 bg-amber-200/30 blur-[120px] rounded-full animate-pulse"></div>
+            <div class="absolute bottom-[10%] -right-[10%] w-[500px] h-[500px] bg-slate-200/50 blur-[150px] rounded-full"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-end justify-between gap-8 mb-20">
+                <div class="overflow-visible">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="h-[2px] w-12 bg-slate-900"></span>
+                        <span class="text-slate-900 font-black text-xs uppercase tracking-[0.5em]">The Ecosystem</span>
+                    </div>
+                    <h2 class="text-6xl lg:text-8xl font-black text-slate-900 tracking-tighter leading-[0.85]">
+                        POWERED <br> <span class="text-amber-500 italic">BY PARTNERS</span>
+                    </h2>
+                </div>
+                <p class="text-slate-500 font-bold max-w-sm text-lg leading-snug border-l-4 border-amber-400 pl-6 italic">
+                    A collective of visionaries fueling the <span class="text-slate-900 underline decoration-amber-400/30">2026 Spelling Revolution</span>.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-12 gap-4 lg:gap-6 auto-rows-[200px] lg:auto-rows-[240px]">
+                @foreach($sponsors as $index => $sponsor)
+                @php
+                // Create a "Bento" pattern: Every 3rd item is wide, every 5th is tall
+                $colSpan = ($index % 4 == 0) ? 'col-span-12 md:col-span-8' : 'col-span-6 md:col-span-4';
+                $rowSpan = ($index % 5 == 0) ? 'row-span-2' : 'row-span-1';
+                @endphp
+
+                <div class="{{ $colSpan }} {{ $rowSpan }} group relative overflow-visible">
+                    <a href="{{ $sponsor->url ?? '#' }}" target="_blank" class="relative flex flex-col items-center justify-center w-full h-full bg-white rounded-[3rem] p-10 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-3 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-slate-100/50 overflow-hidden">
+
+                        <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-amber-400/5 to-transparent skew-x-[-20deg]"></div>
+
+                        <div class="relative z-10 w-full h-full flex flex-col items-center justify-center gap-6">
+                            <img src="{{ asset('storage/' . $sponsor->sponsor_logo_path) }}" alt="{{ $sponsor->name }}" class="max-h-[60%] w-auto object-contain filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out">
+
+                            <span class="absolute bottom-0 opacity-0 group-hover:opacity-100 group-hover:-bottom-2 transition-all duration-500 text-[10px] font-black text-amber-600 uppercase tracking-[0.3em]">
+                                {{ $sponsor->name }}
+                            </span>
+                        </div>
+
+                        <div class="absolute top-8 right-8 w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center opacity-0 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-500">
+                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="3" d="M5 19L19 5m0 0H8m11 0v11"></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 </div>
 
 <style>

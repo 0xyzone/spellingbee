@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\v1\EventApiController;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\v1\EventApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('/event', EventApiController::class);
+});
+Route::get('/sponsors', function () {
+    // We return them all, or you could use ->paginate() if the list gets huge
+    return Sponsor::all(); 
 });

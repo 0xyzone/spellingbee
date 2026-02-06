@@ -232,7 +232,7 @@
                         </div>
 
                         <div class="relative overflow-visible">
-                            <a href="tel:{{ $hub['p'] }}" class="relative z-10 block w-full py-5 bg-slate-900 text-white rounded-[2rem] text-lg font-black tracking-widest transition-all duration-500 group-hover:bg-amber-500 group-hover:shadow-[0_15px_30px_rgba(245,158,11,0.4)] flex items-center justify-center gap-3 active:scale-95">
+                            <a href="tel:{{ $hub['p'] }}" class="relative z-10 w-full py-5 bg-slate-900 text-white rounded-[2rem] text-lg font-black tracking-widest transition-all duration-500 group-hover:bg-amber-500 group-hover:shadow-[0_15px_30px_rgba(245,158,11,0.4)] flex items-center justify-center gap-3 active:scale-95">
                                 <span class="group-hover:animate-bounce">📞</span>
                                 <span>{{ $hub['p'] }}</span>
                             </a>

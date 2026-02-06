@@ -15,55 +15,57 @@
                     <span class="text-amber-900 font-black text-[12px] uppercase tracking-[0.25em]">The Hive is Buzzing for 2026</span>
                 </div>
                 <h1 class="text-6xl lg:text-[110px] font-black text-slate-900 leading-[0.85] mb-8 tracking-tighter overflow-visible">
-                    Spelling <br> <span class="text-amber-500 drop-shadow-md italic">Bee Nepal</span>
+                    Spelling <br> <span class="text-amber-500 drop-shadow-md italic">Bee</span> Nepal
                 </h1>
                 <p class="text-xl lg:text-2xl text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                     Helping students improve spelling, increase vocabularies, and develop correct English usage that will help them <span class="text-slate-900 font-bold underline decoration-amber-400 decoration-8">all their lives</span>.
                 </p>
                 <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 overflow-visible mt-10">
-    
-    <div class="relative group overflow-visible">
-        <div class="absolute inset-0 bg-amber-500/20 blur-[40px] rounded-[2.5rem] scale-90 group-hover:scale-110 transition-all duration-700"></div>
 
-        <a href="https://hive.spellingbee.asia" target="_blank" 
-           class="relative flex items-center px-10 py-8 bg-slate-950 rounded-[2.5rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(245,158,11,0.5)] overflow-hidden">
-            
-            <div class="absolute inset-0 p-[1px] rounded-[2.5rem] overflow-hidden">
-                <div class="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_45%,#f59e0b_50%,transparent_55%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute inset-[1px] bg-slate-950 rounded-[calc(2.5rem-1px)]"></div>
-            </div>
+                    <div class="relative group overflow-visible">
+                        <div class="absolute inset-0 bg-amber-500/20 blur-[40px] rounded-[2.5rem] scale-90 group-hover:scale-110 transition-all duration-700"></div>
 
-            <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-10 transition-opacity" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDIwIDE3Ij48cGF0aCBkPSJNMTAgMEwyMCA1djdsLTEwIDVMMCAxMlY1TDEwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');"></div>
+                        <a href="https://hive.spellingbee.asia" target="_blank" class="relative flex items-center px-10 py-8 bg-slate-950 rounded-[2.5rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(245,158,11,0.5)] overflow-hidden">
 
-            <div class="relative z-10 flex items-center gap-6">
-                <div class="flex flex-col">
-                    <div class="absolute -top-4 left-0 flex items-center gap-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
-                        <span class="text-[9px] text-amber-500 font-black tracking-[0.4em] uppercase">Portal Open</span>
+                            <div class="absolute inset-0 p-[1px] rounded-[2.5rem] overflow-hidden">
+                                <div class="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_45%,#f59e0b_50%,transparent_55%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute inset-[1px] bg-slate-950 rounded-[calc(2.5rem-1px)]"></div>
+                            </div>
+
+                            <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-10 transition-opacity" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDIwIDE3Ij48cGF0aCBkPSJNMTAgMEwyMCA1djdsLTEwIDVMMCAxMlY1TDEwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');"></div>
+
+                            <div class="relative z-10 flex items-center gap-6 overflow-visible">
+                                <div class="flex flex-col overflow-visible">
+                                    <div class="absolute -top-4 left-0 flex items-center gap-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                                        <span class="text-[9px] text-amber-500 font-black tracking-[0.4em] uppercase">Portal Open</span>
+                                    </div>
+
+                                    <span class="text-white font-black text-lg lg:text-xl tracking-tight leading-none pt-2 overflow-visible text-right">
+                                        Register at <br><span class="text-amber-400">THE HIVE</span>
+                                    </span>
+                                </div>
+
+                                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-500">
+                                    <svg class="w-5 h-5 text-amber-500 group-hover:text-slate-950 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]"></div>
+                        </a>
                     </div>
-                    
-                    <span class="text-white font-black text-lg lg:text-xl tracking-tight leading-none pt-2">
-                        Register at <br><span class="text-amber-400 italic">THE HIVE</span>
-                    </span>
+
+                    <a href="#about-sbn" class="group relative flex items-center gap-4 px-10 py-8 bg-white border-2 border-slate-100 rounded-[2.5rem] transition-all duration-500 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1">
+                        <span class="text-slate-900 font-black uppercase text-xs tracking-[0.2em]">Explore Legacy</span>
+                        <div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
+                            <svg class="w-3 h-3 text-slate-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="4" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </a>
                 </div>
-
-                <div class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-amber-500 group-hover:border-amber-500 transition-all duration-500">
-                    <svg class="w-5 h-5 text-amber-500 group-hover:text-slate-950 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
-                </div>
-            </div>
-
-            <div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg]"></div>
-        </a>
-    </div>
-
-    <a href="#about-sbn" 
-       class="group relative flex items-center gap-4 px-10 py-8 bg-white border-2 border-slate-100 rounded-[2.5rem] transition-all duration-500 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1">
-        <span class="text-slate-900 font-black uppercase text-xs tracking-[0.2em]">Explore Legacy</span>
-        <div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
-            <svg class="w-3 h-3 text-slate-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="4" d="M19 9l-7 7-7-7"></path></svg>
-        </div>
-    </a>
-</div>
             </div>
             <div class="lg:w-1/2 relative mt-20 lg:mt-0 flex justify-center mascot-container overflow-visible">
                 <div class="relative w-full max-w-[650px] overflow-visible">

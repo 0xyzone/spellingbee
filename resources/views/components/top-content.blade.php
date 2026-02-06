@@ -264,7 +264,7 @@
             <div class="absolute -bottom-[10%] -right-[5%] w-[500px] h-[500px] bg-slate-200/40 blur-[150px] rounded-full"></div>
         </div>
 
-        <div class="container mx-auto px-6 relative z-10">
+        <div class="container mx-auto px-6 relative z-10 overflow-visible">
             <div class="flex flex-col lg:flex-row items-end justify-between gap-12 mb-24">
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
@@ -280,7 +280,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-12 gap-4 lg:gap-8 auto-rows-[200px] lg:auto-rows-[280px]">
+            <div class="grid grid-cols-12 gap-4 lg:gap-8 auto-rows-[200px] lg:auto-rows-[280px] overflow-visible">
                 @foreach($sponsors as $index => $sponsor)
                 @php
                 // Logic: First item is always a "Hero" span.
@@ -290,7 +290,7 @@
                 $rowSpan = ($isHero || $index % 4 == 0) ? 'row-span-2' : 'row-span-1';
                 @endphp
 
-                <div class="{{ $colSpan }} {{ $rowSpan }} group relative perspective-1000">
+                <div class="{{ $colSpan }} {{ $rowSpan }} group relative perspective-1000 overflow-visible">
                     <a href="{{ $sponsor['url'] }}" target="_blank" class="relative flex flex-col items-center justify-center w-full h-full bg-white rounded-[3.5rem] p-12 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-rotate-1 group-hover:-translate-y-4 group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-100/60 overflow-hidden">
 
                         <div class="absolute inset-0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-amber-400/10 to-transparent skew-x-[-25deg]"></div>

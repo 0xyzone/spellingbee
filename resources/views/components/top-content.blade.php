@@ -298,7 +298,7 @@
                         <div class="absolute inset-0 opacity-0 group-hover:opacity-[0.04] transition-opacity duration-700 pointer-events-none" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI4IDI0Ij48cGF0aCBkPSJNMTQgMEwyOCA3djEwbC0xNCA3TDAgMTdWN0wxNCAwWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdG09IjEuNSIvPjwvc3ZnPg=='); background-size: 30px;"></div>
 
                         <div class="relative z-10 w-full h-full flex flex-col items-center justify-center gap-8">
-                            <img src="{{ $sponsor['sponsor_logo_path'] }}" alt="{{ $sponsor['name'] }}" class="max-h-[50%] w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
+                            <img src="{{ $sponsor['sponsor_logo_url'] }}" alt="{{ $sponsor['name'] }}" class="max-h-[50%] w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out">
 
                             <div class="flex flex-col items-center opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
                                 <span class="text-[9px] font-black text-amber-500 uppercase tracking-[0.4em] mb-1">Official Partner</span>

@@ -1,4 +1,4 @@
-<footer class="relative overflow-visible mt-20">
+<footer class="relative overflow-visible">
     <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-amber-400 via-amber-600 to-amber-400 shadow-[0_-5px_20px_rgba(245,158,11,0.3)]"></div>
 
     <div class="bg-slate-950 text-gray-300 w-full pt-16 pb-8 px-6 sm:px-10 lg:px-24 2xl:px-36 relative overflow-hidden">

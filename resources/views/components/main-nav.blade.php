@@ -83,14 +83,14 @@ $navLinks = [
                             <span class="text-amber-600 font-black text-[10px] uppercase tracking-[0.4em]">Official Checkout</span>
                         </div>
 
-                        <h3 class="text-5xl lg:text-7xl font-black text-slate-900 italic tracking-tighter leading-none mb-10">
+                        <h3 class="text-5xl lg:text-7xl font-black text-slate-900 italic tracking-tighter leading-none mb-10 overflow-visible">
                             HIVE <span class="text-amber-500">PORTAL</span>
                         </h3>
 
                         <div class="space-y-8 overflow-visible">
                             @php
                             $steps = [
-                            ['no' => '01', 't' => 'Scan & Pay', 'd' => 'Use Fonepay / eSewa to pay 1,000'],
+                            ['no' => '01', 't' => 'Scan & Pay', 'd' => 'Use Fonepay / eSewa to pay 2,000'],
                             ['no' => '02', 't' => 'Add Remarks', 'd' => 'Must include Student Full Name'],
                             ['no' => '03', 't' => 'WhatsApp', 'd' => 'Send screenshot to confirm']
                             ];
@@ -125,7 +125,7 @@ $navLinks = [
                         <div class="w-full max-w-[280px] bg-slate-900 text-white p-6 rounded-[2.5rem] shadow-2xl overflow-visible">
                             <p class="text-[9px] font-black text-amber-500 uppercase tracking-widest mb-1">Total Entry Fee</p>
                             <div class="flex justify-between items-end flex-nowrap gap-4">
-                                <span class="text-3xl font-black italic flex-nowrap shrink-0 overflow-visible">NPR 1,000</span>
+                                <span class="text-3xl font-black italic flex-nowrap shrink-0 overflow-visible">NPR 2,000</span>
                                 <span class="text-[10px] text-slate-400 font-bold mb-1">Includes Wordbank</span>
                             </div>
                         </div>

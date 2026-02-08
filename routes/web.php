@@ -22,35 +22,79 @@ use App\Http\Controllers\MyRegistrationController;
 |
 */
 
-Route::get('/', function () {
-    // if(auth()->id()){
-    //     return redirect(route('home'));
-    // }
-    // 1. Call your own API endpoint
-    // Use the internal URL or the full URL
-    $response = Http::get(url('https://spellingbee.asia/api/sponsors'));
+// Route::get('/', function () {
+//     // if(auth()->id()){
+//     //     return redirect(route('home'));
+//     // }
 
-    // 2. Decode the JSON into an object/collection
-    $sponsors = $response->successful() ? collect($response->json()) : collect([]);
+
+//     // 1. Call your own API endpoint
+//     // Use the internal URL or the full URL
+//     // $response = Http::withOptions([
+//     //     'verify' => false,
+//     // ])->get('http://spellingbee.asia/api/sponsors');
+//     // if ($response->failed()) {
+//     //     dd([
+//     //         'status' => $response->status(),
+//     //         'body' => $response->body(), // This might show an error page or message
+//     //     ]);
+//     // }
+
+//     try {
+//         $response = Http::get('https://spellingbee.asia/api/sponsors');
+
+//         if ($response->failed()) {
+//             dd('Request failed with status: ' . $response->status());
+//         }
+
+//         dd($response->json());
+//     } catch (\Exception $e) {
+//         dd('Connection Error: ' . $e->getMessage());
+//     }
+//     // 2. Decode the JSON into an object/collection
+//     $sponsors = $response->successful() ? collect($response->json('data')) : collect([]);
+
+//     // dd($sponsors);
+//     return view('main', compact('sponsors'));
+// })->name('welcome');
+
+Route::get('/', function () {
+    // 1. Identify as a browser and bypass SSL locally
+    $response = Http::withoutVerifying()
+        ->withHeaders([
+            'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept'     => 'application/json',
+        ])
+        ->get('https://spellingbee.asia/api/sponsors');
+
+    // 2. Safely decode the JSON
+    $data = $response->json();
+
+    // dd($data);
+
+    // 3. Ensure $sponsors is a collection of arrays, not strings
+    // If $data is just a single string or empty, we pass an empty collection to avoid the 'string offset' error
+    $sponsors = is_array($data) ? collect($data) : collect([]);
+
     return view('main', compact('sponsors'));
 })->name('welcome');
 
-Route::get('/demo', function() {
+Route::get('/demo', function () {
     return view('demo');
 });
 
-Route::get('/main', function() {
+Route::get('/main', function () {
     $sponsors = Sponsor::all();
     return view('main', [
         'sponsors' => Sponsor::all(),
     ]);
 });
 
-Route::get('/about', function() {
+Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/rules', function() {
+Route::get('/rules', function () {
     return view('rules');
 })->name('rules');
 
@@ -78,4 +122,4 @@ Route::resource('event-registrations', RegistrationController::class);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

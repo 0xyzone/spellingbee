@@ -58,7 +58,7 @@ $navLinks = [
                 </div>
                 <ul class="flex flex-col gap-8 list-none flex-grow">
                     @foreach($navLinks as $link)
-                    <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all italic">{{ $link['name'] }}</a></li>
+                    <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all">{{ $link['name'] }}</a></li>
                     @endforeach
                 </ul>
                 <button @click="paymentModalOpen = true; mobileMenuOpen = false" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">Pay Registration</button>
@@ -138,7 +138,7 @@ $navLinks = [
                         <span class="text-amber-600 font-black text-[10px] uppercase tracking-[0.4em]">Official Checkout</span>
                     </div>
 
-                    <h3 class="text-5xl lg:text-7xl font-black text-slate-900 italic tracking-tighter leading-none mb-10 overflow-visible">
+                    <h3 class="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-none mb-10 overflow-visible">
                         HIVE <span class="text-amber-500">PORTAL</span>
                     </h3>
 
@@ -179,11 +179,11 @@ $navLinks = [
 
                     <div class="w-full max-w-[280px] bg-slate-900 text-white p-6 rounded-[2.5rem] shadow-2xl text-center">
                         <p class="text-[9px] font-black text-amber-500 uppercase tracking-widest mb-1">Total Entry Fee</p>
-                        <p class="text-3xl font-black italic">NPR 2,000</p>
+                        <p class="text-3xl font-black">NPR 2,000</p>
                         <p class="text-[10px] text-slate-400 font-bold mb-1">Includes Wordbank</p>
                     </div>
 
-                    <p class="mt-6 text-[10px] text-slate-400 font-bold italic text-center max-w-[250px]">
+                    <p class="mt-6 text-[10px] text-slate-400 font-bold text-center max-w-[250px]">
                         Please mention <span class="text-slate-900">Student Name</span> in the transfer remarks.
                     </p>
 

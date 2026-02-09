@@ -12,12 +12,12 @@
             <div class="lg:col-span-5">
                 <img src="{{ asset('images/Evention_Master_logo.png') }}" alt="Evention Master" class="h-20 w-auto mb-8">
                 <p class="text-slate-400 max-w-sm leading-relaxed font-medium">
-                    Leading the hive in academic excellence. Evention Master is dedicated to reviving the prestige of <span class="text-amber-500 font-bold italic">Spelling Bee Nepal</span> for a new generation of wordsmiths.
+                    Leading the hive in academic excellence. Evention Master is dedicated to reviving the prestige of <span class="text-amber-500 font-bold">Spelling Bee Nepal</span> for a new generation of wordsmiths.
                 </p>
             </div>
 
             <div class="lg:col-span-7">
-                <h2 class="text-amber-500 font-black uppercase tracking-[0.3em] text-xs mb-8 italic">Hive Command Center</h2>
+                <h2 class="text-amber-500 font-black uppercase tracking-[0.3em] text-xs mb-8">Hive Command Center</h2>
 
                 <div class="grid sm:grid-cols-2 gap-y-8 gap-x-12">
                     <div class="group flex gap-4">
@@ -53,7 +53,7 @@
                         </div>
                         <div>
                             <h4 class="text-white font-black text-sm uppercase tracking-tighter mb-1">Emergency Buzz</h4>
-                            <p class="text-xs text-slate-500 font-bold italic">+977-014026748 <span class="text-amber-700 mx-2">|</span> +977-9705998433</p>
+                            <p class="text-xs text-slate-500 font-bold">+977-014026748 <span class="text-amber-700 mx-2">|</span> +977-9705998433</p>
                         </div>
                     </div>
                 </div>

@@ -23,10 +23,10 @@ $navLinks = [
         </a>
 
         <div class="hidden lg:flex items-center gap-12">
-            <ul class="flex items-center gap-10 list-none">
+            <ul class="flex items-center gap-10 list-none overflow-visible">
                 @foreach($navLinks as $link)
-                <li>
-                    <a href="{{ $link['url'] }}" @if($link['external']) target="_blank" @endif class="font-black text-[13px] uppercase tracking-[0.2em] transition-all duration-300 hover:text-amber-500 relative group" :class="atTop ? 'text-slate-900' : 'text-slate-800'">
+                <li class="overflow-visible h-full">
+                    <a href="{{ $link['url'] }}" @if($link['external']) target="_blank" @endif class="font-black text-[13px] uppercase tracking-[0.2em] transition-all duration-300 hover:text-amber-500 relative group overflow-visible" :class="atTop ? 'text-slate-900' : 'text-slate-800'">
                         {{ $link['name'] }}
                         <span class="absolute -bottom-2 left-0 w-0 h-1 bg-amber-400 transition-all duration-500 group-hover:w-full rounded-full"></span>
                     </a>

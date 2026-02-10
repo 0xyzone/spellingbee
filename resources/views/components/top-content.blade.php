@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section id="about-sbn" class="bg-transparent lg:py-40 py-20 scroll-mt-20 overflow-visible relative">
+    <section id="about-sbn" class="bg-transparent py-10 scroll-mt-20 overflow-visible relative">
         <div class="max-w-6xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="grid lg:grid-cols-12 gap-16 items-start overflow-visible">
                 <div class="lg:col-span-7 space-y-10 overflow-visible">
@@ -144,7 +144,7 @@
         </div>
     </section>
 
-    <section id="faq" class="py-40 bg-[#fffdfa] scroll-mt-20 overflow-visible relative">
+    <section id="faq" class="py-10 bg-[#fffdfa] scroll-mt-20 overflow-visible relative">
         <div class="max-w-4xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="text-center mb-20 overflow-visible">
                 <h2 class="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter uppercase overflow-visible">Hive <span class="text-amber-500">Intel</span></h2>
@@ -156,7 +156,7 @@
             ['q' => 'What is Spelling Bee Nepal?', 'a' => 'A premier national academic competition designed to help students improve spelling, vocabulary, and English usage through healthy competition.'],
             ['q' => 'Who is eligible to participate?', 'a' => 'The competition is open to students currently enrolled in <strong>Class 6 to 10</strong> who have not yet reached their 16th birthday.'],
             ['q' => 'Which dictionary is the final authority?', 'a' => 'We use the <strong>Merriam-Webster Unabridged Dictionary</strong> as our primary linguistic authority for all rounds.'],
-            ['q' => 'What does the NPR 1,000 fee cover?', 'a' => 'The fee includes your official competition entry, a printed copy of the 2026 Word Bank, and access to regional training materials.'],
+            ['q' => 'What does the NPR 2,000 fee cover?', 'a' => 'The fee includes your official competition entry, a printed copy of the 2026 Word Bank, and access to regional training materials.'],
             ['q' => 'How can I get the official Word Bank?', 'a' => 'You can collect your physical copy at any of our 4 official hubs listed below after showing your payment confirmation.']
             ];
             @endphp
@@ -164,16 +164,16 @@
             <div class="space-y-8 overflow-visible" x-data="{ active: null }">
                 @foreach($faqs as $index => $faq)
                 <div class="bg-white rounded-[2.5rem] border border-amber-100 transition-all duration-500 shadow-sm overflow-visible" :class="active === {{ $index }} ? 'shadow-2xl ring-4 ring-amber-400/20' : ''">
-                    <button @click="active = (active === {{ $index }} ? null : {{ $index }})" class="w-full flex items-center justify-between p-8 lg:p-10 text-left group overflow-visible">
-                        <span :class="active === {{ $index }} ? 'text-amber-600 font-black scale-105' : 'text-slate-800 font-bold'" class="text-xl lg:text-2xl transition-all duration-300 leading-tight pr-6">{{ $faq['q'] }}</span>
-                        <div :class="active === {{ $index }} ? 'bg-amber-500 text-white rotate-180 shadow-lg shadow-amber-500/40' : 'bg-amber-50 text-amber-400'" class="w-12 h-12 lg:w-16 lg:h-16 rounded-[1.5rem] flex items-center justify-center transition-all duration-500 flex-shrink-0">
-                            <svg class="w-6 h-6 lg:w-8 lg:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button @click="active = (active === {{ $index }} ? null : {{ $index }})" class="w-full flex items-center justify-between p-4 text-left group overflow-visible">
+                        <span :class="active === {{ $index }} ? 'text-amber-600 font-black scale-105' : 'text-slate-800 font-bold'" class="text-xl transition-all duration-300 leading-tight pl-4">{{ $faq['q'] }}</span>
+                        <div :class="active === {{ $index }} ? 'bg-amber-500 text-white rotate-180 shadow-lg shadow-amber-500/40' : 'bg-amber-50 text-amber-400'" class="w-12 h-12 rounded-[1.5rem] flex items-center justify-center transition-all duration-500 flex-shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-width="4" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </div>
                     </button>
                     <div x-show="active === {{ $index }}" x-collapse x-cloak>
-                        <div class="px-10 pb-10 text-slate-600 font-medium leading-relaxed border-t border-amber-50 pt-8 text-lg lg:text-xl">
+                        <div class="px-6 pb-6 text-slate-600 font-medium leading-relaxed border-t border-amber-50 pt-2 text-lg lg:text-xl">
                             {!! $faq['a'] !!}
                         </div>
                     </div>
@@ -190,17 +190,20 @@
         </h2>
 
         <div class="relative flex overflow-hidden border-y border-slate-100 py-6">
-            <div class="flex items-center flex-shrink-0">
+            <div class="flex items-center flex-shrink w-screen justify-center">
                 @foreach($sponsors as $sponsor)
                 <a href="{{ $sponsor['url'] ?? '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
                     {{-- Make sure the key 'sponsor_logo_url' matches your API response --}}
-                    <img src="{{ $sponsor['sponsor_logo_url'] }}" alt="{{ $sponsor['name'] ?? 'Sponsor' }}" class="w-16 lg:w-32 object-contain">
+                    <img src="{{ $sponsor['sponsor_logo_url'] }}" alt="{{ $sponsor['name'] ?? 'Sponsor' }}" class="w-32 lg:w-44 object-scale-down aspect-square ">
                 </a>
                 @endforeach
             </div>
         </div>
     </section>
     @endif
+    <section>
+        
+    </section>
 </div>
 
 <style>

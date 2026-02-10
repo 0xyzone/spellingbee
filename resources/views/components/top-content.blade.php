@@ -156,7 +156,7 @@
             ['q' => 'What is Spelling Bee Nepal?', 'a' => 'A premier national academic competition designed to help students improve spelling, vocabulary, and English usage through healthy competition.'],
             ['q' => 'Who is eligible to participate?', 'a' => 'The competition is open to students currently enrolled in <strong>Class 6 to 10</strong> who have not yet reached their 16th birthday.'],
             ['q' => 'Which dictionary is the final authority?', 'a' => 'We use the <strong>Merriam-Webster Unabridged Dictionary</strong> as our primary linguistic authority for all rounds.'],
-            ['q' => 'What does the NPR 2,000 fee cover?', 'a' => 'The fee includes your official competition entry, a printed copy of the 2026 Word Bank, and access to regional training materials.'],
+            ['q' => 'What does the NPR 2,000 fee cover?', 'a' => 'The fee includes your official competition entry, a printed copy of the 2026 Word Bank, and access to regional training materials along with Bee T-shirt, Certificate, Bee token of love and Lunch Box'],
             ['q' => 'How can I get the official Word Bank?', 'a' => 'You can collect your physical copy at any of our 4 official hubs listed below after showing your payment confirmation.']
             ];
             @endphp

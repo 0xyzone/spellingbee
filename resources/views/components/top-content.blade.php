@@ -93,7 +93,7 @@
                     </div>
 
                     <div class="bg-slate-900 p-10 lg:p-12 rounded-[3.5rem] shadow-2xl text-white relative overflow-visible">
-                        <h4 class="text-amber-400 font-black text-2xl mb-8">The 2010 Champions</h4>
+                        <h4 class="text-amber-400 font-black text-2xl mb-8">The 2010 Champion</h4>
                         <div class="space-y-8">
                             <div class="flex items-center gap-6 overflow-visible">
                                 <span class="text-5xl overflow-visible">🥇</span>
@@ -102,18 +102,11 @@
                                     <p class="text-amber-400/60 font-bold uppercase tracking-widest text-xs">Galaxy Public School (Winner)</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-6 opacity-80 overflow-visible">
-                                <span class="text-4xl text-slate-400 overflow-visible">🥈</span>
-                                <div>
-                                    <h5 class="text-xl font-bold text-slate-200">Bibek Rauniyar</h5>
-                                    <p class="text-slate-500 font-bold uppercase tracking-widest text-[10px]">Gillette Int'l Boarding (1st Runner Up)</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 pt-12 overflow-visible">
+                <div class="lg:col-span-5 pt-8 overflow-visible">
                     <div class="sticky top-40 bg-amber-400 p-1.5 rounded-[3.5rem] shadow-2xl overflow-visible">
                         <div class="bg-white p-10 rounded-[3.2rem] space-y-10">
                             <h3 class="text-slate-900 font-black text-2xl uppercase tracking-tighter">2010 Finalists</h3>

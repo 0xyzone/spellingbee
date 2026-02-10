@@ -7,7 +7,7 @@
         <div class="absolute bottom-10 left-10 w-64 h-64 border-[20px] border-amber-400/10 rounded-[50px] rotate-45"></div>
     </div>
 
-    <section class="relative pt-32 lg:pt-56 pb-24 overflow-visible">
+    <section class="relative pt-32 lg:pt-56 pb-10 overflow-visible">
         <div class="max-w-7xl mx-auto px-6 lg:flex items-center gap-12 relative overflow-visible">
             <div class="lg:w-1/2 z-20 text-center lg:text-left overflow-visible py-10">
                 <div class="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-white shadow-xl border border-amber-100 mb-8 animate-bounce-slow">
@@ -23,13 +23,13 @@
                 <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 overflow-visible mt-10">
 
                     <div class="relative group overflow-visible">
-                        <div class="absolute inset-0 bg-amber-500/20 blur-[40px] rounded-[2.5rem] scale-90 group-hover:scale-110 transition-all duration-700"></div>
+                        <div class="absolute inset-0 bg-amber-500/20 blur-[40px] rounded-[0.5rem] scale-90 group-hover:scale-110 transition-all duration-700"></div>
 
-                        <a href="https://hive.spellingbee.asia" target="_blank" class="relative flex items-center px-10 py-8 bg-slate-950 rounded-[2.5rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(245,158,11,0.5)] overflow-hidden">
+                        <a href="https://hive.spellingbee.asia" target="_blank" class="relative flex items-center px-10 py-8 bg-slate-950 rounded-[1.5rem] border border-white/10 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-2 group-hover:shadow-[0_30px_60px_-15px_rgba(245,158,11,0.5)] overflow-hidden">
 
-                            <div class="absolute inset-0 p-[1px] rounded-[2.5rem] overflow-hidden">
+                            <div class="absolute inset-0 p-[1px] rounded-[0.5rem] overflow-hidden">
                                 <div class="absolute inset-[-1000%] animate-[spin_5s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,transparent_0%,transparent_45%,#f59e0b_50%,transparent_55%,transparent_100%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <div class="absolute inset-[1px] bg-slate-950 rounded-[calc(2.5rem-1px)]"></div>
+                                <div class="absolute inset-[1px] bg-slate-950 rounded-[calc(0.5rem-1px)]"></div>
                             </div>
 
                             <div class="absolute inset-0 opacity-[0.05] group-hover:opacity-10 transition-opacity" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIxNyIgdmlld0JveD0iMCAwIDIwIDE3Ij48cGF0aCBkPSJNMTAgMEwyMCA1djdsLTEwIDVMMCAxMlY1TDEwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==');"></div>
@@ -57,7 +57,7 @@
                         </a>
                     </div>
 
-                    <a href="#about-sbn" class="group relative flex items-center gap-4 px-10 py-8 bg-white border-2 border-slate-100 rounded-[2.5rem] transition-all duration-500 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1">
+                    <a href="#about-sbn" class="group relative flex items-center gap-4 px-10 py-8 bg-white border-2 border-slate-100 rounded-[1.5rem] transition-all duration-500 hover:border-amber-400 hover:shadow-xl hover:-translate-y-1">
                         <span class="text-slate-900 font-black uppercase text-xs tracking-[0.2em]">Explore Legacy</span>
                         <div class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors">
                             <svg class="w-3 h-3 text-slate-400 group-hover:text-amber-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,9 +76,9 @@
         </div>
     </section>
 
-    <section id="about-sbn" class="bg-transparent py-10 scroll-mt-20 overflow-visible relative">
+    <section id="about-sbn" class="bg-transparent py-4 scroll-mt-20 overflow-visible relative">
         <div class="max-w-6xl mx-auto px-6 relative z-10 overflow-visible">
-            <div class="grid lg:grid-cols-12 gap-16 items-start overflow-visible">
+            <div class="grid lg:grid-cols-12 gap-10 items-start overflow-visible">
                 <div class="lg:col-span-7 space-y-10 overflow-visible">
                     <div class="overflow-visible py-2">
                         <span class="text-amber-600 font-black uppercase text-[12px] tracking-widest block mb-4">2010 • Thamel, Kathmandu</span>
@@ -94,19 +94,17 @@
 
                     <div class="bg-slate-900 p-10 lg:p-12 rounded-[3.5rem] shadow-2xl text-white relative overflow-visible">
                         <h4 class="text-amber-400 font-black text-2xl mb-8">The 2010 Champion</h4>
-                        <div class="space-y-8">
-                            <div class="flex items-center gap-6 overflow-visible">
-                                <span class="text-5xl overflow-visible">🥇</span>
-                                <div>
-                                    <h5 class="text-2xl font-black">Benish Shrestha</h5>
-                                    <p class="text-amber-400/60 font-bold uppercase tracking-widest text-xs">Galaxy Public School (Winner)</p>
-                                </div>
+                        <div class="flex items-center gap-6 overflow-visible">
+                            <span class="text-5xl overflow-visible">🥇</span>
+                            <div>
+                                <h5 class="text-2xl font-black">Benish Shrestha</h5>
+                                <p class="text-amber-400/60 font-bold uppercase tracking-widest text-xs">Galaxy Public School (Winner)</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="lg:col-span-5 pt-8 overflow-visible">
+                <div class="lg:col-span-5 overflow-visible">
                     <div class="sticky top-40 bg-amber-400 p-1.5 rounded-[3.5rem] shadow-2xl overflow-visible">
                         <div class="bg-white p-10 rounded-[3.2rem] space-y-10">
                             <h3 class="text-slate-900 font-black text-2xl uppercase tracking-tighter">2010 Finalists</h3>
@@ -195,7 +193,7 @@
     </section>
     @endif
     <section>
-        
+
     </section>
 </div>
 

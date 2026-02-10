@@ -174,6 +174,81 @@
         </div>
     </section>
 
+    <section class="py-10 bg-white relative overflow-visible">
+        <div class="absolute inset-0 opacity-[0.03] pointer-events-none overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSIzNCIgdmlld0JveD0iMCAwIDQwIDM0Ij48cGF0aCBkPSJNMjAgMEw0MCAxMC41djEzTDIwIDM0TDAgMjMuNVYxMC41TDIwIDBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg=='); background-size: 80px;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 overflow-visible">
+            <div class="text-center mb-28 overflow-visible">
+                <div class="inline-block px-4 py-1.5 bg-amber-50 rounded-full text-amber-600 text-[10px] font-black uppercase tracking-[0.3em] mb-4 border border-amber-100 shadow-sm">
+                    Pick Up Points
+                </div>
+                <h2 class="text-6xl lg:text-7xl font-black text-slate-900 tracking-tighter uppercase overflow-visible leading-none">
+                    Secure Your <span class="text-amber-500 relative inline-block overflow-visible">Word Bank
+                        <svg class="absolute -bottom-4 left-0 w-full h-3 text-amber-200/60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                            <path d="M0 5 Q 25 0 50 5 T 100 5" stroke="currentColor" stroke-width="4" fill="none" /></svg>
+                    </span>
+                </h2>
+                <p class="text-slate-400 font-bold mt-10 tracking-widest text-xs lg:text-sm uppercase">Visit our official collection hubs near you</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 overflow-visible">
+                @php
+                $hubs = [
+                ['n' => 'Evention Master', 'l' => 'Manamaiju, Kathmandu', 'p' => '9705998433', 'icon' => '🏠', 'color' => 'bg-amber-400'],
+                ['n' => 'Patan Dhoka', 'l' => 'Lalitpur Hub', 'p' => '9841078207', 'icon' => '📍', 'color' => 'bg-blue-400'],
+                ['n' => 'Prevec Consultancy', 'l' => 'Sorhakhutte, KTM', 'p' => '014980405', 'icon' => '🏫', 'color' => 'bg-emerald-400'],
+                ['n' => 'Capture Studio', 'l' => 'Old Baneshwor', 'p' => '9709605400', 'icon' => '📸', 'color' => 'bg-purple-400']
+                ];
+                @endphp
+                @foreach($hubs as $hub)
+                <div class="group relative bg-white p-12 rounded-[4rem] border-2 border-slate-50 shadow-[0_10px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_40px_80px_rgba(245,158,11,0.15)] hover:-translate-y-5 hover:border-amber-200 transition-all duration-700 overflow-visible">
+
+                    <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-24 h-24 overflow-visible">
+                        <div class="absolute inset-0 bg-white rounded-3xl rotate-6 group-hover:rotate-12 transition-transform duration-500 shadow-xl border border-slate-50"></div>
+                        <div class="absolute inset-0 {{ $hub['color'] }} rounded-3xl -rotate-3 group-hover:rotate-0 transition-transform duration-500 shadow-lg flex items-center justify-center text-4xl transform group-hover:scale-110">
+                            {{ $hub['icon'] }}
+                        </div>
+                    </div>
+
+                    <div class="mt-12 text-center overflow-visible">
+                        <h5 class="text-2xl font-black text-slate-900 mb-2 group-hover:text-amber-600 transition-colors duration-300">
+                            {{ $hub['n'] }}
+                        </h5>
+
+                        <div class="flex items-center justify-center gap-1.5 mb-8">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            <span class="text-[11px] text-slate-400 font-black uppercase tracking-widest">{{ $hub['l'] }}</span>
+                        </div>
+
+                        <div class="relative overflow-visible">
+                            <a href="tel:{{ $hub['p'] }}" class="relative z-10 w-full py-5 bg-slate-900 text-white rounded-[2rem] text-lg font-black tracking-widest transition-all duration-500 group-hover:bg-amber-500 group-hover:shadow-[0_15px_30px_rgba(245,158,11,0.4)] flex items-center justify-center gap-3 active:scale-95">
+                                <span class="group-hover:animate-bounce">📞</span>
+                                <span>{{ $hub['p'] }}</span>
+                            </a>
+                            <div class="absolute inset-0 bg-slate-900 rounded-[2rem] blur-xl opacity-20 group-hover:opacity-0 transition-opacity"></div>
+                        </div>
+                    </div>
+
+                    <div class="absolute bottom-6 right-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500/40">Hub #0{{ $loop->iteration }}</span>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            <div class="mt-24 text-center">
+                <p class="text-slate-400 font-medium text-lg">
+                    Can't reach a hub?
+                    <a href="https://wa.me/9779705998433" target="_blank" class="text-slate-900 font-black underline decoration-amber-400 decoration-4 hover:text-amber-500 transition-all">
+                        Get Digital Access via WhatsApp
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
     @if($sponsors->isNotEmpty())
     <section class="py-16 bg-white overflow-hidden flex flex-col items-center">
         <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">

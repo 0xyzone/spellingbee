@@ -73,7 +73,7 @@ $navLinks = [
                     <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all">{{ $link['name'] }}</a></li>
                     @endforeach
                 </ul>
-                {{-- <button @click="paymentModalOpen = true; mobileMenuOpen = false" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">Pay Registration</button> --}}
+                <button onclick="triggerInstall()" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">Install SBN {{ now()->year }} App</button>
             </div>
         </div>
     </template>

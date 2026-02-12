@@ -120,4 +120,4 @@ Route::get('/manifest.json', function () {
         "theme_color" => "#f59e0b",
         "background_color" => "#ffffff"
     ]);
-});
+})->name('manifest');

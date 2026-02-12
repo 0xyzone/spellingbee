@@ -103,13 +103,13 @@ Route::get('/manifest.json', function () {
         "name" => "Spelling Bee Nepal " . now()->year,
         "icons" => [
             [
-                "src" => asset('images/sbn2024.png'),
+                "src" => asset('images/sbn26.png'),
                 "sizes" => "192x192",
                 "type" => "image/png",
                 "purpose" => "any" // Prevents the OS from forcing a mask/stretch
             ],
             [
-                "src" => asset('images/sbn2024.png'),
+                "src" => asset('images/sbn26.png'),
                 "sizes" => "512x512",
                 "type" => "image/png",
                 "purpose" => "any"

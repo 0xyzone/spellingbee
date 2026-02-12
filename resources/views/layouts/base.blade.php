@@ -32,6 +32,8 @@
 
     <meta name="theme-color" content="#f59e0b">
 
+    <link rel="manifest" href="{{ url(route('manifest')) }}">
+
 
     <style>
         [x-cloak] {

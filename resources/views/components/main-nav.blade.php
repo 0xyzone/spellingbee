@@ -39,6 +39,11 @@ $navLinks = [
                     </a>
                 </li>
                 @endforeach
+                <li>
+                    <button onclick="triggerInstall()" class="bg-amber-500 text-white px-4 py-2 rounded-xl">
+                        Install SBN {{ now()->year }} App
+                    </button>
+                </li>
             </ul>
 
             {{-- <button @click="paymentModalOpen = true" class="group relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-black text-[12px] uppercase tracking-[0.2em] transition-all shadow-xl active:scale-95 overflow-hidden">

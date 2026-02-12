@@ -96,3 +96,18 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 require __DIR__ . '/auth.php';
+
+Route::get('/manifest.json', function () {
+    return response()->json([
+        "short_name" => "SBN " . now()->year,
+        "name" => "Spelling Bee Nepal " . now()->year,
+        "icons" => [
+            ["src" => asset('images/sbn2024.png'), "sizes" => "192x192", "type" => "image/png"],
+            ["src" => asset('images/sbn2024.png'), "sizes" => "512x512", "type" => "image/png"]
+        ],
+        "start_url" => "/",
+        "display" => "standalone",
+        "theme_color" => "#f59e0b",
+        "background_color" => "#ffffff"
+    ]);
+})->name('manifest');

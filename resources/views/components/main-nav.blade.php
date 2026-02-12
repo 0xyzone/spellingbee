@@ -67,7 +67,7 @@ $navLinks = [
                 @endforeach
                 <li x-show="!isStandalone" x-cloak>
                     <button @click="triggerInstall" class="bg-amber-500 text-white px-4 py-2 rounded-xl font-black uppercase text-xs">
-                        App Install
+                        Install SBN {{ now()->year }} App
                     </button>
                 </li>
             </ul>

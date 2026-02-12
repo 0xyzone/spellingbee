@@ -11,13 +11,20 @@ $navLinks = [
         paymentModalOpen: false, 
         atTop: true,
         deferredPrompt: null,
-        showInstallBtn: false,
+        // Check if already installed/standalone
+        isInstalled: window.matchMedia('(display-mode: standalone)').matches,
         
         init() {
+            // Listen for the install prompt
             window.addEventListener('beforeinstallprompt', (e) => {
                 e.preventDefault();
                 this.deferredPrompt = e;
-                this.showInstallBtn = true;
+            });
+
+            // Listen for app being installed successfully
+            window.addEventListener('appinstalled', () => {
+                this.isInstalled = true;
+                this.deferredPrompt = null;
             });
             
             $watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '');
@@ -26,15 +33,15 @@ $navLinks = [
 
         async triggerInstall() {
             if (!this.deferredPrompt) {
-                alert('To install: Open your browser menu and select Add to Home Screen');
+                alert('To install: Open browser menu and select Add to Home Screen');
                 return;
             }
             this.deferredPrompt.prompt();
             const { outcome } = await this.deferredPrompt.userChoice;
             if (outcome === 'accepted') {
-                this.showInstallBtn = false;
+                this.isInstalled = true;
+                this.deferredPrompt = null;
             }
-            this.deferredPrompt = null;
         }
     }" @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
 
@@ -62,8 +69,8 @@ $navLinks = [
                     </a>
                 </li>
                 @endforeach
-                <li>
-                    <button onclick="triggerInstall()" class="bg-amber-500 text-white px-4 py-2 rounded-xl">
+                <li x-show="!isInstalled && deferredPrompt" x-cloak>
+                    <button @click="triggerInstall" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2.5 rounded-2xl font-black uppercase text-[12px] transition-all shadow-lg active:scale-95">
                         Install SBN {{ now()->year }} App
                     </button>
                 </li>
@@ -96,7 +103,7 @@ $navLinks = [
                     <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all">{{ $link['name'] }}</a></li>
                     @endforeach
                 </ul>
-                <button x-show="showInstallBtn" @click="triggerInstall" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">
+                <button x-show="!isInstalled && deferredPrompt" @click="triggerInstall" x-cloak class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">
                     Install SBN {{ now()->year }} App
                 </button>
             </div>

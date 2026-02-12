@@ -17,7 +17,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="SBN {{ now()->year }}">
     <meta property="og:description" content="Secure your spot for SBN  {{ now()->year }}.">
-    <meta property="og:image" content="{{ asset('images/sbn26.png', true) }}">
+    <meta property="og:image" content="{{ asset('images/sbn2024.png') }}?v={{ time() }}">
     <meta property="og:image:secure_url" content="{{ asset('images/sbn26.png', true) }}">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="2000">

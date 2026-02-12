@@ -1,15 +1,16 @@
 <?php
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MyRegistrationController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\SchoolController;
+use App\Http\Controllers\SponsorController;
 use App\Models\Event;
 use App\Models\Sponsor;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\SchoolController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SponsorController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\MyRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,42 +22,6 @@ use App\Http\Controllers\MyRegistrationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     // if(auth()->id()){
-//     //     return redirect(route('home'));
-//     // }
-
-
-//     // 1. Call your own API endpoint
-//     // Use the internal URL or the full URL
-//     // $response = Http::withOptions([
-//     //     'verify' => false,
-//     // ])->get('http://spellingbee.asia/api/sponsors');
-//     // if ($response->failed()) {
-//     //     dd([
-//     //         'status' => $response->status(),
-//     //         'body' => $response->body(), // This might show an error page or message
-//     //     ]);
-//     // }
-
-//     try {
-//         $response = Http::get('https://spellingbee.asia/api/sponsors');
-
-//         if ($response->failed()) {
-//             dd('Request failed with status: ' . $response->status());
-//         }
-
-//         dd($response->json());
-//     } catch (\Exception $e) {
-//         dd('Connection Error: ' . $e->getMessage());
-//     }
-//     // 2. Decode the JSON into an object/collection
-//     $sponsors = $response->successful() ? collect($response->json('data')) : collect([]);
-
-//     // dd($sponsors);
-//     return view('main', compact('sponsors'));
-// })->name('welcome');
 
 Route::get('/', function () {
     // 1. Identify as a browser and bypass SSL locally

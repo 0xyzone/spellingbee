@@ -11,36 +11,32 @@ $navLinks = [
         paymentModalOpen: false, 
         atTop: true,
         deferredPrompt: null,
-        // Check if already installed/standalone
-        isInstalled: window.matchMedia('(display-mode: standalone)').matches,
-        
+        // Detect if the user is on an iPhone/iPad
+        isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
+        isStandalone: window.matchMedia('(display-mode: standalone)').matches,
+
         init() {
-            // Listen for the install prompt
             window.addEventListener('beforeinstallprompt', (e) => {
                 e.preventDefault();
                 this.deferredPrompt = e;
-            });
-
-            // Listen for app being installed successfully
-            window.addEventListener('appinstalled', () => {
-                this.isInstalled = true;
-                this.deferredPrompt = null;
             });
             
             $watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '');
             $watch('paymentModalOpen', value => document.body.style.overflow = value ? 'hidden' : '');
         },
 
-        async triggerInstall() {
-            if (!this.deferredPrompt) {
-                alert('To install: Open browser menu and select Add to Home Screen');
+        triggerInstall() {
+            if (this.isIOS) {
+                alert('To install: Tap the Share icon at the bottom and select Add to Home Screen.');
                 return;
             }
-            this.deferredPrompt.prompt();
-            const { outcome } = await this.deferredPrompt.userChoice;
-            if (outcome === 'accepted') {
-                this.isInstalled = true;
-                this.deferredPrompt = null;
+            if (this.deferredPrompt) {
+                this.deferredPrompt.prompt();
+                this.deferredPrompt.userChoice.then((choice) => {
+                    if (choice.outcome === 'accepted') this.deferredPrompt = null;
+                });
+            } else {
+                alert('Installation is supported on Chrome, Edge, and Android browsers.');
             }
         }
     }" @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
@@ -69,9 +65,9 @@ $navLinks = [
                     </a>
                 </li>
                 @endforeach
-                <li x-show="!isInstalled && deferredPrompt" x-cloak>
-                    <button @click="triggerInstall" class="bg-amber-500 hover:bg-amber-600 text-white px-5 py-2.5 rounded-2xl font-black uppercase text-[12px] transition-all shadow-lg active:scale-95">
-                        Install SBN {{ now()->year }} App
+                <li x-show="!isStandalone" x-cloak>
+                    <button @click="triggerInstall" class="bg-amber-500 text-white px-4 py-2 rounded-xl font-black uppercase text-xs">
+                        App Install
                     </button>
                 </li>
             </ul>
@@ -103,7 +99,7 @@ $navLinks = [
                     <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all">{{ $link['name'] }}</a></li>
                     @endforeach
                 </ul>
-                <button x-show="!isInstalled && deferredPrompt" @click="triggerInstall" x-cloak class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">
+                <button x-show="!isStandalone" @click="triggerInstall" x-cloak class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">
                     Install SBN {{ now()->year }} App
                 </button>
             </div>

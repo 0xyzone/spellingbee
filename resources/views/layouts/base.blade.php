@@ -16,7 +16,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="SB {{ now()->year }}">
-    <meta property="og:description" content="Official registration and portal for SB {{ now()->year }}.">
+    <meta property="og:description" content="Secure your spot for SBN  {{ now()->year }}.">
     <meta property="og:image" content="{{ asset('images/sbn2024.png') }}">
 
     <meta property="twitter:card" content="summary_large_image">

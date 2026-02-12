@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Supporter extends Model
 {
     use HasFactory;
+    protected $appends = ['supporter_logo_url'];
 
 
     /**

@@ -17,8 +17,8 @@
                 <h1 class="text-6xl lg:text-[110px] font-black text-slate-900 leading-[0.85] mb-8 tracking-tighter overflow-visible">
                     Spelling <br> <span class="text-amber-500 drop-shadow-md">Bee</span> Nepal
                 </h1>
-                <p class="text-xl lg:text-2xl text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
-                    Helping students improve spelling, increase vocabularies, and develop correct English usage that will help them <span class="text-slate-900 font-bold underline decoration-amber-400 decoration-8">all their lives</span>.
+                <p class="text-sm lg:text-lg text-slate-600 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium overflow-visible text-justify">
+                    Words shape belief and strengthen every voice, fostering clarity, confidence, and effective expression. The Spelling Bee enhances students’ English proficiency, vocabulary, spelling accuracy, and communication skills while developing focus, discipline, and confidence. It strengthens memory, critical thinking, attentive listening, and clear articulation—supporting academic excellence and well-rounded student development. <span class="text-slate-900 font-bold underline decoration-amber-400 decoration-4">This is the power of the Spelling Bee.</span>.
                 </p>
                 <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 lg:gap-8 overflow-visible mt-10">
 
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <section id="about-sbn" class="bg-transparent py-4 scroll-mt-20 overflow-visible relative">
+    <section id="about-sbn" class="bg-transparent py-4 scroll-mt-[6rem] lg:scroll-mt-[10rem] overflow-visible relative">
         <div class="max-w-6xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="grid lg:grid-cols-12 gap-10 items-start overflow-visible">
                 <div class="lg:col-span-7 space-y-10 overflow-visible">
@@ -135,7 +135,7 @@
         </div>
     </section>
 
-    <section id="faq" class="py-10 bg-[#fffdfa] scroll-mt-20 overflow-visible relative">
+    <section id="faq" class="py-10 bg-[#fffdfa] scroll-mt-[6rem] lg:scroll-mt-[8rem] overflow-visible relative">
         <div class="max-w-4xl mx-auto px-6 relative z-10 overflow-visible">
             <div class="text-center mb-20 overflow-visible">
                 <h2 class="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter uppercase overflow-visible">Hive <span class="text-amber-500">Intel</span></h2>

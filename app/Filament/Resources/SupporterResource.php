@@ -2,31 +2,31 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\SupporterResource\Pages;
+use App\Filament\Resources\SupporterResource\RelationManagers;
+use App\Models\Supporter;
 use Filament\Forms;
-use Filament\Tables;
-use App\Models\Sponsor;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
 use Filament\Support\Enums\IconPosition;
+use Filament\Tables;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use App\Filament\Resources\SponsorResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\SponsorResource\RelationManagers;
 
-class SponsorResource extends Resource
+class SupporterResource extends Resource
 {
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
-    protected static ?string $model = Sponsor::class;
+    protected static ?string $model = Supporter::class;
 
-    protected static ?int $navigationSort = 1;
+    protected static ?string $navigationIcon = 'heroicon-o-hand-raised';
+    protected static ?string $activeNavigationIcon = 'heroicon-m-hand-raised';
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Helping Hands';
-    protected static ?string $navigationIcon = 'heroicon-o-sun';
-    protected static ?string $activeNavigationIcon = 'heroicon-c-sun';
 
     public static function form(Form $form): Form
     {
@@ -47,11 +47,11 @@ class SponsorResource extends Resource
                             ->prefix('https://')
                             ->prefixIcon('heroicon-o-globe-asia-australia')
                             ->maxLength(125),
-                        Forms\Components\FileUpload::make('sponsor_logo_path')
+                        Forms\Components\FileUpload::make('supporter_logo_path')
                             ->label('Logo')
                             ->required()
                             ->image(),
-                        Forms\Components\FileUpload::make('sponsor_banner_path')
+                        Forms\Components\FileUpload::make('supporter_banner_path')
                             ->label('Banner')
                             ->image(),
                     ])->columnSpan(3),
@@ -94,14 +94,14 @@ class SponsorResource extends Resource
                 ->icon(fn ($state)  => $state == '-' ? '' : 'heroicon-c-arrow-top-right-on-square')
                 ->iconColor('primary')
                 ->iconPosition(IconPosition::After),
-                Tables\Columns\ImageColumn::make('sponsor_logo_path')
+                Tables\Columns\ImageColumn::make('supporter_logo_path')
                 ->label('Logo')
                     ->simpleLightbox()
                     ->width(150)
                 ->extraImgAttributes([
                     'class' => '!object-scale-down'
                 ]),
-                Tables\Columns\ImageColumn::make('sponsor_banner_path')
+                Tables\Columns\ImageColumn::make('supporter_banner_path')
                 ->label('Banner')
                 ->simpleLightbox()
                     ->toggleable(isToggledHiddenByDefault: true)
@@ -138,9 +138,9 @@ class SponsorResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSponsors::route('/'),
-            // 'create' => Pages\CreateSponsor::route('/create'),
-            // 'edit' => Pages\EditSponsor::route('/{record}/edit'),
+            'index' => Pages\ListSupporters::route('/'),
+            // 'create' => Pages\CreateSupporter::route('/create'),
+            // 'edit' => Pages\EditSupporter::route('/{record}/edit'),
         ];
     }
 }

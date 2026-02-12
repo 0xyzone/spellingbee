@@ -63,20 +63,28 @@ Route::get('/', function () {
     $response = Http::withoutVerifying()
         ->withHeaders([
             'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Accept'     => 'application/json',
+            'Accept' => 'application/json',
         ])
         ->get('https://spellingbee.asia/api/sponsors');
+    $response2 = Http::withoutVerifying()
+        ->withHeaders([
+            'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept' => 'application/json',
+        ])
+        ->get('https://spellingbee.asia/api/supporters');
 
     // 2. Safely decode the JSON
     $data = $response->json();
+    $data2 = $response2->json();
 
     // dd($data);
 
     // 3. Ensure $sponsors is a collection of arrays, not strings
     // If $data is just a single string or empty, we pass an empty collection to avoid the 'string offset' error
     $sponsors = is_array($data) ? collect($data) : collect([]);
+    $supporters = is_array($data2) ? collect($data2) : collect([]);
 
-    return view('main', compact('sponsors'));
+    return view('main', compact('sponsors', 'supporters'));
 })->name('welcome');
 
 Route::get('/demo', function () {

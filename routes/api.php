@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Sponsor;
+use App\Models\Supporter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\v1\EventApiController;
@@ -26,4 +27,8 @@ Route::prefix('v1')->group(function () {
 Route::get('/sponsors', function () {
     // We return them all, or you could use ->paginate() if the list gets huge
     return Sponsor::all(); 
+});
+Route::get('/supporters', function () {
+    // We return them all, or you could use ->paginate() if the list gets huge
+    return Supporter::all();
 });

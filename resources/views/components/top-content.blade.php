@@ -258,7 +258,7 @@
         <div class="relative flex overflow-hidden border-y border-slate-300 mt-10 py-6">
             <div class="flex items-center flex-shrink w-screen justify-center">
                 @foreach($sponsors as $sponsor)
-                <a href="{{ $sponsor['url'] ?? '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
+                <a href="{{ $sponsor['url'] ? 'https://' . $sponsor['url'] : '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
                     {{-- Make sure the key 'sponsor_logo_url' matches your API response --}}
                     <img src="{{ $sponsor['sponsor_logo_url'] }}" alt="{{ $sponsor['name'] ?? 'Sponsor' }}" class="w-32 lg:w-44 object-scale-down aspect-square ">
                 </a>
@@ -277,7 +277,7 @@
         <div class="relative flex overflow-hidden border-y border-slate-300 mt-10 py-6">
             <div class="flex items-center flex-shrink w-screen justify-center">
                 @foreach($supporters as $supporter)
-                <a href="{{ $supporter['url'] ?? '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
+                <a href="{{ $supporter['url'] ? 'https://' . $supporter['url'] : '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
                     {{-- Make sure the key 'supporter_logo_url' matches your API response --}}
                     <img src="{{ $supporter['supporter_logo_url'] }}" alt="{{ $supporter['name'] ?? 'Supporter' }}" class="w-32 lg:w-44 object-scale-down">
                 </a>

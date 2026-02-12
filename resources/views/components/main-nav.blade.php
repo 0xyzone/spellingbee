@@ -9,11 +9,34 @@ $navLinks = [
 <nav x-data="{ 
         mobileMenuOpen: false, 
         paymentModalOpen: false, 
-        atTop: true 
-    }" x-init="
-        $watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '');
-        $watch('paymentModalOpen', value => document.body.style.overflow = value ? 'hidden' : '');
-    " @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" @open-payment.window="paymentModalOpen = true" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
+        atTop: true,
+        deferredPrompt: null,
+        showInstallBtn: false,
+        
+        init() {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                this.deferredPrompt = e;
+                this.showInstallBtn = true;
+            });
+            
+            $watch('mobileMenuOpen', value => document.body.style.overflow = value ? 'hidden' : '');
+            $watch('paymentModalOpen', value => document.body.style.overflow = value ? 'hidden' : '');
+        },
+
+        async triggerInstall() {
+            if (!this.deferredPrompt) {
+                alert('To install: Open your browser menu and select Add to Home Screen');
+                return;
+            }
+            this.deferredPrompt.prompt();
+            const { outcome } = await this.deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+                this.showInstallBtn = false;
+            }
+            this.deferredPrompt = null;
+        }
+    }" @scroll.window="atTop = (window.pageYOffset > 50 ? false : true)" class="fixed z-[999] w-full top-0 transition-all duration-700 px-6 lg:px-12" :class="atTop ? 'bg-transparent py-10' : 'bg-white/95 backdrop-blur-2xl shadow-xl py-5 border-b border-amber-100/50'">
 
     <div class="max-w-screen-2xl mx-auto flex justify-between items-center overflow-visible">
         <a href="{{ route('welcome') }}" class="flex items-center group overflow-visible">
@@ -73,7 +96,9 @@ $navLinks = [
                     <li><a href="{{ $link['url'] }}" @click="mobileMenuOpen = false" @if($link['external']) target="_blank" @endif class="text-2xl font-black text-slate-800 hover:text-amber-500 transition-all">{{ $link['name'] }}</a></li>
                     @endforeach
                 </ul>
-                <button onclick="triggerInstall()" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">Install SBN {{ now()->year }} App</button>
+                <button x-show="showInstallBtn" @click="triggerInstall" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl">
+                    Install SBN {{ now()->year }} App
+                </button>
             </div>
         </div>
     </template>

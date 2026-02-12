@@ -4,12 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <title>Spelling Bee Nepal</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
-    
+    <title>SBN {{ now()->year }}</title>
+    <meta name="title" content="SB {{ now()->year }}">
+    <meta name="description" content="Official platform for SB {{ now()->year }}. Join the legacy of the National Spelling Bee and secure your registration today.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="SB {{ now()->year }}">
+    <meta property="og:description" content="Official registration and portal for SB {{ now()->year }}.">
+    <meta property="og:image" content="{{ asset('images/sbn2024.png') }}">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="SBN {{ now()->year }}">
+    <meta property="twitter:description" content="Secure your spot for SBN {{ now()->year }}.">
+    <meta property="twitter:image" content="{{ asset('images/sbn2024.png') }}">
+
+    <meta name="theme-color" content="#f59e0b">
+
 
     <style>
         [x-cloak] {

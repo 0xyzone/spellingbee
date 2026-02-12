@@ -1,4 +1,3 @@
 <x-base>
-    <x-top-content :sponsors=$sponsors></x-top-content>
-    <x-sponsors :sponsors=$sponsors></x-sponsors>
+    <x-top-content :sponsors=$sponsors :supporters=$supporters></x-top-content>
 </x-base>

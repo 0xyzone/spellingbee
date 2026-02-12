@@ -250,12 +250,12 @@
     </section>
 
     @if($sponsors->isNotEmpty())
-    <section class="py-16 bg-white overflow-hidden flex flex-col items-center">
+    <section class="pt-16 bg-white overflow-hidden flex flex-col items-center">
         <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">
             In Collaboration <span class="text-amber-500">with</span>
         </h2>
 
-        <div class="relative flex overflow-hidden border-y border-slate-100 py-6">
+        <div class="relative flex overflow-hidden border-y border-slate-300 mt-10 py-6">
             <div class="flex items-center flex-shrink w-screen justify-center">
                 @foreach($sponsors as $sponsor)
                 <a href="{{ $sponsor['url'] ?? '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
@@ -267,9 +267,25 @@
         </div>
     </section>
     @endif
-    <section>
 
+    @if($supporters->isNotEmpty())
+    <section class="pt-8 pb-16 bg-white overflow-hidden flex flex-col items-center">
+        <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">
+            Hepling <span class="text-amber-500">Hands</span>
+        </h2>
+
+        <div class="relative flex overflow-hidden border-y border-slate-300 mt-10 py-6">
+            <div class="flex items-center flex-shrink w-screen justify-center">
+                @foreach($supporters as $supporter)
+                <a href="{{ $supporter['url'] ?? '#' }}" target="_blank" class="mx-6 lg:mx-10 block w-auto">
+                    {{-- Make sure the key 'supporter_logo_url' matches your API response --}}
+                    <img src="{{ $supporter['supporter_logo_url'] }}" alt="{{ $supporter['name'] ?? 'Supporter' }}" class="w-32 lg:w-44 object-scale-down">
+                </a>
+                @endforeach
+            </div>
+        </div>
     </section>
+    @endif
 </div>
 
 <style>

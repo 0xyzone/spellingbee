@@ -17,18 +17,17 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="SBN {{ now()->year }}">
     <meta property="og:description" content="Secure your spot for SBN  {{ now()->year }}.">
-    <meta property="og:image" content="{{ asset('images/sbn2024.png') }}">
-    <meta property="og:image" content="{{ asset('images/sbn2024.png', true) }}">
-    <meta property="og:image:secure_url" content="{{ asset('images/sbn2024.png', true) }}">
+    <meta property="og:image" content="{{ asset('images/sbn26.png', true) }}">
+    <meta property="og:image:secure_url" content="{{ asset('images/sbn26.png', true) }}">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="2000">
+    <meta property="og:image:height" content="2000">
 
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="SBN {{ now()->year }}">
     <meta property="twitter:description" content="Secure your spot for SBN {{ now()->year }}.">
-    <meta property="twitter:image" content="{{ asset('images/sbn2024.png') }}">
+    <meta property="twitter:image" content="{{ asset('images/sbn26.png') }}">
 
     <meta name="theme-color" content="#f59e0b">
 

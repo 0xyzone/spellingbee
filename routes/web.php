@@ -102,12 +102,22 @@ Route::get('/manifest.json', function () {
         "short_name" => "SBN " . now()->year,
         "name" => "Spelling Bee Nepal " . now()->year,
         "icons" => [
-            ["src" => asset('images/sbn2024.png'), "sizes" => "192x192", "type" => "image/png"],
-            ["src" => asset('images/sbn2024.png'), "sizes" => "512x512", "type" => "image/png"]
+            [
+                "src" => asset('images/sbn2024.png'),
+                "sizes" => "192x192",
+                "type" => "image/png",
+                "purpose" => "any" // Prevents the OS from forcing a mask/stretch
+            ],
+            [
+                "src" => asset('images/sbn2024.png'),
+                "sizes" => "512x512",
+                "type" => "image/png",
+                "purpose" => "any"
+            ]
         ],
         "start_url" => "/",
         "display" => "standalone",
         "theme_color" => "#f59e0b",
         "background_color" => "#ffffff"
     ]);
-})->name('manifest');
+});
